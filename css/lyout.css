@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+    color: #333;
+    background-color: #ffffff;
+    font-family: "Sawarabi Gothic";
+    font-size: 62.5%;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    background-size: cover;
+    width:100%;
+
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+
+  
+    /* background: -moz-linear-gradient(to bottom,#DDFFFF,#BBFFFF 30%,#99FFFF); 
+    background: -webkit-linear-gradient(to bottom,#DDFFFF,#BBFFFF 30%,#99FFFF); 
+    background: linear-gradient(to bottom,#DDFFFF,#BBFFFF 30%,#99FFFF);  */
+
+}
+
+
+
+
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a:link, a:visited, a:hover, a:active {
+  /*テキストデフォルト下線外し*/
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
+
+/* lyout 接頭にly-をつける */
+
+html,body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.ly-wrapper {
+  /* margin-bottom: -100px; */
+  
+  /* position: relative; */
+  /* padding-bottom: 150px; */
+  /* height: auto; */
+  /* box-sizing: border-box; */
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.ly-mainContainer {
+  /* padding-bottom: 150px; */
+  height: 4860px;
+  overflow: hidden;
+}
+
+
+/* ヘッダー */
+.ly-headerWrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  
+
+}
+
+.ly-header {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    width: 100vw;
+    height: 100%;
+  }
+  
+  .ly-navBox {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px bold #707070;
+    background-color: rgba(0,0,0,0.82);
+  }
+
+   .ly-nav {
+    margin-left: 60px;
+    /* margin-bottom: 10px; */
+    width: 100%;
+    z-index: 30;
+    /*border-bottom: solid 1px;*/
+    top: 0px;
+}
+
+.ly-mainTxt {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.ly-mainTitle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.ly-aboutWrapper {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 385px;
+}
+
+.ly-aboutLeft {
+    display: flex;
+    flex-direction: column;
+   
+}
+.ly-aboutRight {
+    position: relative;
+    /* top: 20px; */
+    overflow: hidden;
+    display: inline;
+    top: 240px;
+}
+.ly-share {
+  position: relative;
+  top: 230px;
+}
+
+.policy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ly-policyWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    top: 1100px;
+    padding: 0 20px 0 30px;
+
+   
+}
+.ly-policyBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition-delay: .3s;
+
+
+    overflow: hidden;
+    
+
+}
+
+
+
+.ly-skillWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+
+    top: 1200px;
+    width: 100%;
+    margin: 50px auto;
+    table-layout: fixed;
+}
+
+.ly-blogWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    top: 2700px;
+    width: 100%;
+    margin-top: 60px;
+    color: #333;
+    
+}
+
+.ly-blogContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+    top: 60px;
+}
+
+.ly-createWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 3330px;
+}
+.ly-createBox {
+  position: relative;
+  top: 80px;
+}
+
+
+
+.ly-footerWrapper {
+  width: 100%;
+  background-color: #333333;
+  bottom: 0;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  height: 100px;
+}
+
+
+

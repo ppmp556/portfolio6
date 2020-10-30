@@ -1,0 +1,215 @@
+@charset 'utf-8';
+
+/****************************************:
+
+全体のスタイル
+
+*****************************************:*/
+
+
+$cWhite: #ffffff;
+$cOcher: #c1a250;
+$cBlack: #333;
+$cGray: rgb(139, 137, 137);
+$cBgColor: #eaebed;
+
+
+$widthPc: 1024px;
+$widthTab: 764px;
+$widthSp: 480px;
+
+@mixin fontsize($cFontSz: 3.6rem) {
+    font-size: $cFontSz;
+    color: $cWhite;
+}
+
+
+
+
+
+@mixin pc {
+    @media screen and (min-width: $widthPc) {
+        @content;
+    }
+}
+
+
+@mixin tab {
+    @media screen and (min-width: $widthTab) and (max-width: $widthPc) {
+        @content;
+    }
+}
+
+
+
+html {
+    // ルートのフォントサイズ 10pxに設定
+    font-size: 62.5%;
+}
+
+body {
+    // デフォルトのフォントサイズ 16pxと同等のサイズに設定
+    font-size: 1.6em;
+    font-size: 16px;
+    width: 375px;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif, "Noto Sans";
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+.overall {
+    font-family: "Yu Gothic", YuGothic, "Hiragino Kaku Gothic Pro", "YuGothic",
+        "Meiryo", verdana, "Osaka", "MS PGothic", Sans-Serif, "Yu Mincho",
+        YuMincho, "MS P Mincho", serif;
+
+    background-color: $cBgColor;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    // color: $cWhite;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.mock {
+    /* モック画像 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 375px;
+    opacity: 0.3;
+
+    /* 反転 */
+    filter: hue-rotate(180deg);
+
+    /* テキストを掴まないように */
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner {
+    margin: 0 15px;
+}
+
+.section_ttl {
+    display: block;
+    text-align: center;
+}
+
+/****************************************:
+
+kv
+
+*****************************************:*/
+
+.kv {
+    position: relative;
+}
+
+
+
+
+/****************************************:
+
+header
+
+*****************************************:*/
+
+.header {
+    width: 100%;
+    background-color: $cBlack;
+    opacity: 0.8;
+    padding: 0 20px;
+    line-height: 50px;
+    color: $cWhite;
+    z-index: 99;
+}
+
+
+
+
+
+
+
+
+/****************************************:
+
+nav
+
+*****************************************:*/
+
+.nav {
+    position: relative;
+
+
+
+    &_list {
+        position: absolute;
+        right: -1000px;
+    }
+
+    // ハンバーガーメニュー
+    &_ham {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        // background-color: #ffffff;
+        width: 25px;
+        height: 25px;
+        z-index: 100;
+    }
+
+    &_line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $cWhite;
+
+        &:nth-child(1) {
+            top: 0px;
+            left: -5px;
+        }
+
+        &:nth-child(2) {
+            top: 8px;
+            left: 5px;
+        }
+
+        &:nth-child(3) {
+            top: 16px;
+            left: -5px;
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

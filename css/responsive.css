@@ -1,0 +1,424 @@
+@media screen and (min-width: 960px) {
+    /* 960px以上に適用されるcss */
+
+    .header,.main,.footer,img {
+        width: 100%;
+    }
+    body　{
+        margin: 0;
+    }
+    .ly-wrapper {
+        margin: auto;
+        }
+
+
+
+
+    /* object */
+    .contentTitle {
+        color: #333;
+        /* margin: 30px 0 15px; */
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+        position: absolute;
+        display: flex;
+        
+        padding-bottom: 15px;
+    }
+    .navList {
+
+        /* position: absolute; */
+        /* display: block; */
+        top: 0;
+        left: -159px;
+        width: 100%;
+        height: 100%;
+        /* max-height: auto; */
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        
+        /* overflow-y: auto; */
+    
+        display: flex;
+        /* justify-content: flex-end; */
+        transition: 0;
+        flex-direction: inherit;
+        /* right: 200px; */
+        position: relative;
+    
+        /* background-color: rgba(0,0,0,0.7); */
+        /* visibility: .6s ease; */
+        opacity: 0.7;
+        /* overflow: hidden; */
+    }
+    .navItem {
+        padding: 2px 0;
+        font-size: 2rem;
+    
+        transition: 0;
+    }
+
+    .navItem a {
+        font-size: 1.8rem;
+        font-weight: bold;
+    
+    }
+    
+    .navList li {
+        transform: translateX(0px);
+        transition: 0;
+    }
+
+    .toggleBtn {
+        display: none;
+        
+    }
+    .headerTitle {
+        left: -50px;
+      }
+    .mainBox {
+        width: 100vw;
+        height: 25vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mainBgimage {
+        background-image: url("images/3566338_s.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 500px;
+        z-index: -100;
+        position: absolute;
+        object-fit: cover;
+        background-position: 10%;
+        top: -200px;
+    }
+
+    .aboutBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: inherit;
+    }
+
+    .skillContent {
+        position: relative;
+        top: 70px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .skillWrap {
+        margin: 20px;
+    }
+    .thumbnailBox {
+        width: 250px;
+        position: relative;
+        /* top: -50px; */
+    }
+
+    .blogImg {
+        position: relative;
+        top: -20px;
+        left: -20px;
+    }
+
+    .box {
+        display: flex;
+    }
+
+
+    .thumbnail {
+        display: flex;
+        flex-wrap: wrap;
+        height: 400px;
+    }
+   
+    .thumbnail li {
+        position: relative;
+        width: calc(100%/1.5);
+        height: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+
+
+    .thumbnail li a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        z-index: 1;
+    }
+    
+    .thumbnail li img {
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.8s;
+        transform: scale(1,1);
+        backface-visibility: hidden;
+        left: 0px;
+    }
+    .thumbnail li.is-active a:before,
+    .thumbnail li a:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        transition: all 0.5s;
+        opacity: 1;
+        z-index: 1;
+    }
+    .thumbnail li.is-active a:before,
+    .thumbnail li:hover a:before {
+        opacity: 0;
+    }
+    .thumbnail li.is-active img,
+    .thumbnail li:hover img {
+        transform: scale(1.1,1.1);
+    }
+    
+    .thumbnailBox {
+        width: 250px;
+        margin: 40px;
+    }
+.thumbnail2 li {
+        position: relative;
+        width: calc(100%/1.5);
+        height: 70%;
+        overflow: hidden;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+  
+
+
+
+
+  
+    .footer {
+        margin-top: auto;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 150px;
+    
+        top: 0;
+    }
+
+    .cubic span {
+        left: -75px;
+        
+    }
+
+
+
+     /* 斜め背景 */
+    .skill::after {
+        content: "";
+        background-color: #f3f3f3;
+        height: 23%;
+        width: 40%;
+        position: absolute;
+        top: 43.2%;
+        left: -40.6%;
+        transform-origin: left top;
+        transform: skewX(60.2deg);
+        z-index: -1;
+    }
+    
+    .policy::after {
+        content: "";
+        background-color: #f3f3f3;
+        height: 84.2%;
+        width: 6%;
+        position: absolute;
+        top: 127%;
+        left: 90%;
+        transform-origin: left top;
+        transform: skewX(-39.8deg);
+        z-index: -1;
+    }
+    .blog::after {
+        content: "";
+        background-color: #f3f3f3;
+        height: 67.4%;
+        width: 42.2%;
+        position: absolute;
+        top: 94%;
+        left: 42%;
+        transform-origin: left top;
+        transform: skewX(-44.6deg);
+        z-index: -1;
+    }
+   
+    .slide {
+        display: none;
+    }
+    .active {
+        display: block;
+    }
+    .button {
+        height: 0;
+    }
+    .fa-chevron-circle-right {
+        visibility: visible;
+        position: relative;
+        top: 60px;
+        font-size: 3rem;
+        cursor: pointer;
+        
+    }
+    .fa-chevron-circle-left {
+        visibility: visible;
+        font-size: 3rem;
+        position: relative;
+        top: 60px;
+        cursor: pointer;
+    }
+    /* .contentInner {
+        display: flex;
+        justify-content: center;
+
+      
+    } */
+
+    /* .box:nth-child(odd) {
+        flex-direction: row-reverse;
+        display: flex;
+    } */
+    .contentInner:nth-child(even) {
+        flex-direction: row-reverse;
+        display: flex;
+    }
+   
+    
+    /* lyout */
+    .ly-wrapper {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        width: 100%;
+      }
+      .ly-headerWrapper {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        
+      
+      }
+      
+      .ly-header {
+          text-align: center;
+          position: relative;
+          z-index: 5;
+          width: 100%;
+          height: 100%;
+        }
+        
+
+
+    .ly-nav {
+        justify-content: center;
+    }
+    .ly-navBox {
+        min-width: 1300px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        border: 1px bold #707070;
+        background-color: rgba(0,0,0,0.82);
+      }
+
+      .ly-mainContainer {
+        height: 4000px;
+        overflow: hidden;
+
+      }
+      .ly-mainTxt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 200px;
+      }
+
+      .ly-aboutWrapper {
+        top: 600px;
+    }
+
+    .ly-aboutLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ly-aboutRight {
+        top: 120px;
+    }
+
+    .ly-policyBox {
+        position: relative;
+        display: flex;
+        /* flex-direction: column; */
+        cursor: pointer;
+        transition-delay: .3s;
+        justify-content: center;
+    
+    
+        overflow: hidden;
+    }
+    .ly-skillWrapper {
+        top: 1285px;
+    }
+
+    .ly-blogWrapper {
+        top: 1970px;
+       
+        
+    }
+
+    .ly-createWrapper {
+        top: 2600px;
+      }
+
+
+    /* utility */
+    .u-mainTxt {
+       
+        font-size: 3.5rem;
+        
+    }
+    .u-policyTxt {
+        margin: 10px 10px;
+        line-height: 2.2;
+        font-size: 2rem;
+        top: 68px;
+    }
+    .u-skillTxt {
+        /* margin: 0 20px; */
+        line-height: 3;
+        font-size: 1.8rem;
+        text-align: left;
+        width: 20em;
+    
+    }
+
+    .navItem .u-footerNav {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        margin: 10px;
+    }
+    .u-copyTxt {
+        font-size: 1.5rem;
+    }
+}

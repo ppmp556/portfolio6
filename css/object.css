@@ -1,0 +1,748 @@
+
+/* ハンバーガーメニュー */
+.navList {
+
+    /* position: absolute; */
+    /* display: block; */
+    top: 54px;
+    left: 420px;
+    width: 100%;
+    height: 100vh;
+    /* max-height: auto; */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    overflow-y: auto;/*縦方向の表示*/
+
+    display: flex;
+    flex-direction: column;
+    transition: opacity .8s ease, visibility .6s ease;
+
+    /* background-color: rgba(0,0,0,0.7); */
+    visibility: .6s ease;
+    opacity: 0.7;
+    overflow: hidden;
+}
+.clicked .navList {
+    left: 184px;
+    visibility: visible;
+    opacity: 0.7;
+    width: 50%;
+    top: 59px;
+    height: 753.85px;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    box-shadow: 0 0 5px 5px;
+   
+}
+
+.clicked .navList .navItem {
+    transform: translateX(0px);
+    margin: auto;
+}
+
+.navItem {
+    padding: 2px 0;
+    font-size: 2rem;
+
+    transition: transform 6s ease, opacity .2s ease;
+}
+
+.navList li {
+    transform: translateX(200px);
+    transition: transform .6s ease, opacity .2s ease;
+}
+
+.navList li:nth-child(2) {
+    transition-delay: .15s;
+
+}
+.navList li:nth-child(3) {
+    transition-delay: .3s;
+
+}
+.navList li:nth-child(4) {
+    transition-delay: .45s;
+
+}
+.navList li:nth-child(5) {
+    transition-delay: .6s;
+
+}
+.navList li:nth-child(6) {
+    transition-delay: .85s;
+
+}
+
+/****** nav下線 ******/
+.navItem a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform .4s;
+}
+
+.navItem a:hover::after {
+    transform: scale(1, 1);
+}
+
+/* ハンバーガメニューボタン */
+
+.toggleBtn {
+    /* display: none; */
+    z-index: 2000;
+    position: absolute;
+    top: 0;
+    width: 22.96px;
+    height: 18.02px;
+    right: 24.3px;
+    cursor: pointer;
+    transition: all .30s ease-in-out;/*0.3秒かけて変化*/
+}
+
+.toggleLine {
+    display: block;
+    position: absolute;
+    z-index: 2100;
+    right: 6.3px;
+    top: 14px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.tg1 {
+    top: 21.8px;
+}
+.tg2 {
+    top: 30.8px;
+}
+.tg3 {
+    top: 39.8px;
+}
+
+
+.toggleLine {
+    transition: all 0.3s;
+}
+
+/* togglerにclickedクラス付与されたら*/
+
+.clicked .tg1 {
+    transform: translateY(9px) rotate(-315deg);/*時計回りに45度回転*/
+
+}
+.clicked .tg2 {
+
+    opacity: 0;
+}
+.clicked .tg3 {
+    transform: translateY(-10px) rotate(315deg);/*反時計周りに45度回転*/
+
+}
+
+/******タイプアニメーション****/
+
+.lineAnime {
+    overflow: hidden;
+    /* border-right: 2px solid rgba(255,255,255,.80); */
+    white-space: nowrap;/*連続した行や半角スペース、１つの空白*/
+    margin: 0 auto;
+    animation: type 2.5s steps(80, end);
+
+    position: relative;
+    top: 50%;
+    font-size: 100%;
+    /* transform: translateY(50%); */
+    text-align: center;
+    width: 24em;
+}
+
+
+
+/* .kvTxt:nth-child(2){
+    animation: type2 8s steps(60, end);
+} */
+.typeline {
+    animation: blink 1s infinite;
+    /* blink:点滅、infinite:無限に繰り返す */
+}
+
+@keyframes type{
+    from { width: 0; }
+    to   {width: 100%; }
+  }
+
+  /* @keyframes type2{
+    0%{width: 0;}
+    50%{width: 0;}
+    100%{ width: 100; }
+  } */
+
+  @keyframes blink{
+    to{opacity: .0;}
+  }
+
+  ::selection{
+    background: black;
+  }
+
+.animeType {
+    animation: typewriter 4s steps(60) 1s 1 normal both,
+    /* normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う */
+    blinkTextCursor 500ms steps(60) infinite normal;
+    /* position: relative;
+    display: flex;
+    justify-content: center; */
+}
+
+@keyframes typewriter {
+    from{width: 0;}
+    to{width: 24em;}
+}
+@keyframes blinkTextCursor{/*点滅するカーソルのアニメーション*/
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
+  }
+
+.headerTitle {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    margin: 0;
+    position: relative;
+    left: 20px;
+  }
+
+.navItem a {
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 20px;
+    /* left: -90px; */
+    position: relative;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+
+
+
+.mainBox {
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainBgimage {
+    background-image: url("images/3566338_s.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    z-index: -100;
+    position: absolute;
+    object-fit: cover;
+    background-position: 10%;
+}
+
+.img {
+    
+    width: 15rem;
+    height: 15rem;
+    /* margin: 50px; */
+    /* display: inline-block; */
+
+    position: absolute;
+    /* top: 30px; */
+    display: flex;
+}
+
+
+.contentTitle {
+    color: #333;
+    /* margin: 30px 0 15px; */
+    font-size: 2.1rem;
+    letter-spacing: 2px;
+    position: absolute;
+    display: flex;
+    
+    padding-bottom: 15px;
+}
+.contentTitle::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-bottom: 3px double #333;
+}
+.contentTitle::before {
+    bottom: 5px;
+}
+
+
+.aboutBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-twitter {
+    color: #333;
+    font-size: 5rem;
+}
+
+
+.boxAnime {
+    width: inherit;
+    height: inherit;
+    /* inherit:親要素のプロパティを継承 */
+    opacity: 0;
+    background-color: #fff;
+
+    position: absolute;
+    content: '';
+}
+
+
+
+
+
+
+
+
+/****** boxAnime スライドイン *****/
+@keyframes play {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/****** マスク要素スライドアウト *****/
+@keyframes maskOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/****** マスクスライドイン *****/
+.isPlay {
+    animation-name: play;/*アニメーションを適用する対象を指定*/
+    animation-duration: .6s;/*アニメ一回分の時間の長さ*/
+    animation-fill-mode: forwards;/*アニメ実行前後のスタイル適用、forwards:アニメ後、キーフレーム適用*/
+    animation-timing-function: cubic-bezier(.8,0,.5,1);
+    /* アニメーションが変化する速度指定 */
+    position: relative;
+    opacity: 1;
+}
+
+.isPlay:before {
+    animation-name: maskOut;
+    animation-duration: .6s;
+    animation-delay: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.8,0,.5,1);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    
+}
+
+
+.skillIcon {
+    margin: 20px 0px;
+    line-height: 80px;
+    font-size: 5rem;
+}
+.skillIcon-title {
+    margin: 20px;
+    font-size: 2.8rem;
+    /* letter-spacing: 20px; */
+}
+.skillContent {
+    position: relative;
+    top: 70px;
+    
+}
+
+.skillTxt-box {
+    display: flex;
+    justify-content: center;
+}
+/* 斜め背景 */
+.skill::after {
+    content: "";
+    background-color: #f3f3f3;
+    height: 23%;
+    width: 40%;
+    position: absolute;
+    top: 43%;
+    left: -41%;
+    transform-origin: left top;
+    transform: skewX(60deg);
+    z-index: -1;
+}
+
+
+.policy::after {
+    content: "";
+    background-color: #f3f3f3;
+    height: 84%;
+    width: 10%;
+    position: absolute;
+    top: 127%;
+    left: 90%;
+    transform-origin: left top;
+    transform: skewX(-40deg);
+    z-index: -1;
+}
+.blog::after {
+    content: "";
+    background-color: #f3f3f3;
+    height: 67%;
+    width: 42%;
+    position: absolute;
+    top: 308.5%;
+    left: 40%;
+    transform-origin: left top;
+    transform: skewX(-45deg);
+    z-index: -1;
+}
+
+.blogBox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* left: 75px; */
+    align-items: center;
+
+}
+/* 
+.imagesBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 30px;
+} */
+/* .blogImages {
+
+    width: 100%;
+    height: auto;
+    position: relative;
+
+} */
+
+
+
+.blogTitle {
+    font-size: 1.5rem;
+    margin: 20px;
+    display: flex;
+
+}
+/* .blogTxt-box {
+    position: relative;
+    text-align: left;
+    width: 300px;
+} */
+
+/* モーダルウインドウ */
+
+
+
+
+.createTitle {
+    font-size: 1.5rem;
+    margin: 20px;
+}
+
+
+.conTents {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-left: 21%;
+}
+
+.contentInner {
+    padding-bottom: 60px;
+    /* display: flex; */
+}
+
+/* .box {
+    display: flex;
+} */
+.boxImg {
+    width: 350px;
+    height: 200px;
+}
+
+.thumbnail {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+}
+.thumbnail li {
+    position: relative;
+    width: calc(100%/1.5);
+    height: 25vh;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.thumbnail li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.thumbnail li img {
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s;
+    transform: scale(1,1);
+    backface-visibility: hidden;
+}
+.thumbnail li.is-active a:before,
+.thumbnail li a:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    transition: all 0.5s;
+    opacity: 1;
+    z-index: 1;
+}
+.thumbnail li.is-active a:before,
+.thumbnail li:hover a:before {
+    opacity: 0;
+}
+.thumbnail li.is-active img,
+.thumbnail li:hover img {
+    transform: scale(1.1,1.1);
+}
+
+
+
+
+
+
+
+
+.thumbnail2 {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+}
+.thumbnail2 li {
+    position: relative;
+    width: calc(100%/1.5);
+    height: 25vh;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.thumbnail2 li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.thumbnail2 li img {
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s;
+    transform: scale(1,1);
+    backface-visibility: hidden;
+}
+.thumbnail2 li.is-active a:before,
+.thumbnail2 li a:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    transition: all 0.5s;
+    opacity: 1;
+    z-index: 1;
+}
+.thumbnail2 li.is-active a:before,
+.thumbnail2 li:hover a:before {
+    opacity: 0;
+}
+.thumbnail2 li.is-active img,
+.thumbnail2 li:hover img {
+    transform: scale(1.1,1.1);
+}
+
+.thumbnailBox {
+    width: 250px;
+    /* margin-left: 40px; */
+}
+
+
+details[open] .u-thumbnailTxt {
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+    animation: .8s u-thumbnailTxt ease-in-out;
+}
+
+@keyframes u-thumbnailTxt {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+details[open] .u-sumTxt {
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+    animation: .8s u-sumTxt ease-in-out;
+}
+
+@keyframes u-sumTxt {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+.footer {
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+
+    top: 0;
+}
+
+.navItem .u-footerNav {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin: 10px;
+}
+
+.footerItembox{ /*フッターナビメニュー*/
+    position: relative;
+    display: flex;
+    /* top: 32.9px; */
+    color: #ffffff;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    justify-content: center;
+    /* left: 50px; */
+  }
+  
+  .footerItembox li { /*フッターナビテキスト*/
+    list-style: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.5;
+    flex-grow: 1; /*flexの余白分配比率指定*/
+  }
+  
+  .footerItembox  li + li:before { /*フッターナビの短い縦線,隣接セレクタ,疑似要素*/
+    
+    border-left: 1px solid #ffffff;
+    position: absolute;
+    display: block;
+    content: "";
+    top: 50%; /*縦方向に50%*/
+    height: 14px;
+    margin-top: -7px;
+  
+  }
+  
+  
+  
+  
+  .copyright { /*コピーライト*/
+    font-size: 5px bold;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: 0.1rem;
+    
+    
+    border: 1px #707070;
+  
+  }
+
+    .fa-chevron-circle-right {
+        visibility: hidden;
+    }
+    .fa-chevron-circle-left {
+        visibility: hidden;
+    }
+
+
+
+
+    .cubic span {
+        position: absolute;
+        top: 60px;
+        left: 110px;
+        
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .cubic .hovering {
+        transform: rotateX(90deg);
+        transform-origin: center center -25px;
+    
+    }
+    .cubic .default {
+        transform: rotateX(0);
+        transform-origin: center center -25px;
+
+    }
+    .cubic:hover .hovering {
+        transform: rotateX(0);
+
+    }
+    .cubic:hover .default {
+        transform: rotateX(-90deg);
+
+    }

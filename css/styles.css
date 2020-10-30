@@ -1,0 +1,31 @@
+@import "faundation.css";
+@import "lyout.css";
+@import "object.css";
+@import "utility.css";
+
+/* タブレット用CSS */
+@import url("media.css") screen and (min-width: 560px);
+
+/* PC用CSS */
+@import url("responsive.css") screen and (min-width: 960px);
+
+
+
+
+/* めも */
+/* スマホ　320~559px
+タブレット　560～959px
+pc 960px以上
+
+*/
+
+/* 320px（最小）
+560px未満 @media screen and (max-width: 559px) {...}
+960px未満 @media screen and (max-width: 959px) {...} */
+
+/* モバイルファーストでスマホベースで作成 
+560px以上 560px以上 @media screen and (min-width: 560px) {…}
+960px以上 @media screen and (min-width: 960px) {…}
+
+*/
+
