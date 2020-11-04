@@ -26,8 +26,6 @@ $widthSp: 480px;
 
 
 
-
-
 @mixin pc {
     @media screen and (min-width: $widthPc) {
         @content;
@@ -35,11 +33,15 @@ $widthSp: 480px;
 }
 
 
+
 @mixin tab {
     @media screen and (min-width: $widthTab) and (max-width: $widthPc) {
         @content;
     }
 }
+
+
+
 
 
 
@@ -52,7 +54,7 @@ body {
     // デフォルトのフォントサイズ 16pxと同等のサイズに設定
     font-size: 1.6em;
     font-size: 16px;
-    width: 375px;
+    width: 100%;
     margin: 0 auto;
     font-family: "Roboto", sans-serif, "Noto Sans";
 }
@@ -117,7 +119,7 @@ body {
     text-align: center;
     padding: 0 20px;
     margin: 0 auto;
-    font-size: 3rem;
+    font-size: 2rem;
 
     display: flex;
     justify-content: center;
@@ -263,10 +265,6 @@ main {
 
 
 
-
-
-
-
 /****************************************:
 
 kv
@@ -287,10 +285,6 @@ kv
         overflow: hidden;
 
        /*  clip-path: polygon(58% 0, 100% 0, 100% 100%, 24% 100%); */
-
-
-
-
     }
 
     &_txtbox {
@@ -300,7 +294,6 @@ kv
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-       
     }
 
     &_txt {
@@ -515,15 +508,15 @@ nav
     }
 
     &.clicked::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -404px;
-                background-color: $cBlack;
-                opacity: .5;
-                width: 140px;
-                height: 100vh;
-                transition: .8s;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -404px;
+        background-color: $cBlack;
+        opacity: .5;
+        width: 140px;
+        height: 100vh;
+        transition: .8s;
     }
 
 
@@ -547,10 +540,9 @@ nav
         background-color: $cBlack;
         // background-color: red;
         // height: 88.9vh;
-        height: 100vh;
-        // width: 60.1vw;
         width: 76vw;
         // margin-top: 17%;
+        height: 100vh;
 
     }
 
@@ -628,8 +620,8 @@ nav
     &_item {
         text-align: center;
         margin-top: 50px;
-        font-size: 2.5rem;
-        line-height: 3;
+        font-size: 1.6rem;
+        line-height: 1.5em;
         padding-right: 30px;
     }
 
@@ -680,16 +672,97 @@ about
 .about {
 
     padding: 80px 0;
+    background-color: $cGray;
+
+    
 
     .section_ttl {
         margin-bottom: 50px;
+        text-shadow: 3p 3px 3px $cBlack;
     }
 
+    @include tab {
+        .section_ttl {
+            margin-bottom: 25px;
+        }
+    }
 
-    .about_inner {
+    
+
+
+    &_inner {
         margin: 0 auto;
     
     }
+
+    @include tab {
+        &_inner {
+            display: flex;
+            padding: 40px;
+        }
+
+    }
+
+
+    &_imgbox {
+        margin: 0 auto;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all .5s ease-out;
+        transform: perspective(1000px) rotateX(0deg);
+        cursor: pointer;
+        width: 80%;
+
+        &:hover {
+            transform: rotateX(90deg) translateY(-1000px);
+        }
+
+        &:hover .about_intxt,
+        &:hover .about_imgbox_in {
+            opacity: 1;
+
+        }
+    }
+
+    @include tab {
+        &_imgbox {
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+        }
+    }
+
+    &_imgbox_in {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: rotateX(-80deg);
+        transform-origin: center;
+        opacity: 0;
+        transition: .5s;
+    }
+
+    @include tab {
+        &_imgbox_in {
+            width: 100%;
+            padding: 50px;
+        }
+    }
+
+    &_intxt {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        color: $cWhite;
+        line-height: 1.2em;
+        font-size: 1.2rem;
+        background: $cBlack;
+        transition: all .3s ease-in-out .3s;
+        opacity: 0;
+    }
+
 
 
     &_img {
@@ -739,6 +812,18 @@ about
             transition: transform .5s;
         }
 
+        &:hover .fa-twitter {
+            color: $cLgreen;
+            transition: .5s;
+            transform: rotateZ(360deg);
+        }
+
+    }
+
+    @include tab {
+        &_share_icon {
+            width: 25%;
+        }
     }
 
 
@@ -794,20 +879,69 @@ about
         margin-top: 20px;
         cursor: pointer;
 
-
-        &:hover {
-
-        }
-
+      
     }
+
 
     &_txt {
         display: block;
         color: $cWhite;
         text-shadow: 3px 3px 3px $cBlack;
+        padding: 10px;
 
     }
 
+    &_linkbox {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        position: relative;
+
+           //ナビホバー時の下線
+        &::after {
+            display: block;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            transform: scale(0, 1);
+            transform-origin: left;
+            transition: transform .7s;
+            background: $cLgreen;
+        }
+
+        &:hover::after {
+            transform: scale(1, .5);
+        }
+
+        &:hover {
+            color: $cLgreen;
+            letter-spacing: .1em;
+            transition: .5s;
+        }
+    }
+
+    @include tab {
+        &_linkbox {
+            width: 50%;
+        }
+    }
+
+
+    &_link {
+        display: block;
+        width: 100%;
+    }
+
+}
+
+@include tab {
+    .about {
+        padding: 40px 0;
+
+    }
 }
 
 
@@ -819,6 +953,9 @@ about
 
 .fa-twitter {
     font-size: 2rem;
+    transition: .4s;
+    transform: rotateZ(0);
+
 }
 
 /****************************************:
@@ -829,7 +966,6 @@ policy
 
 .policy {
     padding: 50px 0;
-    // background-color: ;
     margin: 0 auto;
 
     position: relative;
@@ -838,11 +974,12 @@ policy
 
     .section_ttl {
         // position: relative;
-        background-color: $cWhite;
-        // box-shadow: 0 5px 15px $cBlack;
+        // background-color: $cWhite;
+        text-shadow: 3px 3px 3px $cBlack;
+        font-size: 2rem;
     }
 
-    &::before {
+    /* &::before {
         position: absolute;
         display: block;
         content: "Policy";
@@ -854,11 +991,11 @@ policy
         text-shadow: 3px 3px 3px $cBlack;
         transform: rotate(-90deg);
 
-    }
+    } */
 
     &_txt {
         text-align: center;
-        background-color: $cScolor;
+        // background-color: $cScolor;
         padding: 50px 20px;
         display: block;
 
@@ -885,30 +1022,47 @@ skill
 .skill {
     padding: 50px 0;
     margin: 0 auto;
+    background-color: $cGray;
 
     position: relative;
 
     .section_ttl {
-        background-color: $cWhite;
+        // background-color: $cWhite;
         text-shadow: 3px 3px 3px $cBlack;
+    }
+
+    @include tab {
+        &_content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    @include pc {
+        &_content {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 
 
 
 
-    &::before {
-        position: absolute;
-        display: block;
-        content: "Skill";
-        font-size: 5rem;
-        left: -55px;
-        top: 188px;
-        color: $cBlack;
-        opacity: .3;
-        text-shadow: 3px 3px 3px $cBlack;
-        transform: rotate(-90deg);
+    // &::before {
+    //     position: absolute;
+    //     display: block;
+    //     content: "Skill";
+    //     font-size: 5rem;
+    //     left: -55px;
+    //     top: 188px;
+    //     color: $cBlack;
+    //     opacity: .3;
+    //     text-shadow: 3px 3px 3px $cBlack;
+    //     transform: rotate(-90deg);
 
-    }
+    // }
 
     /* &_box {
         margin-left: auto;
@@ -940,8 +1094,11 @@ skill
         // box-shadow: 0 0px 5px $cBlack;
 
         // border: 1px solid #333;
+        margin: 40px auto;
+        background-color: $cWhite;
 
         overflow: hidden;
+
 
         &:hover {
             opacity: 1;
@@ -959,7 +1116,6 @@ skill
 
             transition: .5s;
 
-            
         }
 
         &:hover:before{
@@ -977,7 +1133,8 @@ skill
 
         &:hover .skill_icon {
             opacity: 1;
-            transform: translateY(-50px);
+            transform: translateY(-30px) rotateY(360deg);
+
         }
 
         &:hover .skill_icon,
@@ -986,10 +1143,84 @@ skill
             text-shadow: 1px 1px 1px $cBlack;
         }
 
+        &:hover .skill_txt {
+            transform: translateY(-30px);
+            transition: .5s;
+        }
+
         &:hover .skill_border {
             opacity: 1;
         }
 
+    }
+
+    @include tab {
+        &_card {
+            border-radius: 50%;
+
+            &:before {
+                top: 2px;
+                right: 2px;
+                bottom: 2px;
+                width: 100%;
+                height: 50%;
+            }
+
+            &:hover:before {
+                top: 150px;
+                left: 2px;
+                width: 100%;
+                height: 50%;
+            }
+        }
+    }
+
+    @include pc {
+        &_card {
+            border-radius: 50%;
+
+            &:before {
+                top: 2px;
+                left: 2px;
+                width: 50%;
+                height: 50%;
+            }
+
+            &:hover:before {
+                bottom: 2px;
+                right: 2px;
+                width: 50%;
+                height: 50%;
+                transform: rotateZ(180deg);
+                left: initial;
+                top: initial;
+                box-shadow: none;
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                display: block;
+                background: $cScolor;
+                transition: .5s;
+                bottom: 2px;
+                right: 2px;
+                width: 50%;
+                height: 50%;
+            }
+
+            &:hover:after {
+                top: 2px;
+                left: 2px;
+                width: 50%;
+                height: 50%;
+                transform: rotateZ(180deg);
+                right: initial;
+                opacity: .4;
+                background: $cLgreen;
+                transition: .5s;
+            }
+        }
     }
 
     &_inbox {
@@ -1015,6 +1246,7 @@ skill
         z-index: 1;
         opacity: .1;
         transition: .5s;
+        display: block;
 
     }
 
@@ -1028,12 +1260,14 @@ skill
         opacity: .3;
         letter-spacing: 1px;
         transition: .5s;
+        margin-top: 40px;
     }
 
     &_txt {
         display: inline-block;
-        margin-top: 15px;
+        margin-top: 10px;
         padding: 8px 15px;
+        transition: .5s;
         
     }
 
@@ -1176,11 +1410,17 @@ blog
         text-align: center;
     }
 
+    .section_inner {
+        width: 100%;
+        margin: 0 auto;
+    }
+
     &_card {
         // margin-top: 50px;
         cursor: pointer;
         position: relative;
-        width: 330px;
+        // width: 330px;
+        width: 100%;
         height: 330px;
         transform-style: preserve-3d;
         perspective: 1000px;//3d変形の奥行
@@ -1205,7 +1445,8 @@ blog
         top: 0;
       left: 0;
       
-        width: 85%;
+        // width: 85%;
+        width: 100%;
 
         height: 280px;
     }
@@ -1223,8 +1464,8 @@ blog
         position: absolute;
         top: 0;
         left: 0;
-        // width: 90%;
-        width: 85%;
+        width: 100%;
+        // width: 85%;
         // height: 100%;
         height: 85%;
         background: $cBlack;
@@ -1250,19 +1491,19 @@ blog
         margin-bottom: 50px;
     }
 
-    &::before {
-        position: absolute;
-        display: block;
-        content: "Blog";
-        font-size: 5rem;
-        left: -55px;
-        top: 188px;
-        color: $cBlack;
-        opacity: .3;
-        text-shadow: 3px 3px 3px $cBlack;
-        transform: rotate(-90deg);
+    // &::before {
+    //     position: absolute;
+    //     display: block;
+    //     content: "Blog";
+    //     font-size: 5rem;
+    //     left: -55px;
+    //     top: 188px;
+    //     color: $cBlack;
+    //     opacity: .3;
+    //     text-shadow: 3px 3px 3px $cBlack;
+    //     transform: rotate(-90deg);
 
-    }
+    // }
 
     &_txt {
         // text-align: center;
@@ -1289,36 +1530,36 @@ create
     margin: 0 auto;
 
     position: relative;
+    background-color: $cGray;
 
     .section_ttlwrap {
-        // background-color: $cScolor;
-        // padding: 10px 0 0 10px;
-        // width: 80%;
-        // margin-right: auto;
+
         text-align: center;
 
     }
 
+    .section_inner {
+        width: 100%;
+    }
+
+
     .section_ttl {
-  
-        // background-color: $cWhite;
-        // box-shadow: 0 5px 15px $cBlack;
         text-shadow: 3px 3px 3px $cBlack;
     }
 
-    &::before {
-        position: absolute;
-        display: block;
-        content: "Create & Works";
-        font-size: 3rem;
-        left: -107px;
-        top: 188px;
-        color: $cBlack;
-        opacity: .3;
-        text-shadow: 3px 3px 3px $cBlack;
-        transform: rotate(-90deg);
+    // &::before {
+    //     position: absolute;
+    //     display: block;
+    //     content: "Create & Works";
+    //     font-size: 3rem;
+    //     left: -107px;
+    //     top: 188px;
+    //     color: $cBlack;
+    //     opacity: .3;
+    //     text-shadow: 3px 3px 3px $cBlack;
+    //     transform: rotate(-90deg);
 
-    }
+    // }
 
 
     &_imgbox {
@@ -1365,6 +1606,15 @@ create
             opacity: .9;
             transform: translate3d(0,0,0);
             transition-delay: .4s;
+        }
+    }
+
+    @include tab {
+        &_imgbox {
+
+            &:nth-child(odd) {
+                flex-direction: row-reverse;
+            }
         }
     }
 
