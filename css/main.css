@@ -1136,8 +1136,8 @@ skill
     right: 2px;
     width: 50%;
     height: 50%;
-    -webkit-transform: rotateZ(180deg);
-            transform: rotateZ(180deg);
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
     left: initial;
     top: initial;
     -webkit-box-shadow: none;
@@ -1160,8 +1160,8 @@ skill
     left: 2px;
     width: 50%;
     height: 50%;
-    -webkit-transform: rotateZ(180deg);
-            transform: rotateZ(180deg);
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
     right: initial;
     opacity: .4;
     background: #befb61;
@@ -1291,9 +1291,33 @@ skill
   left: -130px;
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .__cssicon {
+    left: -110px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .__cssicon {
+    left: -110px;
+  }
+}
+
 .__sassicon {
   bottom: -200px;
   left: 80px;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .__sassicon {
+    left: 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .__sassicon {
+    left: 50px;
+  }
 }
 
 .__jsicon {
@@ -1413,8 +1437,38 @@ blog
 }
 
 .blog .section_inner {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .blog .section_inner {
+    width: 80%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog .section_inner {
+    width: 80%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
 }
 
 .blog_card {
@@ -1431,6 +1485,24 @@ blog
 .blog_card:hover .blog_box {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .blog_card {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog_card {
+    width: 50%;
+    margin: -50px 20px 0 0;
+  }
+  .blog_card:after {
+    position: absolute;
+    content: "";
+    width: 50;
+  }
 }
 
 .blog_box {
@@ -1507,6 +1579,24 @@ blog
   margin-bottom: 50px;
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .blog .section_ttl {
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog .section_ttl {
+    position: relative;
+    margin-bottom: 0;
+    text-align: left;
+    display: block;
+    margin-left: 150px;
+    font-size: 2.6rem;
+    letter-spacing: .3em;
+  }
+}
+
 .blog_txt {
   display: block;
   text-shadow: 3px 3px 3px #333;
@@ -1514,6 +1604,37 @@ blog
   margin-left: right;
   font-size: 1.2rem;
   line-height: 2;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .blog_txtcontent {
+    background-color: #8b8989;
+    width: 50%;
+    height: 200px;
+    margin: 50px -20px 0 0;
+    z-index: 1;
+  }
+  .blog_txt.txt {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog_txtcontent {
+    background-color: #8b8989;
+    width: 40%;
+    height: 200px;
+    margin: 100px -20px 0 0;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog {
+    padding: 100px 0;
+  }
 }
 
 /****************************************:
@@ -1533,7 +1654,20 @@ create
 }
 
 .create .section_inner {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .create .section_inner {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .create .section_inner {
+    width: 80%;
+  }
 }
 
 .create .section_ttl {
@@ -1599,7 +1733,17 @@ create
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
-  .create_imgbox:nth-child(odd) {
+  .create figure {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .create figure:nth-child(odd) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
     -webkit-flex-direction: row-reverse;

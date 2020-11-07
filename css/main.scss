@@ -25,7 +25,6 @@ $widthSp: 480px;
 }
 
 
-
 @mixin pc {
     @media screen and (min-width: $widthPc) {
         @content;
@@ -34,11 +33,13 @@ $widthSp: 480px;
 
 
 
+
 @mixin tab {
     @media screen and (min-width: $widthTab) and (max-width: $widthPc) {
         @content;
     }
 }
+
 
 
 
@@ -140,6 +141,8 @@ body {
     }
 }
 
+
+
 main {
     margin-top: 100vh;
 }
@@ -197,6 +200,7 @@ main {
 
         &:hover {
             color: $cLgreen;
+
         }
 
     }
@@ -212,6 +216,7 @@ main {
             width: 0;
             height: 2px;
             background: $cLgreen;
+
         }
 
         &:nth-child(3){
@@ -220,6 +225,7 @@ main {
             width: 0;
             height: 2px;
             background: $cLgreen;
+
 
         }
 
@@ -1191,10 +1197,11 @@ skill
                 right: 2px;
                 width: 50%;
                 height: 50%;
-                transform: rotateZ(180deg);
+                transform: rotateZ(360deg);
                 left: initial;
                 top: initial;
                 box-shadow: none;
+
             }
 
             &:after {
@@ -1214,7 +1221,7 @@ skill
                 left: 2px;
                 width: 50%;
                 height: 50%;
-                transform: rotateZ(180deg);
+                transform: rotateZ(360deg);
                 right: initial;
                 opacity: .4;
                 background: $cLgreen;
@@ -1336,9 +1343,31 @@ skill
     left: -130px;
 }
 
+@include tab {
+    .__cssicon {
+        left: -110px;
+    }
+}
+@include pc {
+    .__cssicon {
+        left: -110px;
+    }
+}
+
 .__sassicon {
     bottom: -200px;
     left: 80px;
+}
+
+@include tab {
+    .__sassicon {
+        left: 50px;
+    }
+}
+@include pc {
+    .__sassicon {
+        left: 50px;
+    }
 }
 
 .__jsicon {
@@ -1396,6 +1425,8 @@ blog
 
 *****************************************:*/
 
+
+
 .blog {
     padding: 50px 0;
     margin: 0 auto;
@@ -1403,17 +1434,36 @@ blog
     position: relative;
     transform-style: preserve-3d;
 
+
+
     .section_ttlwrap {
-       /*  padding: 10px 10px 0 0;
+    /*  padding: 10px 10px 0 0;
         width: 80%;
         margin-left: auto; */
         text-align: center;
     }
 
     .section_inner {
-        width: 100%;
+        width: 80%;
         margin: 0 auto;
     }
+
+    @include tab {
+        .section_inner {
+            width: 80%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+
+    @include pc {
+        .section_inner {
+            width: 80%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+
 
     &_card {
         // margin-top: 50px;
@@ -1430,6 +1480,25 @@ blog
         }
     }
 
+    @include tab {
+        &_card {
+            width: 50%;
+        }
+    }
+
+    @include pc {
+        &_card {
+            width: 50%;
+            margin: -50px 20px 0 0;
+
+            &:after {
+                position: absolute;
+                content: "";
+                width: 50;
+            }
+        }
+    }
+
     &_box {
         position: absolute;
         top: 0;
@@ -1443,8 +1512,8 @@ blog
     &_imgbox {
         position: absolute;
         top: 0;
-      left: 0;
-      
+        left: 0;
+
         // width: 85%;
         width: 100%;
 
@@ -1491,6 +1560,24 @@ blog
         margin-bottom: 50px;
     }
 
+
+    @include tab {
+        .section_ttl {
+            margin-bottom: 100px;
+        }
+    }
+    @include pc {
+        .section_ttl {
+            position: relative;
+            margin-bottom: 0;
+            text-align: left;
+            display: block;
+            margin-left: 150px;
+            font-size: 2.6rem;
+            letter-spacing: .3em;
+        }
+    }
+
     // &::before {
     //     position: absolute;
     //     display: block;
@@ -1514,6 +1601,40 @@ blog
         margin-left: right;
         font-size: 1.2rem;
         line-height: 2;
+    }
+
+    @include tab {
+        &_txtcontent {
+            background-color: $cGray;
+            width: 50%;
+            height: 200px;
+            margin: 50px -20px 0 0;
+            z-index: 1;
+
+        }
+
+        &_txt.txt {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 1.1rem;
+        }
+    }
+
+    @include pc {
+        &_txtcontent {
+            background-color: $cGray;
+            width: 40%;
+            height: 200px;
+            margin: 100px -20px 0 0;
+            z-index: 1;
+
+        }
+    }
+}
+
+@include pc {
+    .blog {
+        padding: 100px 0;
     }
 }
 
@@ -1539,7 +1660,20 @@ create
     }
 
     .section_inner {
-        width: 100%;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    @include tab {
+        .section_inner {
+            width: 80%;
+        }
+    }
+
+    @include pc {
+        .section_inner {
+            width: 80%;
+        }
     }
 
 
@@ -1610,7 +1744,9 @@ create
     }
 
     @include tab {
-        &_imgbox {
+        figure {
+            display: flex;
+            align-items: center;
 
             &:nth-child(odd) {
                 flex-direction: row-reverse;
