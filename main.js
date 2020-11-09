@@ -36,7 +36,53 @@ $(() => {
     setInterval(slidesshow, showTime);
 
 
-    
+    // profile img hover effect
+    $(".about_imgbox").each(function () {
+    let heBox = $(this)
+    let heBoxImgs = $(this).children('img')
+    let myAnimation = new hoverEffect({
+        parent: heBox[0],
+        intensity: 1,
+        angle:Math.PI / 8,
+        image1: heBoxImgs[0].getAttribute('src'),
+        image2: heBoxImgs[1].getAttribute('src'),
+        displacementImage: heBox[0].getAttribute('displacementImage')
+
+    });
+
+        
+        
+
+    const reveal = gsap.utils.toArray('.reveal');
+    reveal.forEach((text, i) => {
+        ScrollTrigger.create({
+            trigger: text,
+            toggleClass: 'active',
+            strat: "top 90%",
+            end: "top 20%",
+            // markers: true
+        })
+        
+    });
+
+    const images = gsap.utils.toArray('img');
+    images.forEach((img, i) => {
+        ScrollTrigger.create({
+            trigger: img,
+            toggleClass: 'active',
+            strat: "top 90%",
+            end: "top 20%",
+            // markers: true
+        })
+        
+    });
+
+
+
+
+
+});
+
 
 
 
@@ -74,21 +120,6 @@ $(() => {
 
 
 });
-
-
-let swiper = new Swiper('.swiper-container', {
-    effect: 'cube',
-    grabCursor: true,
-    cubeEffect: {
-        shadow: true,
-        slideShadows: true,
-        shadowOffset: 20,
-        shadoScale: .94,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-      },
-    });
 
 
 
