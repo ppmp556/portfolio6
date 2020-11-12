@@ -120,7 +120,7 @@ main {
   -webkit-box-shadow: 0 5px 5px #333;
           box-shadow: 0 5px 5px #333;
   text-align: center;
-  width: 50%;
+  width: 200px;
   margin: 0 auto;
 }
 
@@ -650,6 +650,16 @@ about
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .about_inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 40px;
+  }
+}
+
 .about_sharebox {
   margin: 50px auto;
   display: block;
@@ -657,7 +667,7 @@ about
 }
 
 .about_share_icon {
-  width: 25%;
+  width: 100px;
   line-height: 30px;
   margin: 0 auto;
   position: relative;
@@ -945,9 +955,6 @@ skill
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
   }
 }
 
@@ -959,9 +966,20 @@ skill
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .skill_wrap {
+    width: 50%;
+    margin: 0 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .skill_wrap {
+    width: 50%;
+    margin: 0 10px;
   }
 }
 
@@ -1615,6 +1633,24 @@ create
   text-align: center;
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .create_wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .create_wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .create .section_inner {
   width: 80%;
   margin: 0 auto;
@@ -1632,10 +1668,6 @@ create
   }
 }
 
-.create .section_ttl {
-  text-shadow: 3px 3px 3px #333;
-}
-
 .create_imgbox {
   position: relative;
   overflow: hidden;
@@ -1643,7 +1675,7 @@ create
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   max-width: 220px;
-  min-width: 320px;
+  min-width: 301px;
   min-height: 200px;
   width: 100%;
   text-align: left;
@@ -1792,6 +1824,26 @@ create
           transition-delay: 0;
 }
 
+.create_outtxt {
+  margin: 80px 40px 0;
+  font-size: 1.6rem;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .create_outtxt {
+    margin: 80px 15px 0;
+    font-size: 1.2rem;
+    line-height: 2em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .create_outtxt {
+    margin: 80px 40px 0;
+    font-size: 1.6rem;
+  }
+}
+
 /****************************************:
 
 footer
@@ -1807,11 +1859,9 @@ footer
   color: #ffffff;
 }
 
-.reveal {
+.out_in {
   position: relative;
-  color: #fff;
   padding: 0 10px;
-  font-weight: 500;
   -webkit-transform-origin: letf;
           transform-origin: letf;
   -webkit-transform: scaleX(0);
@@ -1820,29 +1870,36 @@ footer
   transition: .5s;
   -webkit-transition-delay: .5s;
           transition-delay: .5s;
+  /*   &:nth-child(2) {
+        letter-spacing: 2px;
+        display: inline-block;
+        margin-top: 2px;
+
+    } */
 }
 
-.reveal.active {
+.out_in.active {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transition-delay: 0;
           transition-delay: 0;
 }
 
-.reveal:nth-child(2) {
-  letter-spacing: 2px;
-  display: inline-block;
-  margin-top: 2px;
+.out_in.active:before {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
 }
 
-.reveal:before {
+.out_in:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #e02bff;
+  background: #befb61;
   -webkit-transform-origin: right;
           transform-origin: right;
   -webkit-transition: .5s;
@@ -1852,13 +1909,19 @@ footer
   z-index: 5;
 }
 
-.reveal:nth-child(2):before {
-  background: #ffeb3b;
+.out_in:nth-child(2):before {
+  background: #eaebed;
 }
 
-.reveal.active:before {
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition-delay: .5s;
-          transition-delay: .5s;
+.site_backcontent {
+  width: 100%;
+  height: 100;
+  overflow: auto;
+  -webkit-scroll-snap-type: y mandatory;
+      -ms-scroll-snap-type: y mandatory;
+          scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+  background: url(../images/仕事場.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

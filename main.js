@@ -50,10 +50,9 @@ $(() => {
 
     });
 
-        
-        
 
-    const reveal = gsap.utils.toArray('.reveal');
+
+    const reveal = gsap.utils.toArray('.out_in');
     reveal.forEach((text, i) => {
         ScrollTrigger.create({
             trigger: text,
@@ -62,7 +61,7 @@ $(() => {
             end: "top 20%",
             // markers: true
         })
-        
+
     });
 
     const images = gsap.utils.toArray('img');
