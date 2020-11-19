@@ -7,12 +7,12 @@
 *****************************************:*/
 
 
-$cWhite: #ffffff;
+$cWhite: #e1e1e1;
 $cBlack: #1c1c1c;
-$cGray: rgb(139, 137, 137);
+$cGray: #898989;
 $cBgColor: #eaebed;
 $cScolor: #E7F5E0;
-$cLgreen:rgb(190, 251, 97);
+$cLgreen:#bcf54b;
 
 $widthPc: 1024px;
 $widthTab: 764px;
@@ -68,6 +68,7 @@ body {
 
 * {
     box-sizing: border-box;
+
 }
 
 
@@ -164,11 +165,12 @@ body {
     text-align: center;
     padding: 0 20px;
     margin: 0 auto;
-    font-size: 2rem;
+    font-size: 3.6rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
 
     &::before,&::after {
         content: "";
@@ -182,6 +184,18 @@ body {
     }
     &::before {
         margin-left: -10px;
+    }
+}
+
+@include tab {
+    .section_ttl {
+        font-size: 3.6rem;
+    }
+}
+
+@include pc {
+    .section_ttl {
+        font-size: 3.6rem;
     }
 }
 
@@ -210,7 +224,7 @@ main {
     text-align: center;
     width: 200px;
     margin: 0 auto;
-    background-color: $cBgColor;
+    background-color: $cWhite;
 
 
 
@@ -331,6 +345,87 @@ main {
         line-height: 3em;
     }
 }
+
+
+/****************************************:
+
+out_inアニメーション
+
+*****************************************:*/
+
+
+
+
+.out_in {
+    position: relative;
+    // color: #fff;
+    padding: 0 10px;
+    transform-origin: letf;
+    transform: scaleX(0);
+    transition: .5s;
+    transition-delay: .5s;
+
+    &.active {
+        transform: scaleX(1);
+        transition-delay: 0;
+
+        &:before {
+            transform: scaleX(0);
+            transition-delay: .5s;
+
+        }
+
+    }
+
+  /*   &:nth-child(2) {
+        letter-spacing: 2px;
+        display: inline-block;
+        margin-top: 2px;
+
+    } */
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $cLgreen;
+        transform-origin: right;
+        transition: .5s;
+        transition-delay: 0s;
+
+        z-index: 5;
+
+    }
+
+    &:nth-child(2):before {
+        background: $cBgColor;
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1088,6 +1183,7 @@ about
     @include pc {
         &_ttlwrap {
             position: relative;
+
         }
     }
 
@@ -1104,6 +1200,10 @@ about
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
+                        padding: 5px;
+            border-radius: 50%;
+            background-color: $cBlack;
+
 
 
         }
@@ -1115,7 +1215,12 @@ about
             position: absolute;
             left: -50px;
             top: 0;
-            width: 100%;
+            width: 0;
+            font-size: 3.6rem;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: $cBlack;
+
         }
     }
 
@@ -1357,12 +1462,23 @@ about
       
     }
 
+    &_txtbox {
+        margin: 40px;
+    }
+
+    @include tab {
+        &_txtbox {
+            margin: 0;
+        }
+    }
+
 
     &_txt {
         display: block;
         color: $cWhite;
         text-shadow: 3px 3px 3px $cBlack;
         padding: 10px;
+        font-size: 1.6rem;
 
     }
 
@@ -1469,7 +1585,7 @@ policy
 *****************************************:*/
 
 .policy {
-    padding: 100px 0;
+    padding: 150px 0;
     margin: 0 auto;
 
     position: relative;
@@ -1485,11 +1601,12 @@ policy
     .section_ttl {
         // position: relative;
         text-shadow: .5px 1px 2px $cBlack;
+        background-color: $cWhite;
 
-        font-size: 2rem;
         display: block;
         margin-bottom: 50px;
         width: 100%;
+
     }
 
     @include tab {
@@ -1503,10 +1620,20 @@ policy
     @include pc {
         .section_ttl {
             position: absolute;
-            padding: 20px 0;
-            width: 30%;
+            padding: 5px;
+            width: 0;
             bottom: -70px;
-            left: 25px;
+            right: 25px;
+            font-size: 3.6rem;
+            writing-mode: vertical-lr;
+            height: 190px;
+            background-color: $cWhite;
+            border-radius: 50%;
+
+
+
+
+
         }
     }
 
@@ -1593,7 +1720,12 @@ skill
     @include tab {
         .section_ttl {
             position: absolute;
-            width: 100%;
+            width: 0;
+            background-color: $cBlack;
+            padding: 5px;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
     @include pc {
@@ -1601,26 +1733,32 @@ skill
             position: absolute;
             width: 0;
             left: 50%;
-            top: 50%;
             transform: translate(-50%, 0);
-            font-size: 2.6rem;
+            font-size: 3.6rem;
+            background-color: $cBlack;
+            padding: 5px;
+            border-radius: 50%;
 
         }
     }
 
     @include tab {
-        &_content {
+        .section_inner {
             display: flex;
             // flex-wrap: wrap;
+            padding: 0 40px;
         }
     }
 
     @include pc {
-        &_content {
+        .section_inner {
             width: 90%;
             margin: 0 auto;
             display: flex;
             // flex-wrap: wrap;
+                        max-width: 800px;
+            width: 100%;
+
         }
     }
 
@@ -1660,16 +1798,16 @@ skill
         display: block;
     } */
 
-    &_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+    // &_container {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     flex-wrap: wrap;
 
-        &:hover .skill_card {
-            opacity: .2;
-        }
-    }
+    //     &:hover .skill_card {
+    //         opacity: .2;
+    //     }
+    // }
 
 
     &_card {
@@ -1749,6 +1887,9 @@ skill
     @include tab {
         &_card {
             border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            margin: 60px auto;
 
             &:before {
                 top: 2px;
@@ -2032,6 +2173,7 @@ blog
     @include pc {
         .section_ttlwrap {
             display: block;
+            position: relative;
         }
     }
 
@@ -2053,6 +2195,15 @@ blog
             width: 80%;
             display: flex;
             flex-direction: row-reverse;
+        }
+    }
+
+    @include tab {
+        &_content {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 0 40px;
         }
     }
 
@@ -2151,23 +2302,35 @@ blog
         background-color: $cWhite;
         text-shadow: 3px 3px 3px $cBlack;
         margin-bottom: 50px;
+        width: 0;
     }
 
 
     @include tab {
         .section_ttl {
             margin-bottom: 100px;
+            // background-color: $cBlack;
+            padding: 5px 0;
+            // width: 0;
+                        width: 10px;
+            padding: 5px 0;
+            border-radius: 50%;
+            background-color: $cGray;
+            color: $cBlack;
+
         }
     }
     @include pc {
         .section_ttl {
-            position: relative;
+            // position: relative;
+            position: absolute;
             margin-bottom: 0;
             text-align: left;
             display: block;
             margin-left: 150px;
-            font-size: 2.6rem;
+            font-size: 3.6rem;
             letter-spacing: .3em;
+
         }
     }
 
@@ -2204,7 +2367,7 @@ blog
 
         }
 
-        &_txt.txt {
+        &_txt {
             text-align: center;
             margin: 50px 0;
             font-size: 1.1rem;
@@ -2219,6 +2382,11 @@ blog
             margin: 100px -20px 0 0;
             z-index: 1;
 
+        }
+
+        &_outtxt {
+            font-size: 1.6rem;
+            color: $cWhite;
         }
     }
 
@@ -2452,7 +2620,7 @@ create
             top: 0;
             right: 20px;
             width: 0;
-            font-size: 2.6rem;
+            font-size: 3.6rem;
         }
     }
 
@@ -2559,39 +2727,6 @@ contact
     position: relative;
 
 
-
-
-    &_ttl {
-        width: 100%;
-        position: relative;
-        display: block;
-        font-size: 3.2rem;
-        line-height: 0.84;
-        margin: 0 auto;
-        z-index: 100;
-        text-align: center;
-
-        &::before {
-            display: block;
-            content: 'Contact';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-            color: $cBgColor;
-            opacity: 1;
-            font-size: 10rem;
-        }
-
-        @include pc {
-            &::before {
-                font-size: 12rem;
-
-            }
-        }
-    }
-
     &_inner {
         margin: auto;
         display: block;
@@ -2618,13 +2753,12 @@ contact
         }
     }
 
-
-
-
-
-
-
-
+    @include pc {
+        .section_ttl {
+            display: block;
+            font-size: 3.6rem;
+        }
+    }
 
 
 }
@@ -2717,6 +2851,10 @@ contact
 }
 
 
+.contact_link {
+        display: block;
+        transition: .3s;
+}
 
 
 
@@ -2739,66 +2877,9 @@ footer
 
 
 
-
-
-
-.out_in {
-    position: relative;
-    // color: #fff;
-    padding: 0 10px;
-    transform-origin: letf;
-    transform: scaleX(0);
-    transition: .5s;
-    transition-delay: .5s;
-
-    &.active {
-        transform: scaleX(1);
-        transition-delay: 0;
-
-        &:before {
-            transform: scaleX(0);
-            transition-delay: .5s;
-
-        }
-
-    }
-
-  /*   &:nth-child(2) {
-        letter-spacing: 2px;
-        display: inline-block;
-        margin-top: 2px;
-
-    } */
-
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: $cLgreen;
-        transform-origin: right;
-        transition: .5s;
-        transition-delay: 0s;
-
-        z-index: 5;
-
-    }
-
-    &:nth-child(2):before {
-        background: $cBgColor;
-
-    }
-
-
-
-
-}
-
 .site_backcontent {
     width: 100%;
-    height: 100;
+    height: 100%;
     overflow: auto;
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;
