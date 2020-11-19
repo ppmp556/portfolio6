@@ -32,8 +32,8 @@
                 クマダです<span class="line_type">|</span>
                   <!-- ポートフォリオ<span class="line_type">|</span> -->
               </p>
-              <p class="kv_txt line_long">私に<span class="line_type">|</span></P>
-              <p class="line"></p>
+              <p class="kv_txt line_long line">私に<span class="line_type">|</span>
+              </P>
               <p class="kv_txt line_long"> お任せください<span class="line_type">|</span></p>
               <!-- <p class="kv_txt line">私に<span>お任せください</span></p>/.kv_txt -->
               
@@ -140,7 +140,7 @@
                   <p class="about_txt">はじめまして。熊田です。</p>
                   <p class="about_txt">
                     福島県在住。30代。土木の会社を辞めて、フリーランスエンジニアとして活動しています。
-                    「昨日の自分より1mmでも前に進む」のが好き。
+                    座右の銘は、「昨日の自分より1mmでも前に進む」。
                   </p><!-- /.about_txt -->
   
                   <div class="about_sharewrap">
@@ -177,7 +177,7 @@
           <section class="policy site_backcontent" id="policy">
             <div class="section_inner">
                 <div class="policy_ttlwrap">
-                  <h2 class="section_ttl">大切にしていること</h2>
+                  <h2 class="section_ttl">ポリシー</h2>
                   <!-- /.section_ttl -->
                 </div><!-- /.policy_ttlwrap -->
 
@@ -195,13 +195,14 @@
           <!-- /#policy.policy -->
 
           <section class="skill" id="skill">
-            <div class="skill_ttlwrap">
-              <h2 class="section_ttl">できること</h2>
-              <!-- /.section_ttl -->
 
-            </div><!-- /.skill_wrap -->
-                <div class="skill_content">
-
+            <div class="section_inner">
+              
+              <div class="skill_ttlwrap">
+                <h2 class="section_ttl">できること</h2>
+                <!-- /.section_ttl -->
+  
+              </div><!-- /.skill_wrap -->
 
 
                   <div class="skill_wrap">
@@ -339,52 +340,56 @@
 
 
           <section class="blog" id="blog">
+            
+            <div class="section_inner">
               <div class="section_ttlwrap">
                 <h2 class="section_ttl">ブログ</h2>
                 <!-- /.section_ttl -->
               </div><!-- /.section_ttlwrap -->
 
-              <div class="section_inner">
+              <div class="blog_content">
+
+                <div class="blog_card out_in">
+                 
+                  <div class="blog_box">
+                    <div class="blog_imgbox">
+                      <a href="https://ppmp556.com">
+                      <img
+                      class="blog_img"
+                      src="images/invest01.png"
+                      alt="ブログ1"
+                      /></a>
+                    </div>
+                    <!-- /.blog_imgbox -->
+                    
+                    <div class="blog_txtbox">
+                      <div class="blog_txtinner">
+                        <h3 class="blog_txt">ぱぺまぺの低年収者のための資産運用計画</h3>
+                        <!-- /.blog_txt -->
+                        <p class="blog_txt">
+                          投資ブログです。<p>
+                        <p class="blog_txt">
+                          資金が少なくてもできる投資や、<br />
+                          初心者向けの投資、投資についての考え方や<br />
+                          ヒントなどを発信しています。
+                        </p>
+                        <!-- /.blog_txt -->
+                      </div><!-- /.blog_txtinner -->
+                    </div>
+                    <!-- /.blog_txtbox -->
+                  </div><!-- /.blog_box -->
+                </div><!-- /.blog_card -->
+  
+                <div class="blog_txtcontent out_in">
+                  <p class="blog_outtxt">
+                    趣味でやっている投資ブログです。
+                    基本的に毎日更新しています。
+                    たまに投資以外のことも書きます。
+  
+                  </p><!-- /.blog_txt -->
+              </div><!-- /.blog_content -->
 
 
-                  <div class="blog_card out_in">
-                   
-                    <div class="blog_box">
-                      <div class="blog_imgbox">
-                        <a href="https://ppmp556.com">
-                        <img
-                        class="blog_img"
-                        src="images/invest01.png"
-                        alt="ブログ1"
-                        /></a>
-                      </div>
-                      <!-- /.blog_imgbox -->
-                      
-                      <div class="blog_txtbox">
-                        <div class="blog_txtinner">
-                          <h3 class="blog_txt">ぱぺまぺの低年収者のための資産運用計画</h3>
-                          <!-- /.blog_txt -->
-                          <p class="blog_txt">
-                            投資ブログです。<p>
-                          <p class="blog_txt">
-                            資金が少なくてもできる投資や、<br />
-                            初心者向けの投資、投資についての考え方や<br />
-                            ヒントなどを発信しています。
-                          </p>
-                          <!-- /.blog_txt -->
-                        </div><!-- /.blog_txtinner -->
-                      </div>
-                      <!-- /.blog_txtbox -->
-                    </div><!-- /.blog_box -->
-                  </div><!-- /.blog_card -->
-
-                  <div class="blog_txtcontent out_in">
-                    <p class="blog_txt txt">
-                      趣味でやっている投資ブログです。
-                      基本的に毎日更新しています。
-                      たまに投資以外のことも書きます。
-
-                    </p><!-- /.blog_txt -->
                   </div><!-- /.blog_txtcontent -->
 
 
@@ -545,21 +550,22 @@
               <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse" class="contact_form">
                   <div class="contact_inner">
                       <div class="contact_formwrap">
-                          <div class="form ord1">
+                            <div class="form ord1">
                               <div class="form2 flex">
                                 <label for="name" class="form_ttl" >名前</label>
                                 <input type="text" class="form_box" name="entry.1086926239" placeholder="お名前" required="required">
 
                               </div>
-                              <div class="form ord2">
-                                <div class="form2 bb flex">
-                                  <label for="email" class="form_ttl">Email</label>
-                                  <input type="email" class="form_box" name="entry.1044079928" placeholder="メールアドレス" required="required">
-    
-                                  </div>
-                              </div>
-                          </div>
+                            </div>
+                            <div class="form ord2">
+                              <div class="form2 bb flex">
+                                <label for="email" class="form_ttl">Email</label>
+                                <input type="email" class="form_box" name="entry.1044079928" placeholder="メールアドレス" required="required">
+  
+                                </div>
+                            </div>
                       </div><!-- /.contact_formwrap -->
+
                       <div class="contact_formwrap">
                           <div class="form ord3">
                               <div class="form2 flex">
@@ -574,11 +580,21 @@
                               </div>
                           </div>
                       </div><!-- /.contact_formwrap -->
-                  </div><!-- /.contact_inner -->
+
+
+                    </div><!-- /.contact_inner -->
+                    
               </form>
-              <!-- <div class="site_btn"> -->
-                  <!-- <button type="submit" value="送信" class="site_link"> -->
-              <!-- </div> -->
+              <button type="submit" class="site contact_link">
+                <!-- <div class="site_link"> -->
+                  <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                  <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                  <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                  <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                  送信
+                <!-- </div>/.site_link -->
+              </button><!-- /.site -->
+
 
             </div>
 
