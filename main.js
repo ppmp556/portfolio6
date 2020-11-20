@@ -24,6 +24,14 @@ $(() => {
         $('.nav_list').toggleClass('clicked');
     });
 
+    $('body').click(function () {
+        if(navList.hasClass('clicked')){
+            // console.log("OK");
+            navList.removeClass('clicked');
+            ham.removeClass('clicked');
+        }
+    });
+
     // タイピングアニメーション
 
     const texts = ['Webサイト制作 ', 'ライティング ', 'WordPress '];
@@ -47,7 +55,7 @@ $(() => {
             count++;
             index = 0;
         }
-        setTimeout(type, 200);
+        setTimeout(type, 300);
 
     })();
 
@@ -120,6 +128,15 @@ $(() => {
             let position = target.offset().top;
             //スムーススクロール
             $("html, body").animate({ scrollTop: position }, speed, "swing");
+
+        $('.nav_line').removeClass('clicked');
+        $('.header').removeClass('clicked');
+        $('.header_inner').removeClass('clicked');
+        $('.nav').removeClass('clicked');
+        $('.nav_ham').removeClass('clicked');
+        $('.nav_list').removeClass('clicked');
+ 
+
 
             return false;
         });
