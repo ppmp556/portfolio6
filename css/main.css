@@ -1340,6 +1340,12 @@ about
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .about_txtbox {
+    width: 100%;
+  }
+}
+
 .about_txt {
   display: block;
   color: #e1e1e1;
@@ -1441,6 +1447,12 @@ policy
 }
 
 @media screen and (min-width: 1024px) {
+  .policy .section_inner {
+    margin: 120px auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .policy_ttlwrap {
     position: relative;
   }
@@ -1449,7 +1461,6 @@ policy
 .policy .section_ttl {
   text-shadow: 0.5px 1px 2px #1c1c1c;
   background-color: #e1e1e1;
-  display: block;
   margin-bottom: 50px;
   width: 100%;
 }
@@ -1463,17 +1474,22 @@ policy
 @media screen and (min-width: 1024px) {
   .policy .section_ttl {
     position: absolute;
-    padding: 5px;
-    width: 0;
-    bottom: -70px;
-    right: 25px;
+    padding: 5px 0;
+    width: 10px;
+    top: -50%;
+    right: 0;
     font-size: 3.6rem;
-    -webkit-writing-mode: vertical-lr;
-        -ms-writing-mode: tb-lr;
-            writing-mode: vertical-lr;
-    height: 190px;
-    background-color: #e1e1e1;
+    background-color: #898989;
     border-radius: 50%;
+    color: #e1e1e1;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .policy .section_ttl::before {
+    display: none;
+  }
+  .policy .section_ttl::after {
+    display: none;
   }
 }
 
@@ -1583,17 +1599,31 @@ skill
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .skill_content {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .skill_wrap {
-    width: 50%;
-    margin: 0 10px;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 5vw;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .skill_wrap {
-    width: 50%;
-    margin: 0 10px;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 5vw;
   }
 }
 
@@ -1857,40 +1887,40 @@ skill
   left: -30px;
 }
 
-.__htmlicon {
+.__htmlicon, .__deskicon {
   left: -30px;
 }
 
-.__cssicon {
+.__cssicon, .__tabicon {
   bottom: -200px;
   left: -130px;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
-  .__cssicon {
+  .__cssicon, .__tabicon {
     left: -110px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .__cssicon {
+  .__cssicon.__tabicon {
     left: -110px;
   }
 }
 
-.__sassicon {
+.__sassicon, .__mobicon {
   bottom: -200px;
   left: 80px;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
-  .__sassicon {
+  .__sassicon, .__mobicon {
     left: 50px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .__sassicon {
+  .__sassicon, .__mobicon {
     left: 50px;
   }
 }
@@ -1900,6 +1930,10 @@ skill
 }
 
 .__wpicon {
+  left: -30px;
+}
+
+.__painticon {
   left: -30px;
 }
 
@@ -2053,7 +2087,27 @@ blog
   }
 }
 
+.blog_content {
+  margin: 50px 0;
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
+  .blog_content {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    margin: 0 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .blog_content {
     width: 100%;
     display: -webkit-box;
@@ -2171,11 +2225,16 @@ blog
   opacity: .8;
 }
 
+@media screen and (min-width: 1024px) {
+  .blog_txtinner {
+    padding: 0;
+  }
+}
+
 .blog .section_ttl {
-  background-color: #e1e1e1;
   text-shadow: 3px 3px 3px #1c1c1c;
   margin-bottom: 50px;
-  width: 0;
+  width: 100%;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2195,11 +2254,21 @@ blog
     position: absolute;
     margin-bottom: 0;
     text-align: left;
-    display: block;
-    margin-left: 150px;
     font-size: 3.6rem;
     letter-spacing: .3em;
+    padding: 5px 0;
+    border-radius: 50%;
+    background-color: #898989;
+    color: #1c1c1c;
+    width: 10px;
+    right: 0;
   }
+}
+
+.blog_txtcontent {
+  padding: 50px 20px;
+  background-color: #898989;
+  color: #e1e1e1;
 }
 
 .blog_txt {
@@ -2221,8 +2290,11 @@ blog
   }
   .blog_txt {
     text-align: center;
-    margin: 50px 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  .blog_outtxt {
+    color: #e1e1e1;
+    font-size: 1.6rem;
   }
 }
 
@@ -2233,6 +2305,11 @@ blog
     height: 200px;
     margin: 100px -20px 0 0;
     z-index: 1;
+  }
+  .blog_txt {
+    margin: 15px 0;
+    padding: 0 70px;
+    font-size: 1rem;
   }
   .blog_outtxt {
     font-size: 1.6rem;
@@ -2298,14 +2375,13 @@ create
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .create .section_inner {
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .create .section_inner {
     width: 100%;
-    max-width: 900px;
   }
 }
 
@@ -2459,9 +2535,12 @@ create
   .create .section_ttl {
     position: absolute;
     top: 0;
-    right: 20px;
-    width: 0;
+    right: 0;
+    width: 10px;
     font-size: 3.6rem;
+    border-radius: 50%;
+    background-color: #1c1c1c;
+    padding: 5px 0;
   }
 }
 
@@ -2582,9 +2661,21 @@ contact
 }
 
 @media screen and (min-width: 1024px) {
+  .contact .section_ttlwrap {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .contact .section_ttl {
-    display: block;
+    position: absolute;
     font-size: 3.6rem;
+    padding: 5px 0;
+    border-radius: 50%;
+    background-color: #898989;
+    color: #1c1c1c;
+    width: 10px;
+    left: 0;
   }
 }
 
@@ -2687,7 +2778,7 @@ footer
       -ms-scroll-snap-type: y mandatory;
           scroll-snap-type: y mandatory;
   scroll-snap-align: start;
-  background: url(../images/仕事場.jpg) no-repeat;
+  background: url(../images/作業風景.jpg) no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
