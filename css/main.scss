@@ -83,60 +83,10 @@ body {
 .container {
     width: 100%;
     margin: 0 auto;
-    // color: $cWhite;
     position: relative;
     overflow: hidden;
+    z-index: 98;
 
-    &::before {
-        // position: absolute;
-        position: fixed;
-        top: 0;
-        left: 0;
-        content: "";
-        width: 100%;
-        height: 100vh;
-        background-color: rgb(46, 83, 107);
-        z-index: 100;
-        visibility: visible;
-
-        animation: showOut 5s;
-        animation-fill-mode: forwards;
-        z-index: 1000;
-
-    }
-}
-
-// 最初の背景アニメーション
-@keyframes showOut {
-    0% {opacity: 1;}
-    25% {opacity: 1;}
-    90% {opacity: 0;}
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-
-
-
-.mock {
-    /* モック画像 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 375px;
-    opacity: 0.3;
-
-    /* 反転 */
-    filter: hue-rotate(180deg);
-
-    /* テキストを掴まないように */
-    pointer-events: none;
-
-    z-index: 999;
 }
 
 
@@ -151,13 +101,31 @@ body {
     // padding: 0 15px;
 }
 
+
+
 .section_inner {
+    width: 100%;
+    max-width: 360px;
+    padding: 0 15px;
+
+    margin: 0 auto;
+    
+}
+
+@include tab {
+    .section_inner {
+        max-width: 650px;
+    }
+}
+
+
+@include pc {
     width: 100%;
     max-width: 800px;
     padding: 0 15px;
 
     margin: 0 auto;
-    
+
 }
 
 .section_ttl {
@@ -174,7 +142,7 @@ body {
 
     &::before,&::after {
         content: "";
-        width: 50px;
+        width: 30px;
         height: 1px;
         background-color: $cBlack;
     }
@@ -205,17 +173,12 @@ main {
     margin-top: 100vh;
 }
 
-// .swiper-slide {
-//     background-position: center;
-//     background-size: cover;
-// }
 
 
 
 .site {
     cursor: pointer;
     position: relative;
-    // padding: 20px 25px;
     color: $cBlack;
     line-height: 4em;
     font-size: 1.2rem;
@@ -225,6 +188,7 @@ main {
     width: 200px;
     margin: 0 auto;
     background-color: $cWhite;
+    margin: 40px 0;
 
 
 
@@ -242,7 +206,6 @@ main {
             left: 0;
             width: 50%;
             height: 100%;
-            // background: $cBlack;
         }
 
         &:after {
@@ -337,6 +300,7 @@ main {
     .site {
         width: 150px;
         line-height: 3em;
+        margin: 0 auto;
     }
 }
 @include pc {
@@ -345,6 +309,191 @@ main {
         line-height: 3em;
     }
 }
+
+
+/****************************************:
+
+loading
+
+*****************************************:*/
+
+
+
+.loading_wrap {
+    width: 100%;
+    height: 100vh;
+    background: $cWhite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.loading {
+    width: 5em;
+    height: 5em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    // z-index: 110;
+
+    &_none {
+        animation: loading_end 7s forwards;
+
+    }
+
+    &_box {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        position: relative;
+        width: 200px;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px auto;
+        background-color: $cWhite;
+
+    }
+
+    &_txt {
+        font-size: 3.6rem;
+        width: 50px;
+        text-align: center;
+
+    }
+
+}
+
+
+
+
+@keyframes loading_end {
+
+
+    0% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+        z-index: 0;
+    }
+}
+
+
+
+
+
+
+
+.loading_border {
+    // transition: 10s;
+    opacity: 1;
+
+
+    &:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        animation: load1 .5s linear forwards;
+        border-radius: 50%;
+    }
+
+    &:nth-child(2) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        animation: load2 .5s linear forwards;
+        border-radius: 50%;
+    }
+
+    &:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        animation: load3 .5s linear forwards;
+        border-radius: 50%;
+    }
+
+    &:nth-child(4) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 100%;
+        animation: load4 .5s linear forwards;
+        border-radius: 50%;
+    }
+}
+
+@keyframes load1 {
+    0% {
+        transform: translateX(-50%);
+        background: linear-gradient(to right, transparent, $cBlack);
+    }
+    100% {
+        transform: translateX(50%);
+        background: linear-gradient(to right, transparent, $cBlack);
+    }
+}
+
+@keyframes load2 {
+    0% {
+        transform: translateY(25%);
+        background: linear-gradient(to top, transparent, $cBlack);
+
+    }
+    100% {
+        transform: translateY(-25%);
+        background: linear-gradient(to top, transparent, $cBlack);
+
+    }
+}
+
+
+@keyframes load3 {
+    0% {
+        transform: translateX(50%);
+        background: linear-gradient(to left, transparent, $cBlack);
+
+    }
+    100% {
+        transform: translateX(-50%);
+        background: linear-gradient(to left, transparent, $cBlack);
+
+    }
+}
+
+
+@keyframes load4 {
+    0% {
+        transform: translateY(-25%);
+        background: linear-gradient(to bottom, transparent, $cBlack);
+    }
+    100% {
+        transform: translateY(25%);
+        background: linear-gradient(to bottom, transparent, $cBlack);
+
+    }
+}
+
 
 
 /****************************************:
@@ -359,7 +508,7 @@ out_inアニメーション
 .out_in {
     position: relative;
     // color: #fff;
-    padding: 0 10px;
+    // padding: 0 10px;
     transform-origin: letf;
     transform: scaleX(0);
     transition: .5s;
@@ -409,23 +558,6 @@ out_inアニメーション
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -969,11 +1101,17 @@ nav
 
     @include tab {
         &_ham {
+            width: 50px;
 
             &.clicked {
                 right: 4vw;
 
             }
+        }
+
+        &_hamspan {
+            font-size: 1.5rem;
+            left: -40px;
         }
     }
 
@@ -1794,14 +1932,24 @@ skill
         &_wrap {
             width: 100%;
             display: flex;
-            margin: 0 5vw;
+            // margin: 0 5vw;
+            justify-content: center;
+
+            .out_in::before {
+                border-radius: 50%;
+            }
         }
     }
     @include pc {
         &_wrap {
             width: 100%;
             display: flex;
-            margin: 0 5vw;
+            // margin: 0 5vw;
+            justify-content: center;
+
+            .out_in::before {
+                border-radius: 50%;
+            }
         }
     }
 
@@ -1917,8 +2065,8 @@ skill
     @include tab {
         &_card {
             border-radius: 50%;
-            width: 300px;
-            height: 300px;
+            width: 240px;
+            height: 240px;
             margin: 60px auto;
 
             &:before {
@@ -1941,6 +2089,7 @@ skill
     @include pc {
         &_card {
             border-radius: 50%;
+            margin: 50px;
 
             &:before {
                 top: 2px;
@@ -1999,6 +2148,16 @@ skill
 
     }
 
+    @include tab {
+        .skill_imgbox {
+            width: 240px;
+            height: 240px;
+            top: 0;
+            left: 0;
+        }
+    }
+
+
     &_icon {
         font-size: 4rem;
         position: absolute;
@@ -2014,6 +2173,11 @@ skill
 
     }
 
+    @include tab {
+        &_icon {
+            font-size: 2rem;
+        }
+    }
 
 
     &_txtbox {
@@ -2027,12 +2191,24 @@ skill
         margin-top: 40px;
     }
 
+    @include tab {
+        &_txtbox {
+            font-size: 1.1rem;
+        }
+    }
+
     &_txt {
         display: inline-block;
         margin-top: 10px;
         padding: 8px 15px;
         transition: .5s;
         
+    }
+
+    @include tab {
+        &_txt {
+            margin-top: 5px;
+        }
     }
 
     &_border {
@@ -2091,8 +2267,24 @@ skill
 
 }
 
+@include tab {
+    .__penicon {
+        left: 0;
+        top: 50px;
+    }
+}
+
 .__htmlicon,.__deskicon {
     left: -30px;
+}
+
+
+
+@include tab {
+    .__htmlicon,.__deskicon {
+        left: 0;
+        top: 50px;
+    }
 }
 
 .__cssicon,.__tabicon {
@@ -2102,11 +2294,11 @@ skill
 
 @include tab {
     .__cssicon,.__tabicon {
-        left: -110px;
+        left: -60px;
     }
 }
 @include pc {
-    .__cssicon.__tabicon {
+    .__cssicon {
         left: -110px;
     }
 }
@@ -2122,7 +2314,7 @@ skill
     }
 }
 @include pc {
-    .__sassicon,.__mobicon {
+    .__sassicon {
         left: 50px;
     }
 }
@@ -2131,13 +2323,34 @@ skill
     left: -30px;
 }
 
+@include tab {
+    .__jsicon {
+        top: 50px;
+        left: 0;
+    }
+}
+
 .__wpicon {
     left: -30px;
+}
+
+@include tab {
+    .__wpicon {
+        left: 0;
+        top: 50px;
+    }
 }
 
 
 .__painticon {
     left: -30px;
+}
+
+@include tab {
+    .__painticon {
+        left: 0;
+        top: 50px;
+    }
 }
 
 
@@ -2216,13 +2429,13 @@ blog
     }
 
     .section_inner {
-        width: 80%;
+        // width: 80%;
         margin: 0 auto;
     }
 
     @include tab {
         .section_inner {
-            width: 80%;
+            max-width: 650px;
             display: flex;
             flex-direction: row-reverse;
         }
@@ -2230,7 +2443,8 @@ blog
 
     @include pc {
         .section_inner {
-            width: 80%;
+            max-width: 800px;
+            // width: 100%;
             display: flex;
             flex-direction: row-reverse;
         }
@@ -2494,6 +2708,12 @@ create
     position: relative;
     background-color: $cGray;
 
+    @include tab {
+        &_ttlwrap {
+            position: relative;
+        }
+    }
+
     @include pc {
 
         &_ttlwrap {
@@ -2516,9 +2736,12 @@ create
         &_wrap {
             display: flex;
             position: relative;
+            align-items: center;
+            justify-content: center;
 
             &:nth-child(odd) {
                 flex-direction: row-reverse;
+                margin-right: 24px;
             }
         }
 
@@ -2533,13 +2756,13 @@ create
 
     @include tab {
         .section_inner {
-            width: 100%;
+            max-width: 650px;
         }
     }
 
     @include pc {
         .section_inner {
-            width: 100%;
+            max-width: 800px;
         }
     }
 
@@ -2611,7 +2834,7 @@ create
         }
     }
 
-        @include tab {
+    @include tab {
         &_imgbox {
             max-width: 220px;
             min-width: 301px;
@@ -2624,7 +2847,11 @@ create
             max-width: 220px;
             min-width: 301px;
             min-height: 200px;
-            margin-right: 80px;
+            margin-right: 15px;
+
+            // &:nth-child(1){
+            //     margin-right: 80px;
+            // }
 
         }
     }
@@ -2694,6 +2921,20 @@ create
 
     }
 
+    @include tab {
+        .section_ttl {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            font-size: 3.6rem;
+            border-radius: 50%;
+            background-color: $cBlack;
+            padding: 5px 0;
+
+        }
+    }
+
     @include pc {
         .section_ttl {
             position: absolute;
@@ -2724,23 +2965,23 @@ create
 
     }
 
-    &_outtxtbox {
-        margin: 40px auto;
-    }
+    // &_outtxtbox {
+    //     margin: 40px auto;
+    // }
 
-    @include tab {
-        &_outtxtbox {
-            right: 50px;
-            bottom: 20px;
-        }
-    }
+    // @include tab {
+    //     &_outtxtbox {
+    //         right: 50px;
+    //         bottom: 20px;
+    //     }
+    // }
 
-    @include pc {
-        &_outtxtbox {
-            right: 50px;
-            bottom: 60px;
-        }
-    }
+    // @include pc {
+    //     &_outtxtbox {
+    //         right: 50px;
+    //         bottom: 60px;
+    //     }
+    // }
     
     &_outtxt {
         text-shadow: 3px 3px 3px $cBlack;
@@ -2760,15 +3001,17 @@ create
             font-size: 1.2rem;
             line-height: 2em;
             background-color: $cBgColor;
+            width: 100%;
+            max-width: 400px;
         }
 
     }
 
     @include pc {
         &_outtxt {
-            padding: 30px 30px 50px;
-            margin: 80px 40px 20px;
-            font-size: 1.3rem;
+            padding: 20px 20px 30px;
+            // margin: 80px 40px 20px;
+            font-size: 1.2rem;
             background-color: $cBgColor;
         }
 
@@ -2795,7 +3038,7 @@ create
 @include pc {
     .site_wrap {
         position: absolute;
-        bottom: 50px;
+        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
 
@@ -2817,18 +3060,26 @@ contact
     &_inner {
         margin: auto;
         display: block;
-        width: 300px;
+        max-width: 300px;
         padding-bottom: 24.5px;
         
+    }
+
+    @include pc {
+        .section_inner {
+            max-width: 800px;
+        }
     }
 
     @include pc {
         &_inner {
             display: flex;
             flex-wrap: wrap;
-            width: 88%;
+            justify-content: center;
+            max-width: 800px;
             padding-bottom: 0;
             margin-bottom: 72px;
+            width: 100%;
         }
 
         &_formwrap {
@@ -2840,13 +3091,31 @@ contact
         }
     }
 
-    @include pc {
+    @include tab {
         .section_ttlwrap {
             position: relative;
+        }
+
+        .section_ttl {
+            position: absolute;
+                        font-size: 3.6rem;
+
+            padding: 5px 0;
+            border-radius: 50%;
+            background-color: $cGray;
+            color: $cBlack;
+            width: 10px;
+            left: 0;
+
+
         }
     }
 
     @include pc {
+        .section_ttlwrap {
+            position: relative;
+        }
+
         .section_ttl {
             position: absolute;
             // display: block;
@@ -2858,6 +3127,8 @@ contact
             color: $cBlack;
             width: 10px;
             left: 0;
+
+            
 
         }
     }
