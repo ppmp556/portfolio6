@@ -188,7 +188,7 @@ main {
     width: 200px;
     margin: 0 auto;
     background-color: $cWhite;
-    margin: 40px 0;
+    // margin: 40px 0;
 
 
 
@@ -307,6 +307,7 @@ main {
     .site {
         width: 150px;
         line-height: 3em;
+        margin: 0 auto;
     }
 }
 
@@ -351,9 +352,8 @@ loading
         left: 50%;
         transform: translate(-50%, -50%);
 
-        position: relative;
-        width: 200px;
-        height: 350px;
+        width: 180px;
+        height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -361,6 +361,21 @@ loading
         background-color: $cWhite;
 
     }
+
+    @include tab {
+        &_box {
+            width: 200px;
+            height: 300px;
+        }
+    }
+    @include tab {
+        &_box {
+            width: 250px;
+            height: 350px;
+        }
+    }
+
+
 
     &_txt {
         font-size: 3.6rem;
@@ -408,7 +423,7 @@ loading
         left: 0;
         width: 100%;
         height: 10px;
-        animation: load1 .5s linear forwards;
+        animation: load1 1s linear forwards;
         border-radius: 50%;
     }
 
@@ -418,7 +433,7 @@ loading
         right: 0;
         width: 10px;
         height: 100%;
-        animation: load2 .5s linear forwards;
+        animation: load2 1s linear forwards;
         border-radius: 50%;
     }
 
@@ -428,7 +443,7 @@ loading
         left: 0;
         width: 100%;
         height: 10px;
-        animation: load3 .5s linear forwards;
+        animation: load3 1s linear forwards;
         border-radius: 50%;
     }
 
@@ -438,7 +453,7 @@ loading
         left: 0;
         width: 10px;
         height: 100%;
-        animation: load4 .5s linear forwards;
+        animation: load4 1s linear forwards;
         border-radius: 50%;
     }
 }
@@ -584,6 +599,79 @@ kv
        /*  clip-path: polygon(58% 0, 100% 0, 100% 100%, 24% 100%); */
     }
 
+    // &_bgtxtbox {
+    //     position: relative;
+
+    //     .kv_bgspan {
+    //         background-color: $cWhite;
+    //         // color: red;
+    //         display: block;
+
+    //         &:nth-child(1) {
+    //             position: absolute;
+    //             top: 130px;
+    //             right: 100px;
+    //             width: 100px;
+    //             height: 10px;
+    //             border-radius: 50%;
+    //         }
+
+    //         &:nth-child(2) {
+    //                 position: absolute;
+    //                 top: 85px;
+    //                 right: 160px;
+    //                 width: 10px;
+    //                 height: 100px;
+    //                 border-radius: 50%;
+    //         }
+
+    //         &:nth-child(3) {
+    //                 position: absolute;
+    //                 top: 450px;
+    //                 right: 230px;
+    //                 width: 100px;
+    //                 height: 10px;
+    //                 border-radius: 50%;
+    //         }
+
+    //         &:nth-child(4) {
+    //                 position: absolute;
+    //                 top: 400px;
+    //                 right: 290px;
+    //                 width: 10px;
+    //                 height: 100px;
+    //                 border-radius: 50%;
+    //         }
+
+    //     }
+    // }
+
+    // &_bgtxt {
+    //     position: absolute;
+    //     top: 35%;
+    //     right: 20%;
+    //     font-size: 5rem;
+    //     width: 10px;
+    //     border-radius: 50%;
+    //     color: $cWhite;
+    //     font-weight: bold;
+    //     transform: translateY(50%);
+    //     display: block;
+    // }
+
+    &_bgtxt {
+        // position: absolute;
+        // top: 35%;
+        // right: 20%;
+        font-size: 5rem;
+        width: 10px;
+        border-radius: 50%;
+        color: $cWhite;
+        font-weight: bold;
+        // transform: translateY(50%);
+        display: block;
+    }
+
 
 
 
@@ -664,39 +752,39 @@ kv
 
 }
 
-@include pc {
-    .kv {
-        height: 0;
+// @include pc {
+//     .kv {
+//         height: 100vh;
 
 
-        &_img {
-            width: 50%;
-            height: 50vh;
-        }
+//         &_img {
+//             width: 50%;
+//             height: 50vh;
+//         }
 
-        &_top {
-            position: absolute;
-            top: 10%;
-            left: 10%;
-        }
+//         &_top {
+//             position: absolute;
+//             top: 10%;
+//             left: 10%;
+//         }
 
-        &_center {
-            position: absolute;
-            left: 40%;
-            top: 40%;
-            width: 350px;
-            height: 350px;
-        }
+//         &_center {
+//             position: absolute;
+//             left: 40%;
+//             top: 40%;
+//             width: 350px;
+//             height: 350px;
+//         }
 
-        &_bottom {
-            position: absolute;
-            top: 50%;
-            left: 25%;
-            width: 100%;
-            width: 400px;
-        }
-    }
-}
+//         &_bottom {
+//             position: absolute;
+//             top: 50%;
+//             left: 25%;
+//             width: 100%;
+//             width: 400px;
+//         }
+//     }
+// }
 
 
 /****************************************:
@@ -740,10 +828,12 @@ kv
         position: relative;
         // position: absolute;
         top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
         // width: 24em;
         // text-align: center;
-        margin: 0 auto;
-        font-size: 100%;
+        // margin: 0 auto;
+        font-size: 2rem;
         // font-size: 2.5rem;
         white-space: nowrap;
         overflow: hidden;
@@ -755,10 +845,20 @@ kv
 
         text-shadow: 3px 3px 3px $cBlack;
         // font-size: 2.5rem;
-        transform: translateY(-25%);
-        margin: 40px auto;
+        // transform: translateY(-5%);
+        // margin: 40px auto;
 
 
+    }
+
+    @include tab {
+        &_short {
+            font-size: 3rem;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: initial;
+        }
     }
 
     @include pc {
@@ -772,10 +872,12 @@ kv
         position: relative;
         // position: absolute;
         top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
         // width: 24em;
         // text-align: center;
-        margin: 0 auto;
-        font-size: 100%;
+        // margin: 0 auto;
+        font-size: 2rem;
         // font-size: 2.5rem;
         white-space: nowrap;
         overflow: hidden;
@@ -787,15 +889,31 @@ kv
 
         text-shadow: 3px 3px 3px $cBlack;
         // font-size: 2.5rem;
-        transform: translateY(-25%);
+        // transform: translateY(-25%);
 
 
         // margin-left: 50px;
     }
 
+    @include tab {
+        &_long {
+            text-align: center;
+            font-size: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: initial;
+        }
+    }
+
     @include pc {
         &_long {
-            font-size: 4rem;
+            text-align: center;
+            font-size: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: initial;
+
+
         }
     }
 
@@ -808,9 +926,15 @@ kv
         /* blink:点滅、infinite:無限に繰り返す */
     }
 
+    @include tab {
+        &_type {
+            font-size: 3rem;
+        }
+    }
+
     @include pc {
         &_type {
-            font-size: 4rem;
+            font-size: 5rem;
         }
     }
 
@@ -1045,7 +1169,8 @@ nav
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
+
 
     }
 
@@ -1181,6 +1306,7 @@ nav
         // margin-right: 30px;
 
         position: relative;
+        margin: 50px;
 
     }
 
@@ -1188,11 +1314,13 @@ nav
     @include tab {
         &_item {
             font-size: 2rem;
+            margin: 40px;
         }
     }
 
     @include pc {
         &_item {
+            margin: initial;
             margin-top: 25px;
             letter-spacing: .2em;
             transition: .3s;
@@ -1734,6 +1862,13 @@ policy
 
     position: relative;
 
+
+    @include tab {
+        .section_inner {
+            margin: 0 auto;
+        }
+    }
+
     @include pc {
         .section_inner {
             margin: 120px auto;
@@ -1759,13 +1894,13 @@ policy
 
     }
 
-    @include tab {
-        .section_ttl {
-            width: 50%;
+    // @include tab {
+    //     .section_ttl {
+    //         height: 0;
 
-        }
+    //     }
 
-    }
+    // }
 
     @include pc {
         .section_ttl {
@@ -1823,7 +1958,7 @@ policy
 
     @include tab {
         &_txt {
-            width: 50%;
+            width: 100%;
         }
     }
 
@@ -1905,6 +2040,7 @@ skill
             display: flex;
             // flex-wrap: wrap;
             padding: 0 40px;
+            justify-content: center;
         }
     }
 
@@ -1914,8 +2050,9 @@ skill
             margin: 0 auto;
             display: flex;
             // flex-wrap: wrap;
-                        max-width: 800px;
+            max-width: 800px;
             width: 100%;
+            justify-content: center;
 
         }
     }
@@ -2067,7 +2204,7 @@ skill
             border-radius: 50%;
             width: 240px;
             height: 240px;
-            margin: 60px auto;
+            margin: 40px;
 
             &:before {
                 top: 2px;
@@ -2438,6 +2575,7 @@ blog
             max-width: 650px;
             display: flex;
             flex-direction: row-reverse;
+            justify-content: center;
         }
     }
 
@@ -2447,6 +2585,7 @@ blog
             // width: 100%;
             display: flex;
             flex-direction: row-reverse;
+            justify-content: center;
         }
     }
 
@@ -2729,6 +2868,7 @@ create
         &_wrap {
             display: flex;
             position: relative;
+            justify-content: center;
         }
 
     }
@@ -2756,6 +2896,7 @@ create
 
     @include tab {
         .section_inner {
+            width: 100%;
             max-width: 650px;
         }
     }
@@ -2997,7 +3138,7 @@ create
 
     @include tab {
         &_outtxt {
-            margin: 5px 15px;
+            margin: 40px 30px;
             font-size: 1.2rem;
             line-height: 2em;
             background-color: $cBgColor;
@@ -3031,8 +3172,8 @@ create
 @include tab {
     .site_wrap {
         position: absolute;
-        bottom: 40px;
-        right: 40px;
+        bottom: 60px;
+        right: 50px;
     }
 }
 @include pc {
