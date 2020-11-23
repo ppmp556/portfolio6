@@ -63,6 +63,14 @@ body {
     font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
     color: $cBlack;
 
+    &.lock{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
 }
 
 
@@ -188,7 +196,7 @@ main {
     width: 200px;
     margin: 0 auto;
     background-color: $cWhite;
-    // margin: 40px 0;
+    margin: 40px auto;
 
 
 
@@ -230,6 +238,13 @@ main {
 
 
         }
+
+
+    }
+
+    &.contact_link:hover {
+            text-shadow: 3px 3px 3px $cBlack;
+            transition: .4s;
 
     }
 
@@ -298,7 +313,7 @@ main {
 
 @include tab {
     .site {
-        width: 150px;
+        width: 100px;
         line-height: 3em;
         margin: 0 auto;
     }
@@ -1060,6 +1075,10 @@ header
         z-index: 1;
 
     }
+
+    &.fix {
+        position: fixed;
+    }
 }
 
 
@@ -1067,9 +1086,9 @@ header
     .header {
         line-height: 80px;
 
-        // &.fix {
-        //     position: fixed;
-        // }
+        &.fix {
+            position: fixed;
+        }
 
     }
 }
@@ -1193,6 +1212,7 @@ nav
         width: 25px;
         height: 25px;
         z-index: 100;
+        // transition: .4s;
 
 
         &.clicked {
@@ -1615,12 +1635,19 @@ about
 
     &_sharewrap {
         text-align: center;
+        display: flex;
     }
 
     &_sharebox {
         margin: 50px auto;
         display: block;
         text-align: center;
+    }
+
+    @include tab {
+        &_sharebox {
+            margin: 25px auto;
+        }
     }
 
    
@@ -1657,7 +1684,7 @@ about
             transition: transform .5s;
         }
 
-        &:hover .fa-twitter {
+        &:hover .fa-twitter,&:hover .fa-github {
             // color: ;
             transition: .5s;
             transform: rotateZ(360deg);
@@ -1665,11 +1692,11 @@ about
 
     }
 
-    @include tab {
-        &_share_icon {
-            width: 25%;
-        }
-    }
+    // @include tab {
+    //     &_share_icon {
+    //         width: %;
+    //     }
+    // }
 
 
     &_snake {
@@ -1780,17 +1807,17 @@ about
 
         &:hover {
             color: $cBlack;
-            letter-spacing: .1em;
+            // letter-spacing: .1em;
             transition: .5s;
             text-shadow: 3px 3px 3px $cBlack;
         }
     }
 
-    @include tab {
-        &_linkbox {
-            width: 50%;
-        }
-    }
+    // @include tab {
+    //     &_linkbox {
+    //         width: 50%;
+    //     }
+    // }
 
 
     &_link {
@@ -1850,6 +1877,13 @@ about
 
 }
 
+.fa-github {
+    font-size: 2rem;
+    transition: .4s;
+    transform: rotateZ(0);
+
+}
+
 /****************************************:
 
 policy
@@ -1863,17 +1897,6 @@ policy
     position: relative;
 
 
-    @include tab {
-        .section_inner {
-            margin: 0 auto;
-        }
-    }
-
-    @include pc {
-        .section_inner {
-            margin: 120px auto;
-        }
-    }
 
     @include pc {
         &_ttlwrap {
@@ -1891,8 +1914,23 @@ policy
         // display: block;
         margin-bottom: 50px;
         width: 100%;
+        font-size: 2.5rem;
 
     }
+
+    @include tab {
+        .section_inner {
+            margin: 0 auto;
+        }
+    }
+
+    @include pc {
+        .section_inner {
+            margin: 200px auto;
+            max-width: 800px;
+        }
+    }
+
 
     // @include tab {
     //     .section_ttl {
@@ -1950,31 +1988,52 @@ policy
         padding: 20px;
         display: block;
         width: 100%;
-        margin: 0 auto;
+        margin: 40px auto;
         text-shadow: 3px 3px 3px $cBlack;
+
+
+
 
 
     }
 
+  
+
     @include tab {
         &_txt {
             width: 100%;
+            margin: 40px 0;
         }
     }
 
     @include pc {
         &_txt {
             text-align: left;
-            padding: 20px 0 70px 20px;
+            // padding: 20px 0 70px 20px;
+            padding: 50px;
             font-size: 2rem;
-            width: 50%;
+            width: 60%;
+            display: inline-block;
+            // margin: 50px auto;
+            // position: relative;
+
+            // &.policy_left {
+            //     // margin-left: auto;
+            //     // display: inline-block;
+            // }
+
+            &.policy_right {
+                margin-left: 230px;
+                // display: inline-block;
+            }
         }
+
     }
 }
 
 @include pc {
     .policy {
-        padding: 200px 0;
+        padding: 80px 0;
     }
 }
 
@@ -3012,6 +3071,10 @@ create
         transition: opacity .4s transform .5s;
         filter: grayscale(70%);
 
+        &.img_sz {
+            width: 150%;
+        }
+
     }
 
     &_txtbox {
@@ -3154,6 +3217,7 @@ create
             // margin: 80px 40px 20px;
             font-size: 1.2rem;
             background-color: $cBgColor;
+            margin: 35px;
         }
 
     }

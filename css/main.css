@@ -17,6 +17,14 @@ body {
   color: #1c1c1c;
 }
 
+body.lock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -129,6 +137,7 @@ main {
   width: 200px;
   margin: 0 auto;
   background-color: #e1e1e1;
+  margin: 40px auto;
 }
 
 .site_link {
@@ -169,6 +178,12 @@ main {
 }
 
 .site_link:hover {
+  text-shadow: 3px 3px 3px #1c1c1c;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.site.contact_link:hover {
   text-shadow: 3px 3px 3px #1c1c1c;
   -webkit-transition: .4s;
   transition: .4s;
@@ -239,7 +254,7 @@ main {
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .site {
-    width: 150px;
+    width: 100px;
     line-height: 3em;
     margin: 0 auto;
   }
@@ -951,9 +966,16 @@ header
   z-index: 1;
 }
 
+.header.fix {
+  position: fixed;
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .header {
     line-height: 80px;
+  }
+  .header.fix {
+    position: fixed;
   }
 }
 
@@ -1456,12 +1478,22 @@ about
 
 .about_sharewrap {
   text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .about_sharebox {
   margin: 50px auto;
   display: block;
   text-align: center;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .about_sharebox {
+    margin: 25px auto;
+  }
 }
 
 .about_share_icon {
@@ -1518,17 +1550,11 @@ about
   transition: transform .5s, -webkit-transform .5s;
 }
 
-.about_share_icon:hover .fa-twitter {
+.about_share_icon:hover .fa-twitter, .about_share_icon:hover .fa-github {
   -webkit-transition: .5s;
   transition: .5s;
   -webkit-transform: rotateZ(360deg);
           transform: rotateZ(360deg);
-}
-
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .about_share_icon {
-    width: 25%;
-  }
 }
 
 .about_snake {
@@ -1645,16 +1671,9 @@ about
 
 .about_linkbox:hover {
   color: #1c1c1c;
-  letter-spacing: .1em;
   -webkit-transition: .5s;
   transition: .5s;
   text-shadow: 3px 3px 3px #1c1c1c;
-}
-
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .about_linkbox {
-    width: 50%;
-  }
 }
 
 .about_link {
@@ -1681,6 +1700,14 @@ about
   color: lightskyblue;
 }
 
+.fa-github {
+  font-size: 2rem;
+  -webkit-transition: .4s;
+  transition: .4s;
+  -webkit-transform: rotateZ(0);
+          transform: rotateZ(0);
+}
+
 /****************************************:
 
 policy
@@ -1705,18 +1732,6 @@ policy
     } */
 }
 
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .policy .section_inner {
-    margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .policy .section_inner {
-    margin: 120px auto;
-  }
-}
-
 @media screen and (min-width: 1024px) {
   .policy_ttlwrap {
     position: relative;
@@ -1728,6 +1743,20 @@ policy
   background-color: #e1e1e1;
   margin-bottom: 50px;
   width: 100%;
+  font-size: 2.5rem;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .policy .section_inner {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .policy .section_inner {
+    margin: 200px auto;
+    max-width: 800px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1758,28 +1787,33 @@ policy
   padding: 20px;
   display: block;
   width: 100%;
-  margin: 0 auto;
+  margin: 40px auto;
   text-shadow: 3px 3px 3px #1c1c1c;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .policy_txt {
     width: 100%;
+    margin: 40px 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .policy_txt {
     text-align: left;
-    padding: 20px 0 70px 20px;
+    padding: 50px;
     font-size: 2rem;
-    width: 50%;
+    width: 60%;
+    display: inline-block;
+  }
+  .policy_txt.policy_right {
+    margin-left: 230px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .policy {
-    padding: 200px 0;
+    padding: 80px 0;
   }
 }
 
@@ -2850,6 +2884,10 @@ create
           filter: grayscale(70%);
 }
 
+.create_img.img_sz {
+  width: 150%;
+}
+
 .create_txtbox {
   position: absolute;
   bottom: 0;
@@ -2966,6 +3004,7 @@ create
     padding: 20px 20px 30px;
     font-size: 1.2rem;
     background-color: #eaebed;
+    margin: 35px;
   }
 }
 

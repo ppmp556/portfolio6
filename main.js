@@ -1,36 +1,91 @@
 $(() => {
 
+
+    // function lodingStop() {
+    //     $('#js-loading_wrap').addClass('loading_none');
+    // };
+
+    // //画像など読み込まれたら発火
+    // $(window).on('load',function(){
+    //     lodingStop();
+    // });
+    // function lodingStop() {
+    //     $('#js-loading_wrap').addClass('loading_none');
+    // };
+
+
+    $("container").css({ opacity: '0' });
+    $('body').addClass('lock');
+
+    setTimeout(function () {
+
+        $('#js-loading_wrap').addClass('loading_none');
+
+        $("body").stop().animate(
+            {
+                opacity: '1',
+            }, 1000);
+    }, 2000)
+
+    setTimeout(function () {
+        
+        $('body').removeClass('lock')
+    },3000)
+    
+
+
+
      // 1画面分以上スクロールしたら、ヘッダーを固定する
 
-  let headerFix = $("header");
+    let headerFix = $("header");
 
-  $(window).scroll(function (){
-    if ($(window).scrollTop() > $(window).height()) {
-      headerFix.addClass("fix");
-    } else {
-      headerFix.removeClass("fix");
+    $(window).scroll(function (){
+        if ($(window).scrollTop() > $(window).height()) {
+            headerFix.addClass("fix");
+        } else {
+        headerFix.removeClass("fix");
 
-    }
-  });
+        }
+    });
+
+
+    const navTg = $('#nav_toggle');
+    const navLin = $('.nav_line');
+    const header = $('.header');
+    const headerIn = $('.header_inner');
+    const nav = $('.nav');
+    const navHam = $('.nav_ham');
+    const navList = $('.nav_list');
 
 
     // ハンバーガーメニュー
-    $('#nav_toggle').click(() => {
-        $('.nav_line').toggleClass('clicked');
-        $('.header').toggleClass('clicked');
-        $('.header_inner').toggleClass('clicked');
-        $('.nav').toggleClass('clicked');
-        $('.nav_ham').toggleClass('clicked');
-        $('.nav_list').toggleClass('clicked');
+    navTg.click(() => {
+        navLin.toggleClass('clicked');
+        header.toggleClass('clicked');
+        headerIn.toggleClass('clicked');
+        nav.toggleClass('clicked');
+        navHam.toggleClass('clicked');
+        navList.toggleClass('clicked');
+
+        return false;
+
+
     });
 
-    $('body').click(function () {
-        if(navList.hasClass('clicked')){
-            // console.log("OK");
+    // ハンバーガーメニュー以外の場所クリックでメニュー閉じる
+    $('html, body').click(() => {
+        if (navList.hasClass('clicked')) {
+            // console.log("ok");
+            navLin.removeClass('clicked');
+            header.removeClass('clicked');
+            headerIn.removeClass('clicked');
+            nav.removeClass('clicked');
+            navHam.removeClass('clicked');
             navList.removeClass('clicked');
-            ham.removeClass('clicked');
         }
+
     });
+
 
     // タイピングアニメーション
 
@@ -129,14 +184,12 @@ $(() => {
             //スムーススクロール
             $("html, body").animate({ scrollTop: position }, speed, "swing");
 
-        $('.nav_line').removeClass('clicked');
-        $('.header').removeClass('clicked');
-        $('.header_inner').removeClass('clicked');
-        $('.nav').removeClass('clicked');
-        $('.nav_ham').removeClass('clicked');
-        $('.nav_list').removeClass('clicked');
- 
-
+            navLin.removeClass('clicked');
+            header.removeClass('clicked');
+            headerIn.removeClass('clicked');
+            nav.removeClass('clicked');
+            navHam.removeClass('clicked');
+            navList.removeClass('clicked');
 
             return false;
         });
