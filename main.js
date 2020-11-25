@@ -1,41 +1,30 @@
 $(() => {
 
 
-    // function lodingStop() {
-    //     $('#js-loading_wrap').addClass('loading_none');
-    // };
-
-    // //画像など読み込まれたら発火
-    // $(window).on('load',function(){
-    //     lodingStop();
-    // });
-    // function lodingStop() {
-    //     $('#js-loading_wrap').addClass('loading_none');
-    // };
 
 
-    $("container").css({ opacity: '0' });
-    $('body').addClass('lock');
+        $("container").css({ opacity: '0' });
+        $('body').addClass('lock');
 
-    setTimeout(function () {
+        setTimeout(function () {
 
-        $('#js-loading_wrap').addClass('loading_none');
+            $('#js-loading_wrap').addClass('loading_none');
 
-        $("body").stop().animate(
-            {
-                opacity: '1',
-            }, 1000);
-    }, 2000)
+            $("body").stop().animate(
+                {
+                    opacity: '1',
 
-    setTimeout(function () {
-        
-        $('body').removeClass('lock')
-    },3000)
-    
+                }, 1000);
+        }, 2000);
+
+        setTimeout(function () {
+
+            $('body').removeClass('lock')
+        }, 3000);
 
 
 
-     // 1画面分以上スクロールしたら、ヘッダーを固定する
+    // 1画面分以上スクロールしたら、ヘッダーを固定する
 
     let headerFix = $("header");
 
@@ -43,10 +32,12 @@ $(() => {
         if ($(window).scrollTop() > $(window).height()) {
             headerFix.addClass("fix");
         } else {
+
         headerFix.removeClass("fix");
 
         }
     });
+
 
 
     const navTg = $('#nav_toggle');

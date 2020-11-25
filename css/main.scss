@@ -650,40 +650,42 @@ kv
                 background-color: $cBlack;
                 // color: red;
                 display: block;
+                box-shadow: 2px 2px 8px $cBlack;
+
 
                 &:nth-child(1) {
                     position: absolute;
                     bottom: -20px;
-                    left: -90px;
-                    width: 100px;
+                    left: -57px;
+                    width: 50px;
                     height: 5px;
                     border-radius: 50%;
                 }
 
                 &:nth-child(2) {
                         position: absolute;
-                        bottom: -80px;
-                        right: 25px;
+                        bottom: -55px;
+                        right: 15px;
                         width: 5px;
-                        height: 100px;
+                        height: 50px;
                         border-radius: 50%;
                 }
 
                 &:nth-child(3) {
                         position: absolute;
                         top: -30px;
-                        right: -125px;
-                        width: 100px;
+                        right: -80px;
+                        width: 50px;
                         height: 5px;
                         border-radius: 50%;
                 }
 
                 &:nth-child(4) {
                         position: absolute;
-                        top: -90px;
-                        right: -65px;
+                        top: -66px;
+                        right: -45px;
                         width: 5px;
-                        height: 100px;
+                        height: 50px;
                         border-radius: 50%;
                 }
 
@@ -695,46 +697,49 @@ kv
         &_bgtxtbox {
             display: block;
             position: relative;
-            margin-top: 40px;
+            // margin-top: 40px;
 
             .kv_bgspan {
                 background-color: $cBlack;
                 // color: red;
                 display: block;
+                box-shadow: 2px 2px 8px $cBlack;
+
 
                 &:nth-child(1) {
                     position: absolute;
                     bottom: -20px;
-                    left: -90px;
-                    width: 100px;
+                    left: -50px;
+                    width: 50px;
                     height: 5px;
                     border-radius: 50%;
+
                 }
 
                 &:nth-child(2) {
                         position: absolute;
-                        bottom: -80px;
-                        right: 25px;
+                        bottom: -52px;
+                        right: 13px;
                         width: 5px;
-                        height: 100px;
+                        height: 50px;
                         border-radius: 50%;
                 }
 
                 &:nth-child(3) {
                         position: absolute;
                         top: -30px;
-                        right: -125px;
-                        width: 100px;
+                        right: -80px;
+                        width: 50px;
                         height: 5px;
                         border-radius: 50%;
                 }
 
                 &:nth-child(4) {
                         position: absolute;
-                        top: -90px;
-                        right: -65px;
+                        top: -65px;
+                        right: -48px;
                         width: 5px;
-                        height: 100px;
+                        height: 50px;
                         border-radius: 50%;
                 }
 
@@ -752,7 +757,7 @@ kv
 
         &_bgtxt {
             position: absolute;
-            top: 35%;
+            top: 50%;
             right: 20%;
             font-size: 4rem;
             width: 0;
@@ -761,6 +766,39 @@ kv
             font-weight: bold;
             transform: translateY(50%);
             display: block;
+            text-shadow: 2px 2px 4px $cBlack;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: orange;
+                top: -43px;
+                right: -87px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(135deg);
+                z-index: 1;
+                text-shadow: 2px 2px 4px $cBlack;
+
+
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: red;
+                bottom: -33px;
+                left: -59px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(-45deg);
+                z-index: 0;
+                text-shadow: 2px 2px 4px $cBlack;
+
+
+            }
+
         }
     }
 
@@ -776,6 +814,37 @@ kv
             color: $cBlack;
             font-weight: bold;
             transform: translateY(50%);
+            text-shadow: 2px 2px 4px $cBlack;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: orange;
+                top: -43px;
+                right: -87px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(135deg);
+                z-index: 1;
+                box-shadow: 2px 2px 8px $cBlack;
+                
+                
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: red;
+                bottom: -33px;
+                left: -59px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(-45deg);
+                z-index: 0;
+                box-shadow: 2px 2px 8px $cBlack;
+                
+            }
 
         }
     }
@@ -859,7 +928,7 @@ kv
         object-fit: cover;
         transition: 4s linear transform .4s;
 
-        filter:drop-shadow(5px 5px 5px black) blur(1px) grayscale(25%);
+        filter:drop-shadow(3px 3px 3px $cBlack) blur(1px) grayscale(20%);
 
         &.zoom {
             transform: scale(1.05);
@@ -941,8 +1010,8 @@ kv
     // display: inline-block;
     color: $cScolor;
     text-align: center;
-            text-shadow: 3px 3px 3px $cBlack;
-        animation-delay: 4s;
+    text-shadow: 3px 3px 3px $cBlack;
+    animation-delay: 4s;
 
 
 
@@ -1169,6 +1238,8 @@ header
     &.clicked {
 
         background-color: transparent;
+        padding: 0;
+        overflow: visible;
 
         .header_ttl {
             color: $cWhite;
@@ -1178,9 +1249,18 @@ header
   
     }
 
+    @include tab {
+        &.clicked {
+
+            .header_ttl {
+                margin-left: 28%;
+            }
+        }
+    }
+
     &_inner.clicked {
-        width: 85%;
-        padding: 0 20px;
+        // width: 85%;
+        // padding: 0 20px;
         margin-left: 35%;
         // background-color: red;
         // background-color:$cBlack;
@@ -1204,7 +1284,12 @@ header
 
     &.fix {
         position: fixed;
+        top: 0;
+        overflow: hidden;
     }
+
+
+ 
 }
 
 
@@ -1214,6 +1299,8 @@ header
 
         &.fix {
             position: fixed;
+            top: 0;
+            overflow: hidden;
         }
 
     }
@@ -1299,6 +1386,15 @@ nav
 
 
     }
+
+    @include tab {
+        &_list {
+
+            &.clicked{
+                width: 55vw;
+            }
+        }
+    }
     
 
     @include pc {
@@ -1315,6 +1411,7 @@ nav
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
 
 
     }
@@ -1342,7 +1439,7 @@ nav
 
 
         &.clicked {
-            right: 15vw;
+            right: 6vw;
         }
 
         &:hover .tg1 {
@@ -1375,7 +1472,7 @@ nav
             width: 50px;
 
             &.clicked {
-                right: 4vw;
+                right: 10vw;
 
             }
         }
@@ -1452,7 +1549,7 @@ nav
         // margin-right: 30px;
 
         position: relative;
-        margin: 50px;
+        margin: 25px;
 
     }
 
@@ -1460,7 +1557,6 @@ nav
     @include tab {
         &_item {
             font-size: 2rem;
-            margin: 40px;
         }
     }
 
@@ -1570,7 +1666,7 @@ about
 .about {
 
     padding: 80px 0;
-    background-color: $cGray;
+    background-color: $cScolor;
 
     &_ttlwrap {
         position: relative;
@@ -1612,7 +1708,7 @@ about
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
-                        padding: 5px;
+            padding: 5px;
             border-radius: 50%;
             background-color: $cBlack;
 
@@ -1897,7 +1993,7 @@ about
 
     &_txt {
         display: block;
-        color: $cWhite;
+        color: $cBlack;
         text-shadow: 3px 3px 3px $cBlack;
         padding: 10px;
         font-size: 1.6rem;
@@ -2028,8 +2124,6 @@ policy
         }
     }
 
-
-
     @include pc {
         &_ttlwrap {
             position: relative;
@@ -2060,7 +2154,7 @@ policy
             transform: translate(-50%,-50%);
             white-space: nowrap;
             margin: 0;
-            font-size: 3;
+            font-size: 3.6rem;
             background-color: initial;
             color: $cWhite;
             padding: 0;
@@ -2082,16 +2176,7 @@ policy
 
     @include tab {
         .section_inner {
-            margin: 0 auto;
-
-            // &::before {
-            //     background: red;
-            //     width: 50%;
-            //     height: 80%;
-            //     position: absolute;
-            //     content: '';
-            //     display: block;
-            // }
+            margin: 80px auto;
 
         }
     }
@@ -2100,27 +2185,10 @@ policy
         .section_inner {
             margin: 40px auto;
             max-width: 800px;
-            // position: relative;
-
-            // &::before {
-            //     background: red;
-            //     width: 100px;
-            //     height: 200px;
-            //     position: absolute;
-            //     content: '';
-            //     display: block;
-            // }
         }
     }
 
 
-    // @include tab {
-    //     .section_ttl {
-    //         height: 0;
-
-    //     }
-
-    // }
 
     @include pc {
         .section_ttl {
@@ -2144,25 +2212,9 @@ policy
             }
 
 
-
-
-
         }
     }
 
-    /* &::before {
-        position: absolute;
-        display: block;
-        content: "Policy";
-        font-size: 5rem;
-        left: -55px;
-        top: 188px;
-        color: $cBlack;
-        opacity: .3;
-        text-shadow: 3px 3px 3px $cBlack;
-        transform: rotate(-90deg);
-
-    } */
 
     &_txt {
         text-align: center;
@@ -2173,35 +2225,43 @@ policy
         margin: 40px auto;
         text-shadow: 3px 3px 3px $cBlack;
 
-
-
-
-
     }
 
-  
-
     @include tab {
+        &_txtwrap_left {
+            margin: 20px 0;
+            position: relative;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to left, $cWhite 0%, $cWhite 50%, $cBlack 50%, $cBlack 100%);
+
+        }
+
         &_txt {
+            background-color: initial;
+            text-shadow: initial;
+        }
+
+        &_left {
+            width: initial;
             position: absolute;
             top: 50%;
             left: 50%;
-            // transform: translate(-50%,-50%);
-            width: 100%;
-            margin: 40px 0;
-
-            width: 100%;
-            height: 50px;
-            background: linear-gradient(to right, $cBlack 0%, $cBlack 50%, $cWhite 50%, $cWhite 100%);
+            transform: translate(-50%,-50%);
+            white-space: nowrap;
+            margin: 0;
+            font-size: 1.6rem;
+            // background-color: initial;
+            color: $cBlack;
+            padding: 0;
             text-decoration: underline;
 
             &:after {
-                content: attr(data-name);
+                content: attr(data-left);
                 overflow: hidden;
                 position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%,-50%);
+                left: 0;
+                top: 0;
                 width: 50%;
                 color: $cWhite;
                 text-decoration: underline;
@@ -2209,7 +2269,52 @@ policy
             }
 
         }
+
+        &_txtwrap_right {
+            margin: 20px 0;
+            position: relative;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to right, $cWhite 0%, $cWhite 50%, $cBlack 50%, $cBlack 100%);
+
+        }
+
+        &_right {
+            width: initial;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            white-space: nowrap;
+            margin: 0;
+            font-size: 1.6rem;
+            color: $cWhite;
+            padding: 0;
+            text-decoration: underline;
+
+            &:after {
+                content: attr(data-right);
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 50%;
+                color: $cBlack;
+                text-decoration: underline;
+
+            }
+
+        }
+
+
+
+
+
     }
+
+
+
+
 
     @include pc {
         &_txt {
@@ -2233,6 +2338,12 @@ policy
             }
         }
 
+    }
+}
+
+@include tab {
+    .policy {
+        padding: 80px 0;
     }
 }
 
@@ -2341,6 +2452,7 @@ skill
             }
         }
     }
+
     @include pc {
         &_wrap {
             width: 100%;
@@ -2809,6 +2921,7 @@ blog
 .blog {
     padding: 50px 0;
     margin: 0 auto;
+    background-color: $cScolor;
 
     position: relative;
     transform-style: preserve-3d;
@@ -3476,10 +3589,8 @@ contact
 .contact {
     padding: 88px 0 64px;
     position: relative;
+    background-color: $cScolor;
 
-    &.site_backcontent {
-        background: url(../images/20201123_084501678.jpg) no-repeat;
-    }
 
 
     &_inner {
@@ -3632,6 +3743,7 @@ contact
         position: relative;
         width: 77%;
         // margin-left: 24px;
+        background-color: $cScolor;
 
   
 
@@ -3645,6 +3757,7 @@ contact
         height: 16rem;
         display: inline-block;
         border: 1px solid $cBlack;
+        background-color: $cScolor;
     }
     
 }
