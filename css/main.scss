@@ -9,7 +9,7 @@
 
 $cWhite: #e1e1e1;
 $cBlack: #1c1c1c;
-$cGray: #898989;
+$cBgGreen: #b7c8bd;
 $cBgColor: #eaebed;
 $cScolor: #E7F5E0;
 $cLgreen:#bcf54b;
@@ -42,7 +42,12 @@ $widthSp: 480px;
     }
 }
 
+@mixin SP {
+        @media screen and (max-width: $width) and (max-width: $widthPc) {
+        @content;
+    }
 
+}
 
 
 
@@ -59,7 +64,6 @@ body {
     font-size: 16px;
     width: 100%;
     margin: 0 auto;
-    // font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
     color: $cBlack;
 
@@ -82,13 +86,6 @@ body {
 }
 
 
-// .overall {
-//     font-family: "Yu Gothic", YuGothic, "Hiragino Kaku Gothic Pro", "YuGothic",
-//         "Meiryo", verdana, "Osaka", "MS PGothic", Sans-Serif, "Yu Mincho",
-//         YuMincho, "MS P Mincho", serif;
-
-//     background-color: $cBgColor;
-// }
 
 .container {
     width: 100%;
@@ -108,7 +105,6 @@ body {
 
 .inner {
     margin: 0 auto;
-    // padding: 0 15px;
 }
 
 
@@ -119,7 +115,7 @@ body {
     padding: 0 15px;
 
     margin: 0 auto;
-    
+
 }
 
 @include tab {
@@ -150,19 +146,6 @@ body {
     align-items: center;
 
 
-    // &::before,&::after {
-    //     content: "";
-    //     width: 30px;
-    //     height: 1px;
-    //     background-color: $cBlack;
-    // }
-
-    // &::before {
-    //     margin-right: 10px;
-    // }
-    // &::before {
-    //     margin-left: -10px;
-    // }
 }
 
 @include tab {
@@ -197,7 +180,7 @@ main {
     text-align: center;
     width: 200px;
     margin: 0 auto;
-    background-color: $cWhite;
+    background-color: $cBgGreen;
     margin: 40px auto;
 
 
@@ -291,6 +274,8 @@ main {
         }
     }
 
+    //ボタンホバー時の動き 四隅
+
     &:hover .site_btnspan:nth-child(1) {
         width: 100%;
         transform: translateX(100%);
@@ -330,17 +315,47 @@ main {
 
 
 
+// 背景固定化
+
 .site_backcontent {
     width: 100%;
     height: 100%;
     overflow: auto;
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;
-    background: url(../images/作業風景.jpg) no-repeat;
+    background: url(../images/紅葉.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    // opacity: .5;
 
+}
+
+@include tab {
+    .site_backcontent {
+        background: url(../images/作業風景.jpg) no-repeat;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        background-size: cover;
+        background-attachment: fixed;
+
+
+    }
+}
+@include pc {
+    .site_backcontent {
+        background: url(../images/作業風景.jpg) no-repeat;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        background-size: cover;
+        background-attachment: fixed;
+
+
+    }
 }
 
 
@@ -373,7 +388,6 @@ loading
     bottom: 0;
     left: 0;
     margin: auto;
-    // z-index: 110;
 
     &_none {
         animation: loading_end 7s forwards;
@@ -442,12 +456,7 @@ loading
 
 
 
-
-
-
-
 .loading_border {
-    // transition: 10s;
     opacity: 1;
 
 
@@ -492,6 +501,8 @@ loading
     }
 }
 
+
+// opの四隅の線アニメーション
 @keyframes load1 {
     0% {
         transform: translateX(-50%);
@@ -556,8 +567,6 @@ out_inアニメーション
 
 .out_in {
     position: relative;
-    // color: #fff;
-    // padding: 0 10px;
     transform-origin: letf;
     transform: scaleX(0);
     transition: .5s;
@@ -575,13 +584,7 @@ out_inアニメーション
 
     }
 
-  /*   &:nth-child(2) {
-        letter-spacing: 2px;
-        display: inline-block;
-        margin-top: 2px;
-
-    } */
-
+    // 1つめの要素の出現
     &:before {
         content: "";
         position: absolute;
@@ -597,7 +600,7 @@ out_inアニメーション
         z-index: 5;
 
     }
-
+    // 2つめの要素の出現
     &:nth-child(2):before {
         background: $cBgColor;
 
@@ -605,397 +608,7 @@ out_inアニメーション
     }
 
 
-
-
 }
-
-
-
-
-/****************************************:
-
-kv
-
-*****************************************:*/
-
-.kv {
-    position: relative;
-    // background-color: red;
-    /* background: linear-gradient(rgba(231, 251, 210, 0.762), rgba(202, 240, 240, 0.5)); */
-    
-    &_container {
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        overflow: hidden;
-        
-        background-color: $cScolor;
-       /*  clip-path: polygon(58% 0, 100% 0, 100% 100%, 24% 100%); */
-    }
-
-    &_bgtxtbox {
-        display: none;
-    }
-
-    @include tab {
-
-        &_bgtxtbox {
-            display: block;
-            position: relative;
-            margin-top: 40px;
-
-            .kv_bgspan {
-                background-color: $cBlack;
-                // color: red;
-                display: block;
-                box-shadow: 2px 2px 8px $cBlack;
-
-
-                &:nth-child(1) {
-                    position: absolute;
-                    bottom: -20px;
-                    left: -57px;
-                    width: 50px;
-                    height: 5px;
-                    border-radius: 50%;
-                }
-
-                &:nth-child(2) {
-                        position: absolute;
-                        bottom: -55px;
-                        right: 15px;
-                        width: 5px;
-                        height: 50px;
-                        border-radius: 50%;
-                }
-
-                &:nth-child(3) {
-                        position: absolute;
-                        top: -30px;
-                        right: -80px;
-                        width: 50px;
-                        height: 5px;
-                        border-radius: 50%;
-                }
-
-                &:nth-child(4) {
-                        position: absolute;
-                        top: -66px;
-                        right: -45px;
-                        width: 5px;
-                        height: 50px;
-                        border-radius: 50%;
-                }
-
-            }
-        }
-    }
-
-    @include pc {
-        &_bgtxtbox {
-            display: block;
-            position: relative;
-            // margin-top: 40px;
-
-            .kv_bgspan {
-                background-color: $cBlack;
-                // color: red;
-                display: block;
-                box-shadow: 2px 2px 8px $cBlack;
-
-
-                &:nth-child(1) {
-                    position: absolute;
-                    bottom: -20px;
-                    left: -50px;
-                    width: 50px;
-                    height: 5px;
-                    border-radius: 50%;
-
-                }
-
-                &:nth-child(2) {
-                        position: absolute;
-                        bottom: -52px;
-                        right: 13px;
-                        width: 5px;
-                        height: 50px;
-                        border-radius: 50%;
-                }
-
-                &:nth-child(3) {
-                        position: absolute;
-                        top: -30px;
-                        right: -80px;
-                        width: 50px;
-                        height: 5px;
-                        border-radius: 50%;
-                }
-
-                &:nth-child(4) {
-                        position: absolute;
-                        top: -65px;
-                        right: -48px;
-                        width: 5px;
-                        height: 50px;
-                        border-radius: 50%;
-                }
-
-            }
-
-
-        }
-    }
-
-    &_bgtxt {
-        display: none;
-    }
-
-    @include tab {
-
-        &_bgtxt {
-            position: absolute;
-            top: 50%;
-            right: 20%;
-            font-size: 4rem;
-            width: 0;
-            border-radius: 50%;
-            color: $cBlack;
-            font-weight: bold;
-            transform: translateY(50%);
-            display: block;
-            text-shadow: 2px 2px 4px $cBlack;
-
-            &::before {
-                content: "";
-                position: absolute;
-                background-color: orange;
-                top: -43px;
-                right: -87px;
-                width: 60px;
-                height: 5px;
-                border-radius: 50%;
-                transform: rotate(135deg);
-                z-index: 1;
-                text-shadow: 2px 2px 4px $cBlack;
-
-
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                background-color: red;
-                bottom: -33px;
-                left: -59px;
-                width: 60px;
-                height: 5px;
-                border-radius: 50%;
-                transform: rotate(-45deg);
-                z-index: 0;
-                text-shadow: 2px 2px 4px $cBlack;
-
-
-            }
-
-        }
-    }
-
-    @include pc {
-        &_bgtxt{
-            display: block;
-            position: absolute;
-            top: 35%;
-            right: 20%;
-            font-size: 4rem;
-            width: 0;
-            border-radius: 50%;
-            color: $cBlack;
-            font-weight: bold;
-            transform: translateY(50%);
-            text-shadow: 2px 2px 4px $cBlack;
-
-            &::before {
-                content: "";
-                position: absolute;
-                background-color: orange;
-                top: -43px;
-                right: -87px;
-                width: 60px;
-                height: 5px;
-                border-radius: 50%;
-                transform: rotate(135deg);
-                z-index: 1;
-                box-shadow: 2px 2px 8px $cBlack;
-                
-                
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                background-color: red;
-                bottom: -33px;
-                left: -59px;
-                width: 60px;
-                height: 5px;
-                border-radius: 50%;
-                transform: rotate(-45deg);
-                z-index: 0;
-                box-shadow: 2px 2px 8px $cBlack;
-                
-            }
-
-        }
-    }
-
-
-
-
-    // &_bgtxt {
-    //     // position: absolute;
-    //     // top: 35%;
-    //     // right: 20%;
-    //     font-size: 5rem;
-    //     width: 10px;
-    //     border-radius: 50%;
-    //     color: $cWhite;
-    //     font-weight: bold;
-    //     // transform: translateY(50%);
-    //     display: block;
-    // }
-
-
-
-
-    &_txtbox {
-        position: relative;
-        // padding: 50px;
-        flex-direction: column;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 99;
-    }
-
-
-    &_txt {
-        font-size: 1.6rem;
-        color: $cWhite;
-        letter-spacing: .2em;
-        text-shadow: 3p 3px 3px $cBlack;
-        // transform: rotate(-90deg);
-        text-align: center;
-    }
-
-    @include pc {
-        &_txt {
-            color: $cScolor;
-            text-shadow: 3p 3px 3px $cWhite;
-
-
-        }
-    }
-
-    
-
-    
-    &_ttl {
-        color: $cWhite;
-        font-size: 4rem;
-        text-align: center;
-        margin: 20px;
-    }
-
-
-
-
-    @include pc {
-        &_ttl {
-            color: $cScolor;
-        }
-    }
-    
-    
-    &_img {
-        width: 100%;
-        height: 100vh;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        object-fit: cover;
-        transition: 4s linear transform .4s;
-
-        filter:drop-shadow(3px 3px 3px $cBlack) blur(1px) grayscale(20%);
-
-        &.zoom {
-            transform: scale(1.05);
-        }
-
-    }
-
-    @include tab {
-        &_img {
-            width: 50%;
-        }
-    }
-
-    @include pc {
-        &_img {
-            width: 50%;
-        }
-    }
-
-   /*  &_wrapper {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
-
-   /*  &_animetype {
-        color: $cWhite;
-    } */
-
-
-}
-
-// @include pc {
-//     .kv {
-//         height: 100vh;
-
-
-//         &_img {
-//             width: 50%;
-//             height: 50vh;
-//         }
-
-//         &_top {
-//             position: absolute;
-//             top: 10%;
-//             left: 10%;
-//         }
-
-//         &_center {
-//             position: absolute;
-//             left: 40%;
-//             top: 40%;
-//             width: 350px;
-//             height: 350px;
-//         }
-
-//         &_bottom {
-//             position: absolute;
-//             top: 50%;
-//             left: 25%;
-//             width: 100%;
-//             width: 400px;
-//         }
-//     }
-// }
-
 
 /****************************************:
 タイプアニメーション
@@ -1007,7 +620,6 @@ kv
     position: relative;
     margin-left: 10px;
     z-index: -1;
-    // display: inline-block;
     color: $cScolor;
     text-align: center;
     text-shadow: 3px 3px 3px $cBlack;
@@ -1025,10 +637,7 @@ kv
         border-right: 1px solid $cScolor;
         animation: blink 1s infinite ease;
         z-index: -1;
-        // display: block;
         animation-delay: 4s;
-
-
 
 
     }
@@ -1036,27 +645,18 @@ kv
     &_short {
 
         position: relative;
-        // position: absolute;
         top: 25%;
         left: 50%;
         transform: translateX(-50%);
-        // width: 24em;
-        // text-align: center;
-        // margin: 0 auto;
         font-size: 2rem;
-        // font-size: 2.5rem;
         white-space: nowrap;
         overflow: hidden;
-        // animation: type 2.5s steps(80, end);
         animation: typewriter 4s steps(60) 1s 1 normal both,
         /* normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う */
         blinkTextCursor 500ms steps(60) infinite normal,type 1s steps(80, end);
         animation-delay: 2s;
 
         text-shadow: 3px 3px 3px $cBlack;
-        // font-size: 2.5rem;
-        // transform: translateY(-5%);
-        // margin: 40px auto;
 
 
     }
@@ -1080,29 +680,18 @@ kv
     &_long {
 
         position: relative;
-        // position: absolute;
         top: 25%;
         left: 50%;
         transform: translateX(-50%);
-        // width: 24em;
-        // text-align: center;
-        // margin: 0 auto;
         font-size: 2rem;
-        // font-size: 2.5rem;
         white-space: nowrap;
         overflow: hidden;
-        // animation: type 2.5s steps(80, end);
         animation: typewriter 4s steps(60) 1s 1 normal both,
         /* normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う */
         blinkTextCursor 500ms steps(60) infinite normal,type 0.5s steps(80, end);
         animation-delay: 3s;
 
         text-shadow: 3px 3px 3px $cBlack;
-        // font-size: 2.5rem;
-        // transform: translateY(-25%);
-
-
-        // margin-left: 50px;
     }
 
     @include tab {
@@ -1162,7 +751,6 @@ kv
 @keyframes type {
     0% {
         width: 0;
-        // top: 50%;
         right: 0;
     }
 
@@ -1171,14 +759,12 @@ kv
     }
 
     100%   {
-        // width: 100%;
         right: 0;
     }
 }
 
 
 @keyframes blink {
-    // to{opacity: .0;}
         0% {
         opacity: 0;
     }
@@ -1205,13 +791,323 @@ kv
 
 
 
+/****************************************:
+
+kv
+
+*****************************************:*/
+
+.kv {
+    position: relative;
+
+    &_container {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        background-color: $cScolor;
+    }
+
+    &_bgtxtbox {
+        display: none;
+    }
+
+    @include tab {
+
+        &_bgtxtbox {
+            display: block;
+            position: relative;
+            margin-top: 40px;
+
+            .kv_bgspan {
+                background-color: $cBlack;
+                display: block;
+                box-shadow: 2px 2px 8px $cBlack;
+
+
+                &:nth-child(1) {
+                    position: absolute;
+                    bottom: -20px;
+                    left: -57px;
+                    width: 50px;
+                    height: 5px;
+                    border-radius: 50%;
+                }
+
+                &:nth-child(2) {
+                        position: absolute;
+                        bottom: -55px;
+                        right: 15px;
+                        width: 5px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                &:nth-child(3) {
+                        position: absolute;
+                        top: -30px;
+                        right: -80px;
+                        width: 50px;
+                        height: 5px;
+                        border-radius: 50%;
+                }
+
+                &:nth-child(4) {
+                        position: absolute;
+                        top: -66px;
+                        right: -45px;
+                        width: 5px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+            }
+        }
+    }
+
+    @include pc {
+        &_bgtxtbox {
+            display: block;
+            position: relative;
+
+            .kv_bgspan {
+                background-color: $cBlack;
+                display: block;
+                box-shadow: 2px 2px 8px $cBlack;
+
+
+                &:nth-child(1) {
+                    position: absolute;
+                    bottom: -20px;
+                    left: -50px;
+                    width: 50px;
+                    height: 5px;
+                    border-radius: 50%;
+
+                }
+
+                &:nth-child(2) {
+                        position: absolute;
+                        bottom: -52px;
+                        right: 13px;
+                        width: 5px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                &:nth-child(3) {
+                        position: absolute;
+                        top: -30px;
+                        right: -80px;
+                        width: 50px;
+                        height: 5px;
+                        border-radius: 50%;
+                }
+
+                &:nth-child(4) {
+                        position: absolute;
+                        top: -65px;
+                        right: -48px;
+                        width: 5px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+            }
+
+
+        }
+    }
+
+
+    &_bgtxt {
+        display: none;
+    }
+
+    @include tab {
+
+        &_bgtxt {
+            position: absolute;
+            top: 50%;
+            right: 20%;
+            font-size: 2.5rem;
+            width: 0;
+            border-radius: 50%;
+            color: $cBlack;
+            font-weight: bold;
+            transform: translateY(50%);
+            display: block;
+            text-shadow: 2px 2px 4px $cBlack;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: orange;
+                top: -43px;
+                right: -87px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(135deg);
+                z-index: 1;
+                text-shadow: 2px 2px 4px $cBlack;
+
+
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: red;
+                bottom: -33px;
+                left: -59px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(-45deg);
+                z-index: 0;
+                text-shadow: 2px 2px 4px $cBlack;
+
+
+            }
+
+        }
+    }
+
+    @include pc {
+        &_bgtxt{
+            display: block;
+            position: absolute;
+            top: 35%;
+            right: 20%;
+            font-size: 3rem;
+            width: 0;
+            border-radius: 50%;
+            color: $cBlack;
+            font-weight: bold;
+            transform: translateY(78%);
+            text-shadow: 2px 2px 4px $cBlack;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: orange;
+                top: -43px;
+                right: -87px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(135deg);
+                z-index: 1;
+                box-shadow: 2px 2px 8px $cBlack;
+
+
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: red;
+                bottom: -33px;
+                left: -59px;
+                width: 60px;
+                height: 5px;
+                border-radius: 50%;
+                transform: rotate(-45deg);
+                z-index: 0;
+                box-shadow: 2px 2px 8px $cBlack;
+
+            }
+
+        }
+    }
 
 
 
+    &_txtbox {
+        position: relative;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+    }
+
+    &_ttl {
+        color: $cWhite;
+        font-size: 3rem;
+        text-align: center;
+        margin: 20px;
+    }
+
+
+    @include pc {
+        &_ttl {
+            color: $cScolor;
+        }
+    }
 
 
 
+    &_txt {
+        font-size: 1.6rem;
+        color: $cWhite;
+        letter-spacing: .2em;
+        text-shadow: 3p 3px 3px $cBlack;
+        text-align: center;
+    }
 
+    @include tab {
+        &_txt {
+
+            font-size: 3rem;
+        }
+    }
+
+    @include pc {
+        &_txt {
+            color: $cScolor;
+            text-shadow: 3p 3px 3px $cWhite;
+            font-size: 3rem;
+
+        }
+    }
+
+
+    &_img {
+        width: 100%;
+        height: 100vh;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        object-fit: cover;
+        transition: 4s linear transform .4s;
+
+        filter:drop-shadow(3px 3px 3px $cBlack) blur(1px) grayscale(20%);
+
+        &.zoom {
+            transform: scale(1.05);
+        }
+
+    }
+
+    @include tab {
+        &_img {
+            width: 50%;
+        }
+    }
+
+    @include pc {
+        &_img {
+            width: 50%;
+        }
+    }
+
+
+
+}
 
 
 
@@ -1243,10 +1139,9 @@ header
 
         .header_ttl {
             color: $cWhite;
-            // transition: .5s;
             font-size: 2rem;
         }
-  
+
     }
 
     @include tab {
@@ -1259,11 +1154,7 @@ header
     }
 
     &_inner.clicked {
-        // width: 85%;
-        // padding: 0 20px;
         margin-left: 35%;
-        // background-color: red;
-        // background-color:$cBlack;
         transition: .3s;
     }
 
@@ -1288,8 +1179,6 @@ header
         overflow: hidden;
     }
 
-
- 
 }
 
 
@@ -1357,25 +1246,14 @@ nav
     @include tab {
         &.clicked::before {
             content: '';
-            // position: absolute;
-            // top: 0;
             left: -110vw;
-            // background-color: $cBlack;
-            // opacity: .5;
-            // width: 70vw;
-            // height: 100vh;
-            // transition: .8s;
         }
     }
-
 
 
     &_list {
         position: absolute;
         right: -1000px;
-        // right: -5vw;
-        // display: flex;
-        // flex-direction: column;
 
         &.clicked {
             right: 0;
@@ -1395,7 +1273,7 @@ nav
             }
         }
     }
-    
+
 
     @include pc {
         &_list {
@@ -1424,18 +1302,16 @@ nav
         }
     }
 
-    // ハンバーガーメニュー
+    // ハンバーガーメニューここから
     &_ham {
         cursor: pointer;
         position: absolute;
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        // background-color: #ffffff;
         width: 25px;
         height: 25px;
         z-index: 100;
-        // transition: .4s;
 
 
         &.clicked {
@@ -1447,12 +1323,6 @@ nav
             right: 0;
             transition: .4s;
         }
-
-        // &:hover .tg2 {
-        //     width: 70%;
-        //     right: 0;
-
-        // }
 
         &:hover .tg3 {
             width: 100%;
@@ -1501,18 +1371,15 @@ nav
 
         &:nth-child(1) {
             top: 0px;
-            // left: -5px;
 
         }
 
         &:nth-child(2) {
             top: 8px;
-            // left: 5px;
         }
 
         &:nth-child(3) {
             top: 16px;
-            /* left: -5px; */
         }
 
         &.clicked:nth-child(1) {
@@ -1541,22 +1408,23 @@ nav
 
     }
 
+    // ハンバーガーメニューここまで
+
+    // メニュー項目
     &_item {
         text-align: center;
-        // margin-top: 50px;
         font-size: 1.6rem;
         line-height: 1.5em;
-        // margin-right: 30px;
 
         position: relative;
-        margin: 25px;
+        margin: 3vh;
 
     }
 
 
     @include tab {
         &_item {
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
     }
 
@@ -1600,7 +1468,6 @@ nav
     }
 
     &_link {
-        // position: relative;
         display: block;
         letter-spacing: .2em;
         transition: .3s;
@@ -1633,7 +1500,6 @@ nav
     }
 
 }
-
 
 
 .tg2 {
@@ -1671,74 +1537,14 @@ about
     &_ttlwrap {
         position: relative;
 
-        // &:after {
-        //     position: absolute;
-        //     content: 'profile';
-        //     top: 0;
-        //     left: 0;
-        //     font-size: 1.6rem;
-        //     color: $cWhite;
-        // }
-
     }
-
-    @include tab {
-        &_ttlwrap {
-            position: relative;
-        }
-    }
-
-    @include pc {
-        &_ttlwrap {
-            position: relative;
-
-        }
-    }
-
-    .section_ttl {
-        margin-bottom: 50px;
-        text-shadow: .5px 1px 2px $cBlack;
-        color: $cWhite;
-    }
-
-    @include tab {
-        .section_ttl {
-            margin-bottom: 25px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            padding: 5px;
-            border-radius: 50%;
-            background-color: $cBlack;
-
-
-
-        }
-    }
-
-    @include pc {
-        .section_ttl {
-
-            position: absolute;
-            left: -50px;
-            top: 0;
-            width: 0;
-            font-size: 3.6rem;
-            padding: 5px;
-            border-radius: 50%;
-            background-color: $cBlack;
-
-        }
-    }
-
 
     &_inner {
         margin: 0 auto;
         max-width: 800px;
         width: 100%;
         padding: 0 15px;
-    
+
     }
 
     @include tab {
@@ -1759,6 +1565,62 @@ about
     }
 
 
+
+    @include tab {
+        &_ttlwrap {
+            position: relative;
+        }
+    }
+
+    @include pc {
+        &_ttlwrap {
+            position: relative;
+
+        }
+    }
+
+    .section_ttl {
+        margin-bottom: 50px;
+        text-shadow: .5px 1px 2px $cBlack;
+        color: $cBlack;
+    }
+
+    @include tab {
+        .section_ttl {
+            margin-bottom: 25px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: $cBgGreen;
+            color: $cBlack;
+
+        }
+    }
+
+    @include pc {
+        .section_ttl {
+
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 0;
+            font-size: 3.6rem;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: $cBgGreen;
+            color: $cBlack;
+
+
+        }
+    }
+
+
+
+
+
     &_imgbox {
         margin: 0 auto;
         position: relative;
@@ -1777,7 +1639,7 @@ about
             opacity: 1;
 
         }
-        
+
     }
 
     @include tab {
@@ -1814,6 +1676,7 @@ about
         }
     }
 
+
     &_intxt {
         position: absolute;
         left: 0;
@@ -1831,19 +1694,85 @@ about
     @include tab {
         &_intxt {
             bottom: 40px;
-            // width: 100%;
             text-align: center;
-            // transform: translate(50%);
         }
     }
     @include pc {
         &_intxt {
             bottom: 40px;
-            // width: 100%;
             text-align: center;
-            // transform: translate(50%);
         }
     }
+
+
+
+    &_txtbox {
+        margin: 10px;
+    }
+
+    @include tab {
+        &_txtbox {
+            margin: 0;
+        }
+    }
+
+    @include pc {
+        &_txtbox {
+            width: 100%;
+        }
+    }
+
+
+    &_txt {
+        display: block;
+        color: $cBlack;
+        text-shadow: 3px 3px 3px $cBlack;
+        padding: 10px;
+        font-size: 1.6rem;
+
+    }
+
+    &_linkbox {
+        display: inline-block;
+        margin: 0 auto;
+        position: relative;
+
+
+           //ナビホバー時の下線
+        &::after {
+            display: block;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            transform: scale(0, 1);
+            transform-origin: left;
+            transition: transform .7s;
+            background: $cBlack;
+        }
+
+        &:hover::after {
+            transform: scale(1, .5);
+        }
+
+        &:hover {
+            color: $cBlack;
+            transition: .5s;
+            text-shadow: 3px 3px 3px $cBlack;
+        }
+    }
+
+
+    &_link {
+        display: block;
+        width: 100%;
+    }
+
+
+
+
 
     &_img {
         display: block;
@@ -1852,6 +1781,9 @@ about
         border-radius: 50%;
     }
 
+
+
+    // シェアボタンここから
     &_sharewrap {
         text-align: center;
         display: flex;
@@ -1869,9 +1801,9 @@ about
         }
     }
 
-   
+
     &_share_icon {
-        width: 100px;
+        width: 65px;
         line-height: 30px;
         margin: 0 auto;
         position: relative;
@@ -1904,18 +1836,12 @@ about
         }
 
         &:hover .fa-twitter,&:hover .fa-github {
-            // color: ;
             transition: .5s;
             transform: rotateZ(360deg);
         }
 
     }
 
-    // @include tab {
-    //     &_share_icon {
-    //         width: %;
-    //     }
-    // }
 
 
     &_snake {
@@ -1969,109 +1895,12 @@ about
         font-size: 1rem;
         margin-top: 20px;
         cursor: pointer;
-        color: $cWhite;
-
-      
-    }
-
-    &_txtbox {
-        margin: 40px;
-    }
-
-    @include tab {
-        &_txtbox {
-            margin: 0;
-        }
-    }
-
-    @include pc {
-        &_txtbox {
-            width: 100%;
-        }
-    }
-
-
-    &_txt {
-        display: block;
         color: $cBlack;
-        text-shadow: 3px 3px 3px $cBlack;
-        padding: 10px;
-        font-size: 1.6rem;
+
 
     }
 
-    &_linkbox {
-        display: inline-block;
-        margin: 0 auto;
-        position: relative;
-
-           //ナビホバー時の下線
-        &::after {
-            display: block;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            content: '';
-            width: 100%;
-            height: 2px;
-            transform: scale(0, 1);
-            transform-origin: left;
-            transition: transform .7s;
-            background: $cBlack;
-        }
-
-        &:hover::after {
-            transform: scale(1, .5);
-        }
-
-        &:hover {
-            color: $cBlack;
-            // letter-spacing: .1em;
-            transition: .5s;
-            text-shadow: 3px 3px 3px $cBlack;
-        }
-    }
-
-    // @include tab {
-    //     &_linkbox {
-    //         width: 50%;
-    //     }
-    // }
-
-
-    &_link {
-        display: block;
-        width: 100%;
-    }
-
-
-
-    // &_imgbox {
-    //     cursor: pointer;
-    //     margin: 0 auto;
-    //     position: relative;
-    //     height: 250px;
-    //     width: 250px;
-        
-    //     &:hover .about_imghv:nth-child(2) {
-    //         opacity: 1;
-    //     }
-    // }
-    
-    // &_img {
-    //     /* display: block; */
-    //     border-radius: 50%;
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     display: none;
-    //     &:nth-child(2) {
-    //         opacity: 0;
-    //         transition: all .3s ease-in-out;
-    //     }
-    // }
+    // シェアボタンここまで
 
 }
 
@@ -2103,6 +1932,8 @@ about
 
 }
 
+
+
 /****************************************:
 
 policy
@@ -2120,7 +1951,7 @@ policy
             position: relative;
             width: 100%;
             height: 50px;
-            background: linear-gradient(to right, $cWhite 0%, $cWhite 50%, $cBlack 50%, $cBlack 100%);
+            background: linear-gradient(to right, $cScolor 0%, $cScolor 50%, $cBgGreen 50%, $cBgGreen 100%);
         }
     }
 
@@ -2133,11 +1964,8 @@ policy
 
 
     .section_ttl {
-        // position: relative;
         text-shadow: .5px 1px 2px $cBlack;
-        background-color: $cWhite;
-
-        // display: block;
+        background-color: $cScolor;
         margin-bottom: 50px;
         width: 100%;
         font-size: 2.5rem;
@@ -2145,6 +1973,11 @@ policy
     }
 
     @include tab {
+        .section_inner {
+            margin: 80px auto;
+
+        }
+
 
         .section_ttl {
             width: initial;
@@ -2156,7 +1989,7 @@ policy
             margin: 0;
             font-size: 3.6rem;
             background-color: initial;
-            color: $cWhite;
+            color: $cScolor;
             padding: 0;
             text-decoration: underline;
 
@@ -2169,28 +2002,18 @@ policy
             left: 0;
             top: 0;
             width: 50%;
-            color: $cBlack;
+            color: $cBgGreen;
             text-decoration: underline;
         }
     }
 
-    @include tab {
-        .section_inner {
-            margin: 80px auto;
-
-        }
-    }
 
     @include pc {
         .section_inner {
             margin: 40px auto;
             max-width: 800px;
         }
-    }
 
-
-
-    @include pc {
         .section_ttl {
             position: absolute;
             padding: 5px 0;
@@ -2198,7 +2021,7 @@ policy
             top: -50%;
             right: 0;
             font-size: 3.6rem;
-            background-color: $cGray;
+            background-color: $cBgGreen;
             border-radius: 50%;
             color: $cWhite;
             transform: translateY(0);
@@ -2211,14 +2034,13 @@ policy
                 display: none;
             }
 
-
         }
     }
 
 
     &_txt {
         text-align: center;
-        background-color: $cWhite;
+        background-color: $cScolor;
         padding: 20px;
         display: block;
         width: 100%;
@@ -2233,7 +2055,7 @@ policy
             position: relative;
             width: 100%;
             height: 50px;
-            background: linear-gradient(to left, $cWhite 0%, $cWhite 50%, $cBlack 50%, $cBlack 100%);
+            background: linear-gradient(to left, $cScolor 0%, $cScolor 50%, $cBgGreen 50%, $cBgGreen 100%);
 
         }
 
@@ -2251,10 +2073,12 @@ policy
             white-space: nowrap;
             margin: 0;
             font-size: 1.6rem;
-            // background-color: initial;
-            color: $cBlack;
+            color: $cBgGreen;
             padding: 0;
             text-decoration: underline;
+            height: 50%;
+            text-shadow: .5px 1px 2px $cBlack;
+
 
             &:after {
                 content: attr(data-left);
@@ -2262,9 +2086,11 @@ policy
                 position: absolute;
                 left: 0;
                 top: 0;
-                width: 50%;
-                color: $cWhite;
+                width:  50%;
+                color: $cScolor;
                 text-decoration: underline;
+                text-shadow: .5px 1px 2px $cBlack;
+
 
             }
 
@@ -2275,7 +2101,7 @@ policy
             position: relative;
             width: 100%;
             height: 50px;
-            background: linear-gradient(to right, $cWhite 0%, $cWhite 50%, $cBlack 50%, $cBlack 100%);
+            background: linear-gradient(to right, $cScolor 0%, $cScolor 50%, $cBgGreen 50%, $cBgGreen 100%);
 
         }
 
@@ -2288,9 +2114,11 @@ policy
             white-space: nowrap;
             margin: 0;
             font-size: 1.6rem;
-            color: $cWhite;
+            color: $cScolor;
             padding: 0;
             text-decoration: underline;
+            text-shadow: .5px 1px 2px $cBlack;
+
 
             &:after {
                 content: attr(data-right);
@@ -2299,42 +2127,28 @@ policy
                 left: 0;
                 top: 0;
                 width: 50%;
-                color: $cBlack;
+                color: $cBgGreen;
                 text-decoration: underline;
+                text-shadow: .5px 1px 2px $cBlack;
+
 
             }
 
         }
 
-
-
-
-
     }
-
-
-
 
 
     @include pc {
         &_txt {
             text-align: left;
-            // padding: 20px 0 70px 20px;
             padding: 50px;
             font-size: 2rem;
             width: 60%;
             display: inline-block;
-            // margin: 50px auto;
-            // position: relative;
-
-            // &.policy_left {
-            //     // margin-left: auto;
-            //     // display: inline-block;
-            // }
 
             &.policy_right {
                 margin-left: 230px;
-                // display: inline-block;
             }
         }
 
@@ -2355,12 +2169,6 @@ policy
 
 
 
-
-
-
-
-
-
 /****************************************:
 
 skill
@@ -2371,25 +2179,46 @@ skill
 .skill {
     padding: 50px 0;
     margin: 0 auto;
-    background-color: $cGray;
+    background-color: $cBgGreen;
 
     position: relative;
+
+    @include tab {
+        .section_inner {
+            display: flex;
+            padding: 0 40px;
+            justify-content: center;
+        }
+    }
+
+    @include pc {
+        .section_inner {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+            justify-content: center;
+
+        }
+    }
+
 
     &_ttlwrap {
         position: relative;
     }
 
     .section_ttl {
-        // background-color: $cWhite;
-        text-shadow: .5px 1px 2px $cWhite;
-        color: $cWhite;
+        color: $cBlack;
+                text-shadow: 3px 3px 3px $cBlack;
+
     }
 
     @include tab {
         .section_ttl {
             position: absolute;
             width: 0;
-            background-color: $cBlack;
+            background-color: $cScolor;
             padding: 5px;
             border-radius: 50%;
             left: 50%;
@@ -2403,34 +2232,14 @@ skill
             left: 50%;
             transform: translate(-50%, 0);
             font-size: 3.6rem;
-            background-color: $cBlack;
             padding: 5px;
             border-radius: 50%;
+            background-color: $cScolor;
+
 
         }
     }
 
-    @include tab {
-        .section_inner {
-            display: flex;
-            // flex-wrap: wrap;
-            padding: 0 40px;
-            justify-content: center;
-        }
-    }
-
-    @include pc {
-        .section_inner {
-            width: 90%;
-            margin: 0 auto;
-            display: flex;
-            // flex-wrap: wrap;
-            max-width: 800px;
-            width: 100%;
-            justify-content: center;
-
-        }
-    }
 
     @include pc {
         &_content {
@@ -2444,7 +2253,6 @@ skill
         &_wrap {
             width: 100%;
             display: flex;
-            // margin: 0 5vw;
             justify-content: center;
 
             .out_in::before {
@@ -2457,7 +2265,6 @@ skill
         &_wrap {
             width: 100%;
             display: flex;
-            // margin: 0 5vw;
             justify-content: center;
 
             .out_in::before {
@@ -2466,40 +2273,7 @@ skill
         }
     }
 
-
-
-
-
-    // &::before {
-    //     position: absolute;
-    //     display: block;
-    //     content: "Skill";
-    //     font-size: 5rem;
-    //     left: -55px;
-    //     top: 188px;
-    //     color: $cBlack;
-    //     opacity: .3;
-    //     text-shadow: 3px 3px 3px $cBlack;
-    //     transform: rotate(-90deg);
-
-    // }
-
-    /* &_box {
-        margin-left: auto;
-        display: block;
-    } */
-
-    // &_container {
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     flex-wrap: wrap;
-
-    //     &:hover .skill_card {
-    //         opacity: .2;
-    //     }
-    // }
-
+    // スキルのコンテンツここから
 
     &_card {
         cursor: pointer;
@@ -2507,14 +2281,9 @@ skill
         position: relative;
         width: 300px;
         height: 300px;
-        // top: 50%;
-        // left: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        // box-shadow: 0 0px 5px $cBlack;
-
-        // border: 1px solid #333;
         margin: 40px auto;
         background-color: $cWhite;
 
@@ -2533,7 +2302,6 @@ skill
             bottom: 2px;
             width: 50%;
             background: $cScolor;
-            // pointer-events: none;
 
             transition: .5s;
 
@@ -2654,7 +2422,7 @@ skill
         text-align: center;
     }
 
-    .skill_imgbox {
+    &_imgbox {
         position: absolute;
         width: 300px;
         height: 300px;
@@ -2662,7 +2430,7 @@ skill
     }
 
     @include tab {
-        .skill_imgbox {
+        &_imgbox {
             width: 240px;
             height: 240px;
             top: 0;
@@ -2715,7 +2483,7 @@ skill
         margin-top: 10px;
         padding: 8px 15px;
         transition: .5s;
-        
+
     }
 
     @include tab {
@@ -2772,9 +2540,13 @@ skill
         }
     }
 
+    // スキルのコンテンツここまで
+
 
 }
 
+
+// スキルのアイコン関係ここから
 .__penicon {
     left: -30px;
 
@@ -2866,8 +2638,10 @@ skill
     }
 }
 
+// スキルのアイコンここまで
 
 
+// スキルコンテンツホバー時のアニメーション設定
 
 @keyframes animate1 {
     0% {
@@ -2924,26 +2698,8 @@ blog
     background-color: $cScolor;
 
     position: relative;
-    transform-style: preserve-3d;
-
-
-
-    .section_ttlwrap {
-    /*  padding: 10px 10px 0 0;
-        width: 80%;
-        margin-left: auto; */
-        text-align: center;
-    }
-
-    @include pc {
-        .section_ttlwrap {
-            display: block;
-            position: relative;
-        }
-    }
 
     .section_inner {
-        // width: 80%;
         margin: 0 auto;
     }
 
@@ -2959,12 +2715,62 @@ blog
     @include pc {
         .section_inner {
             max-width: 800px;
-            // width: 100%;
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
         }
     }
+
+
+    .section_ttlwrap {
+        text-align: center;
+    }
+
+    @include pc {
+        .section_ttlwrap {
+            display: block;
+            position: relative;
+        }
+    }
+
+        .section_ttl {
+        text-shadow: 3px 3px 3px $cBlack;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+
+    @include tab {
+        .section_ttl {
+            margin-bottom: 100px;
+            padding: 5px 0;
+            width: 10px;
+            padding: 5px 0;
+            border-radius: 50%;
+            background-color: $cBgGreen;
+            color: $cBlack;
+
+        }
+    }
+    @include pc {
+        .section_ttl {
+            position: absolute;
+            margin-bottom: 0;
+            text-align: left;
+            font-size: 3.6rem;
+            letter-spacing: .3em;
+            padding: 5px 0;
+            border-radius: 50%;
+            background-color: $cBgGreen;
+            color: $cBlack;
+            width: 10px;
+            right: 0;
+
+
+        }
+    }
+
+
 
     &_content {
         margin: 50px 0;
@@ -2988,73 +2794,33 @@ blog
     }
 
 
-    &_card {
-        // margin-top: 50px;
-        cursor: pointer;
-        position: relative;
-        // width: 330px;
-        width: 100%;
-        height: 240px;
-        transform-style: preserve-3d;
-        perspective: 1000px;//3d変形の奥行
-        margin: 0 auto;
 
-        &:hover .blog_box{
-            transform: rotateY(180deg);
-        }
 
-        &:hover{
-            width: 80%;
-            margin: 0 auto;
-        }
+
+    &_wrap {
+        display: flex;
+        flex-direction: column;
     }
 
     @include tab {
-        &_card {
-            width: 50%;
+        &_wrap {
+            display: flex;
+            position: relative;
+            justify-content: center;
         }
+
     }
 
     @include pc {
-        &_card {
-            width: 50%;
-            margin: -50px 20px 0 0;
+        &_wrap {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
 
-            &:after {
-                position: absolute;
-                content: "";
-                width: 50;
-            }
-
-            &:hover {
-                margin: -50px 20px 0 0;
-
-            }
         }
-    }
-
-    &_box {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: .8s ease-in;
-    }
-
-    &_imgbox {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        // width: 85%;
-        width: 100%;
-
-        height: 240px;
 
     }
-
     &_img {
         position: absolute;
         top: 0;
@@ -3064,111 +2830,168 @@ blog
         object-fit: cover;
     }
 
-    &_txtbox {
-        position: absolute;
-        top: 0;
-        left: 0;
+
+    &_imgbox {
+        position: relative;
+        overflow: hidden;
+        margin: 40px auto;
+        box-sizing: border-box;
         width: 100%;
-        height: 100%;
+        max-width: 250px;
+        text-align: left;
         background: $cBlack;
-        backface-visibility: hidden;//裏側を向いたとき、裏麺を可視にするかどうか
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform-style: preserve-3d;
-        transform: rotateY(180deg);
-    }
 
-    &_txtinner {
-        transform-style: preserve-3d;
-        padding: 10px;
-        background: linear-gradient(45deg, $cScolor, $cLgreen);
-        transform: translateZ(100px);
-        opacity: .8;
-    }
 
-    @include pc {
-        &_txtinner {
-            padding: 0;
+        // blogサムネイルホバー時の動き
+        &:hover .blog_img{
+            opacity: .4;
+            transform: scale(1.05) rotate(1.5deg);
+            filter: none;
+            transition: .5s;
+        }
+
+        &:hover .blog_txtbox::before {
+            background-color: rgba(255,255,255,0);
+            left: 30px;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+        &:hover .blog_txtbox::after {
+            background-color: rgba(255,255,255,0);
+            top: 35px;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+
+        &:hover .blog_ttl{
+            color: $cWhite;
+            opacity: 1;
+            transform: translate3d(0,0,0);
+            transition-delay: .4s;
+        }
+        &:hover .blog_txt{
+            color: $cWhite;
+            opacity: .9;
+            transform: translate3d(0,0,0);
+            transition-delay: .4s;
         }
     }
 
-    .section_ttl {
-        // background-color: $cWhite;
-        text-shadow: 3px 3px 3px $cBlack;
-        margin-bottom: 50px;
-        width: 100%;
+    @include tab {
+        &_imgbox {
+            max-width: 220px;
+            min-width: 301px;
+            min-height: 200px;
+
+        }
+    }
+    @include pc {
+        &_imgbox {
+            max-width: 220px;
+            min-width: 301px;
+            min-height: 200px;
+            margin-right: 15px;
+        }
     }
 
 
     @include tab {
-        .section_ttl {
-            margin-bottom: 100px;
-            // background-color: $cBlack;
-            padding: 5px 0;
-            // width: 0;
-            width: 10px;
-            padding: 5px 0;
-            border-radius: 50%;
-            background-color: $cGray;
-            color: $cBlack;
-
+        figure {
+            display: flex;
+            align-items: center;
         }
     }
-    @include pc {
-        .section_ttl {
-            // position: relative;
+
+    &_img {
+        max-width: 200%;
+        width: 120%;
+        opacity: 1;
+        transition: opacity .4s transform .5s;
+        filter: grayscale(70%);
+
+    }
+
+    &_txtbox {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        padding: 40px 2em;
+        width: 100%;
+        height: 100%;
+
+        &:before {
+            content: "";
             position: absolute;
-            margin-bottom: 0;
-            text-align: left;
-            // display: block;
-            // margin-left: 150px;
-            font-size: 3.6rem;
-            letter-spacing: .3em;
-            padding: 5px 0;
-            border-radius: 50%;
-            background-color: $cGray;
-            color: $cBlack;
-            width: 10px;
-            right: 0;
+            top: 30px;
+            right: 30px;
+            bottom: 30px;
+            left: 100%;
+            border-left: 4px solid $cWhite;
+            opacity: 0;
+            background-color: $cLgreen;
+            transition: all .5s;
+            transition-delay: .6s;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            right: 30px;
+            bottom: 30px;
+            left: 22px;
+            border-top: 4px solid $cWhite;
+            opacity: 0;
+            background-color: $cLgreen;
+            transition: all .5s;
+            transition-delay: .6s;
+        }
 
-
+    }
+    @include tab {
+        &_txtbox {
+            position: absolute;
         }
     }
 
-    // &::before {
-    //     position: absolute;
-    //     display: block;
-    //     content: "Blog";
-    //     font-size: 5rem;
-    //     left: -55px;
-    //     top: 188px;
-    //     color: $cBlack;
-    //     opacity: .3;
-    //     text-shadow: 3px 3px 3px $cBlack;
-    //     transform: rotate(-90deg);
+    @include pc {
+        &_txtbox {
+            position: absolute;
+        }
+    }
 
-    // }
+
+
+    &_txt {
+        font-weight: 200;
+        transform: translate3d(0%, 30%, 0);
+        transition-delay: 0;
+        font-size: 1.1rem;
+        margin: 5% 15px 5px;
+        opacity: 0;
+        transition: opacity .35s, transform .35s;
+
+    }
+
+    &_outtxt {
+        color: $cBlack;
+    }
+
+
+
+
+
 
     &_txtcontent {
         padding: 50px 20px;
-        background-color: $cGray;
+        background-color: $cBgGreen;
         color: $cWhite;
         margin: 40px 0;
     }
 
-    &_txt {
-        display: block;
-        text-shadow: 3px 3px 3px $cBlack;
-        width: 100%;
-        margin-left: right;
-        font-size: 1.2rem;
-        line-height: 2;
-    }
 
     @include tab {
         &_txtcontent {
-            background-color: $cGray;
+            background-color: $cBgGreen;
             width: 50%;
             height: 200px;
             margin: 25px -20px 0 0;
@@ -3176,14 +2999,9 @@ blog
 
         }
 
-        &_txt {
-            text-align: center;
-            // margin: 50px 0;
-            font-size: 1rem;
-        }
 
         &_outtxt {
-            color: $cWhite;
+            color: $cBlack;
             font-size: 1.6rem;
 
         }
@@ -3191,8 +3009,7 @@ blog
 
     @include pc {
         &_txtcontent {
-            background-color: $cGray;
-            // width: 40%;
+            background-color: $cBgGreen;
             height: 200px;
             margin: 100px -20px 0 0;
             z-index: 1;
@@ -3200,15 +3017,9 @@ blog
 
         }
 
-        &_txt {
-            margin: 15px 0;
-            padding: 0 70px;
-            font-size: 1rem;
-        }
-
         &_outtxt {
             font-size: 1.6rem;
-            color: $cWhite;
+            color: $cBlack;
         }
     }
 
@@ -3233,7 +3044,26 @@ create
     margin: 0 auto;
 
     position: relative;
-    background-color: $cGray;
+    background-color: $cBgGreen;
+
+    .section_inner {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    @include tab {
+        .section_inner {
+            width: 100%;
+            max-width: 650px;
+        }
+    }
+
+    @include pc {
+        .section_inner {
+            max-width: 800px;
+        }
+    }
+
 
     @include tab {
         &_ttlwrap {
@@ -3245,9 +3075,6 @@ create
 
         &_ttlwrap {
             position: relative;
-    
-            // text-align: center;
-    
         }
     }
 
@@ -3275,60 +3102,62 @@ create
 
     }
 
+        .section_ttl {
+        font-weight: 400;
+        transition-delay: 0;
+        color: $cBlack;
+        opacity: 1;
+        text-shadow: .5px 1px 2px $cWhite;
 
-
-    .section_inner {
-        width: 80%;
-        margin: 0 auto;
     }
 
     @include tab {
-        .section_inner {
-            width: 100%;
-            max-width: 650px;
+        .section_ttl {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            font-size: 3.6rem;
+            border-radius: 50%;
+            background-color: $cScolor;
+            padding: 5px 0;
+            text-shadow: 3px 3px 3px $cBlack;
+
+
         }
     }
 
     @include pc {
-        .section_inner {
-            max-width: 800px;
+        .section_ttl {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            font-size: 3.6rem;
+            border-radius: 50%;
+            padding: 5px 0;
+            background-color: $cScolor;
+            text-shadow: 3px 3px 3px $cBlack;
+
+
+
         }
     }
 
-
-    // .section_ttl {
-    //     text-shadow: 3px 3px 3px $cBlack;
-    // }
-
-    // &::before {
-    //     position: absolute;
-    //     display: block;
-    //     content: "Create & Works";
-    //     font-size: 3rem;
-    //     left: -107px;
-    //     top: 188px;
-    //     color: $cBlack;
-    //     opacity: .3;
-    //     text-shadow: 3px 3px 3px $cBlack;
-    //     transform: rotate(-90deg);
-
-    // }
 
 
     &_imgbox {
         position: relative;
         overflow: hidden;
         margin: 40px auto;
-        // margin: 50px 0 50px 10px ;
         box-sizing: border-box;
         width: 100%;
-        // min-height: 200px;
         max-width: 250px;
         text-align: left;
         background: $cBlack;
 
 
-
+        // サムネイルホバー時の動き
         &:hover .create_img{
             opacity: .4;
             transform: scale(1.05) rotate(1.5deg);
@@ -3378,9 +3207,6 @@ create
             min-height: 200px;
             margin-right: 15px;
 
-            // &:nth-child(1){
-            //     margin-right: 80px;
-            // }
 
         }
     }
@@ -3445,45 +3271,6 @@ create
 
 
 
-    .section_ttl {
-        font-weight: 400;
-        transition-delay: 0;
-        color: $cWhite;
-        opacity: 1;
-        text-shadow: .5px 1px 2px $cWhite;
-
-    }
-
-    @include tab {
-        .section_ttl {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 10px;
-            font-size: 3.6rem;
-            border-radius: 50%;
-            background-color: $cBlack;
-            padding: 5px 0;
-
-        }
-    }
-
-    @include pc {
-        .section_ttl {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 10px;
-            font-size: 3.6rem;
-            border-radius: 50%;
-            background-color: $cBlack;
-            padding: 5px 0;
-
-
-            
-
-        }
-    }
 
 
 
@@ -3498,42 +3285,25 @@ create
 
     }
 
-    // &_outtxtbox {
-    //     margin: 40px auto;
-    // }
 
-    // @include tab {
-    //     &_outtxtbox {
-    //         right: 50px;
-    //         bottom: 20px;
-    //     }
-    // }
-
-    // @include pc {
-    //     &_outtxtbox {
-    //         right: 50px;
-    //         bottom: 60px;
-    //     }
-    // }
-    
     &_outtxt {
         text-shadow: 3px 3px 3px $cBlack;
 
         font-size: 1.4rem;
         padding: 15px;
-        background-color: $cBgColor;
+        background-color: $cScolor;
         letter-spacing: .8px;
         line-height: 1.8em;
     }
 
-    
+
 
     @include tab {
         &_outtxt {
             margin: 40px 30px;
             font-size: 1.2rem;
             line-height: 2em;
-            background-color: $cBgColor;
+            background-color: $cScolor;
             width: 100%;
             max-width: 400px;
         }
@@ -3543,21 +3313,29 @@ create
     @include pc {
         &_outtxt {
             padding: 20px 20px 30px;
-            // margin: 80px 40px 20px;
             font-size: 1.2rem;
-            background-color: $cBgColor;
+            background-color: $cScolor;
             margin: 35px;
         }
 
     }
 
-    // @include pc {
-    //     .site:nth-child(odd) {
-    //         // display: flex;
-    //         flex-direction: row-reverse;
-    //     }
-    // }
 
+    .site {
+        background-color: $cScolor;
+    }
+
+    @include tab {
+        .site {
+            background-color: $cBgGreen;
+        }
+    }
+
+    @include pc {
+        .site {
+            background-color: $cScolor;
+        }
+    }
 
 
 }
@@ -3567,7 +3345,10 @@ create
         position: absolute;
         bottom: 60px;
         right: 50px;
+
     }
+
+
 }
 @include pc {
     .site_wrap {
@@ -3577,6 +3358,7 @@ create
         transform: translateX(-50%);
 
     }
+
 }
 
 
@@ -3591,6 +3373,11 @@ contact
     position: relative;
     background-color: $cScolor;
 
+    @include pc {
+        .section_inner {
+            max-width: 800px;
+        }
+    }
 
 
     &_inner {
@@ -3599,31 +3386,10 @@ contact
         max-width: 300px;
         padding-bottom: 24.5px;
         position: relative;
-        
 
-            //         &::after {
-            //     position: absolute;
-            //     position: fixed;
-            //     content: '';
-            //     background: url(../images/20201124_082046014.jpg) no-repeat;
-            //     width: 100%;
-            //     height: 100%;
-            //     overflow: auto;
-            //     scroll-snap-type: y mandatory;
-            //     scroll-snap-align: start;
-            //     background-size: cover;
-            //     background-attachment: fixed;
-            //     // opacity: .5;
-
-            // }
 
     }
 
-    @include pc {
-        .section_inner {
-            max-width: 800px;
-        }
-    }
 
     @include pc {
         &_inner {
@@ -3638,7 +3404,6 @@ contact
 
         &_formwrap {
             width: 300px;
-            // position: relative;
 
             &:nth-child(1) {
                 margin-right: 53px;
@@ -3655,11 +3420,13 @@ contact
 
         .section_ttl {
             position: absolute;
-                        font-size: 3.6rem;
+            font-size: 3.6rem;
+            text-shadow: 3px 3px 3px $cBlack;
+
 
             padding: 5px 0;
             border-radius: 50%;
-            background-color: $cGray;
+            background-color: $cBgGreen;
             color: $cBlack;
             width: 10px;
             left: 0;
@@ -3675,26 +3442,27 @@ contact
 
         .section_ttl {
             position: absolute;
-            // display: block;
             font-size: 3.6rem;
 
             padding: 5px 0;
             border-radius: 50%;
-            background-color: $cGray;
+            background-color: $cBgGreen;
             color: $cBlack;
             width: 10px;
             left: 0;
+            text-shadow: 3px 3px 3px $cBlack;
 
-            
 
         }
     }
 
+    .site {
+        background-color: $cBgGreen;
+    }
+
+
 
 }
-
-
-
 
 
 @include pc {
@@ -3703,18 +3471,14 @@ contact
     }
 }
 
-
-
-
+// コンタクトフォームここから
 .form {
-    // width: 30rem;
     line-height: 1.9;
 
     border-bottom: 1px solid $cBlack;
     border-right: none;
     border-left: none;
     border-top: none;
-    // padding: 0 0 0 10px;
 
     &:last-child {
         border:none;
@@ -3726,8 +3490,6 @@ contact
 
     &_ttl {
         padding-right: 10px;
-        // width: 40px;
-        // display: inline-block;
         font-size: 1.6rem;
 
     }
@@ -3742,10 +3504,8 @@ contact
         left: 16px;
         position: relative;
         width: 77%;
-        // margin-left: 24px;
         background-color: $cScolor;
 
-  
 
     }
 
@@ -3759,7 +3519,8 @@ contact
         border: 1px solid $cBlack;
         background-color: $cScolor;
     }
-    
+
+
 }
 
 .form2 {
@@ -3782,11 +3543,14 @@ contact
     }
 }
 
+// コンタクトフォームここまで
+
 
 .contact_link {
         display: block;
         transition: .3s;
 }
+
 
 
 
