@@ -2,25 +2,26 @@ $(() => {
 
 
 
+    
+    $('body').addClass('lock');
 
-        $("container").css({ opacity: '0' });
-        $('body').addClass('lock');
+    setTimeout(function () {
 
-        setTimeout(function () {
+        $('#js-loading_wrap').addClass('loading_none');
 
-            $('#js-loading_wrap').addClass('loading_none');
+        $("body").stop().animate(
+            {
+                opacity: '1',
 
-            $("body").stop().animate(
-                {
-                    opacity: '1',
+            }, 1000);
+    }, 2500);
 
-                }, 1000);
-        }, 2000);
+    setTimeout(function () {
 
-        setTimeout(function () {
+        $('body').removeClass('lock')
+            // $(".container").css({  opacity: "1"});
 
-            $('body').removeClass('lock')
-        }, 3000);
+    }, 2800);
 
 
 
@@ -31,6 +32,7 @@ $(() => {
     $(window).scroll(function (){
         if ($(window).scrollTop() > $(window).height()) {
             headerFix.addClass("fix");
+            console.log('ok');
         } else {
 
         headerFix.removeClass("fix");

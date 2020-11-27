@@ -1,9 +1,9 @@
 @charset "UTF-8";
-/****************************************:
+/**************************************************************************************:
 
 全体のスタイル
 
-*****************************************:*/
+****************************************************************************************:*/
 html {
   font-size: 62.5%;
 }
@@ -121,9 +121,11 @@ main {
           box-shadow: 0 5px 5px #1c1c1c;
   text-align: center;
   width: 200px;
+  height: 50px;
   margin: 0 auto;
   background-color: #b7c8bd;
   margin: 40px auto;
+  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 .site_link {
@@ -243,13 +245,14 @@ main {
     width: 100px;
     line-height: 3em;
     margin: 0 auto;
+    height: initial;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .site {
     width: 150px;
-    line-height: 3em;
+    line-height: 4em;
     margin: 0 auto;
   }
 }
@@ -297,15 +300,15 @@ main {
   }
 }
 
-/****************************************:
+/***********************************************************************************:
 
 loading
 
-*****************************************:*/
+**************************************************************************************:*/
 .loading_wrap {
   width: 100%;
   height: 100vh;
-  background: #e1e1e1;
+  background: #E7F5E0;
   position: fixed;
   top: 0;
   left: 0;
@@ -324,8 +327,10 @@ loading
 }
 
 .loading_none {
-  -webkit-animation: loading_end 7s forwards;
-          animation: loading_end 7s forwards;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-animation: loading_end 3s linear forwards;
+          animation: loading_end 3s linear forwards;
 }
 
 .loading_box {
@@ -335,7 +340,7 @@ loading
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 180px;
-  height: 250px;
+  height: 320px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -349,7 +354,7 @@ loading
       -ms-flex-align: center;
           align-items: center;
   margin: 40px auto;
-  background-color: #e1e1e1;
+  background-color: #E7F5E0;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -370,6 +375,135 @@ loading
   font-size: 3.6rem;
   width: 50px;
   text-align: center;
+}
+
+.loading_txt::before {
+  content: "";
+  position: absolute;
+  background-color: #f75c2f;
+  top: -20px;
+  right: -85px;
+  width: 130px;
+  height: 5px;
+  border-radius: 50%;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  z-index: 1;
+  text-shadow: 2px 2px 4px #1c1c1c;
+  opacity: 0;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation: animeTop 2s linear 0s 1 forwards;
+          animation: animeTop 2s linear 0s 1 forwards;
+}
+
+.loading_txt::after {
+  content: "";
+  position: absolute;
+  background-color: #cb4042;
+  bottom: -18px;
+  left: -80px;
+  width: 130px;
+  height: 5px;
+  border-radius: 50%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  z-index: 0;
+  text-shadow: 2px 2px 4px #1c1c1c;
+  -webkit-animation: animeBottom 2s transition all 1s forwards;
+          animation: animeBottom 2s transition all 1s forwards;
+}
+
+@-webkit-keyframes animeTop {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    width: 1px;
+    top: 1px;
+    right: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 65px;
+    top: 0;
+    right: -30px;
+    opacity: 1;
+  }
+  100% {
+    width: 130px;
+    opacity: 1;
+  }
+}
+
+@keyframes animeTop {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    width: 1px;
+    top: 1px;
+    right: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 65px;
+    top: 0;
+    right: -30px;
+    opacity: 1;
+  }
+  100% {
+    width: 130px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animeBottom {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    width: 1px;
+    bottom: 1px;
+    left: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 65px;
+    bottom: 0;
+    left: -30px;
+    opacity: 1;
+  }
+  100% {
+    width: 130px;
+    opacity: 1;
+  }
+}
+
+@keyframes animeBottom {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    width: 1px;
+    bottom: 1px;
+    left: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 65px;
+    bottom: 0;
+    left: -30px;
+    opacity: 1;
+  }
+  100% {
+    width: 130px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes loading_end {
@@ -584,11 +718,11 @@ loading
   }
 }
 
-/****************************************:
+/*************************************************************************************:
 
 out_inアニメーション
 
-*****************************************:*/
+*************************************************************************************:*/
 .out_in {
   position: relative;
   -webkit-transform-origin: letf;
@@ -622,7 +756,7 @@ out_inアニメーション
   left: 0;
   width: 100%;
   height: 100%;
-  background: #bcf54b;
+  background: orange;
   -webkit-transform-origin: right;
           transform-origin: right;
   -webkit-transition: .5s;
@@ -633,12 +767,50 @@ out_inアニメーション
 }
 
 .out_in:nth-child(2):before {
-  background: #eaebed;
+  background: #cb4042;
 }
 
-/****************************************:
+/************************************************************************************:
+
+点滅アニメーション
+
+*************************************************************************************:*/
+.blink_anime {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: blinkAnime 5s infinite 4s;
+          animation: blinkAnime 5s infinite 4s;
+  position: absolute;
+  background-color: #eaebed;
+}
+
+@-webkit-keyframes blinkAnime {
+  /*点滅するアニメーション*/
+  from {
+    background-color: #e1e1e1;
+    opacity: .5;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes blinkAnime {
+  /*点滅するアニメーション*/
+  from {
+    background-color: #e1e1e1;
+    opacity: .5;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+/************************************************************************************:
+
 タイプアニメーション
-*****************************************:*/
+
+*************************************************************************************:*/
 .line {
   position: relative;
   margin-left: 10px;
@@ -737,7 +909,7 @@ out_inアニメーション
 }
 
 .line_type {
-  font-size: 1.8rem;
+  font-size: 3rem;
   -webkit-animation: blink 1s infinite;
           animation: blink 1s infinite;
   /* blink:点滅、infinite:無限に繰り返す */
@@ -843,11 +1015,11 @@ out_inアニメーション
   }
 }
 
-/****************************************:
+/***********************************************************************************:
 
 kv
 
-*****************************************:*/
+************************************************************************************:*/
 .kv {
   position: relative;
 }
@@ -871,6 +1043,9 @@ kv
     display: block;
     position: relative;
     margin-top: 40px;
+    opacity: 0;
+    -webkit-animation: inAnime 5s linear 2.5s 1 forwards;
+            animation: inAnime 5s linear 2.5s 1 forwards;
   }
   .kv_bgtxtbox .kv_bgspan {
     background-color: #1c1c1c;
@@ -916,6 +1091,9 @@ kv
   .kv_bgtxtbox {
     display: block;
     position: relative;
+    opacity: 0;
+    -webkit-animation: inAnime 5s linear 2.5s 1 forwards;
+            animation: inAnime 5s linear 2.5s 1 forwards;
   }
   .kv_bgtxtbox .kv_bgspan {
     background-color: #1c1c1c;
@@ -971,15 +1149,15 @@ kv
     border-radius: 50%;
     color: #1c1c1c;
     font-weight: bold;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
     display: block;
     text-shadow: 2px 2px 4px #1c1c1c;
   }
   .kv_bgtxt::before {
     content: "";
     position: absolute;
-    background-color: orange;
+    background-color: #f75c2f;
     top: -43px;
     right: -87px;
     width: 60px;
@@ -993,7 +1171,7 @@ kv
   .kv_bgtxt::after {
     content: "";
     position: absolute;
-    background-color: red;
+    background-color: #cb4042;
     bottom: -33px;
     left: -59px;
     width: 60px;
@@ -1024,7 +1202,7 @@ kv
   .kv_bgtxt::before {
     content: "";
     position: absolute;
-    background-color: orange;
+    background-color: #f75c2f;
     top: -43px;
     right: -87px;
     width: 60px;
@@ -1039,7 +1217,7 @@ kv
   .kv_bgtxt::after {
     content: "";
     position: absolute;
-    background-color: red;
+    background-color: #cb4042;
     bottom: -33px;
     left: -59px;
     width: 60px;
@@ -1135,11 +1313,29 @@ kv
   }
 }
 
-/****************************************:
+@-webkit-keyframes inAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes inAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/************************************************************************************:
 
 header
 
-*****************************************:*/
+*************************************************************************************:*/
 .header {
   position: absolute;
   top: 0;
@@ -1191,7 +1387,6 @@ header
 .header.fix {
   position: fixed;
   top: 0;
-  overflow: hidden;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -1202,6 +1397,7 @@ header
     position: fixed;
     top: 0;
     overflow: hidden;
+    z-index: 1;
   }
 }
 
@@ -1214,11 +1410,11 @@ header
   }
 }
 
-/****************************************:
+/************************************************************************************:
 
 nav
 
-*****************************************:*/
+************************************************************************************:*/
 .nav {
   position: relative;
 }
@@ -1527,11 +1723,11 @@ nav
   }
 }
 
-/****************************************:
+/***********************************************************************************:
 
 about
 
-*****************************************:*/
+***********************************************************************************:*/
 .about {
   padding: 80px 0;
   background-color: #E7F5E0;
@@ -1584,7 +1780,7 @@ about
 
 .about .section_ttl {
   margin-bottom: 50px;
-  text-shadow: 0.5px 1px 2px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
   color: #1c1c1c;
 }
 
@@ -1617,7 +1813,7 @@ about
   }
 }
 
-.about_imgbox {
+.about_wrap {
   margin: 0 auto;
   position: relative;
   -webkit-transform-style: preserve-3d;
@@ -1627,52 +1823,74 @@ about
   -webkit-transform: perspective(1000px) rotateX(0deg);
           transform: perspective(1000px) rotateX(0deg);
   cursor: pointer;
-  width: 250px;
 }
 
-.about_imgbox:hover {
+.about_wrap:hover {
   -webkit-transform: rotateX(90deg) translateY(-1000px);
           transform: rotateX(90deg) translateY(-1000px);
 }
 
-.about_imgbox:hover .about_intxt,
-.about_imgbox:hover .about_imgbox_in {
+.about_wrap:hover .about_intxt,
+.about_wrap:hover .about_imgbox_in {
   opacity: 1;
+}
+
+.about_imgbox {
+  margin: 0 20px 0 40px;
+  width: 250px;
+  height: 250px;
+  /* &:hover {
+            transform: rotateX(90deg) translateY(-1000px);
+        }
+
+        &:hover .about_intxt,
+        &:hover .about_imgbox_in {
+            opacity: 1;
+
+        } */
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .about_imgbox {
-    width: 350px;
+    width: 200px;
     height: 100%;
-    padding: 50px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .about_imgbox {
-    width: 350px;
+    width: 200px;
     height: 100%;
-    padding: 50px;
   }
 }
 
 .about_imgbox_in {
+  cursor: pointer;
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 50%;
-  -webkit-transform: rotateX(-80deg);
-          transform: rotateX(-80deg);
+  -webkit-transform: rotateX(-80deg) translateX(-50%);
+          transform: rotateX(-80deg) translateX(-50%);
   -webkit-transform-origin: center;
           transform-origin: center;
   opacity: 0;
   -webkit-transition: .5s;
   transition: .5s;
+  width: 250px;
+  height: 250px;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .about_imgbox_in {
-    width: 100%;
-    padding: 50px;
+    width: 200px;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .about_imgbox_in {
+    width: 200px;
+    height: 100%;
   }
 }
 
@@ -1724,7 +1942,7 @@ about
 .about_txt {
   display: block;
   color: #1c1c1c;
-  text-shadow: 3px 3px 3px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
   padding: 10px;
   font-size: 1.6rem;
 }
@@ -1857,6 +2075,15 @@ about
   transition: .5s;
   -webkit-transform: rotateZ(360deg);
           transform: rotateZ(360deg);
+  color: lightskyblue;
+}
+
+.about_share_icon:hover .fa-github {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg);
+  color: #1c1c1c;
 }
 
 .about_snake {
@@ -1915,6 +2142,7 @@ about
   margin-top: 20px;
   cursor: pointer;
   color: #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -1927,39 +2155,35 @@ about
   padding: 20px 0;
 }
 
-.fa-twitter {
+.fa-twitter, .fa-github {
   font-size: 2rem;
   -webkit-transition: .4s;
   transition: .4s;
   -webkit-transform: rotateZ(0);
           transform: rotateZ(0);
-  color: lightskyblue;
+  color: #b7c8bd;
 }
 
-.fa-github {
-  font-size: 2rem;
-  -webkit-transition: .4s;
-  transition: .4s;
-  -webkit-transform: rotateZ(0);
-          transform: rotateZ(0);
-}
-
-/****************************************:
+/***********************************************************************************:
 
 policy
 
-*****************************************:*/
+*************************************************************************************:*/
 .policy {
-  padding: 150px 0;
+  padding: 30px 0;
   margin: 0 auto;
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .policy_ttlwrap {
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 80px;
     background: -webkit-gradient(linear, left top, right top, from(#E7F5E0), color-stop(50%, #E7F5E0), color-stop(50%, #b7c8bd), to(#b7c8bd));
     background: -webkit-linear-gradient(left, #E7F5E0 0%, #E7F5E0 50%, #b7c8bd 50%, #b7c8bd 100%);
     background: linear-gradient(to right, #E7F5E0 0%, #E7F5E0 50%, #b7c8bd 50%, #b7c8bd 100%);
@@ -1969,20 +2193,26 @@ policy
 @media screen and (min-width: 1024px) {
   .policy_ttlwrap {
     position: relative;
+    background: transparent;
   }
 }
 
+.policy .section_inner {
+  margin: auto;
+}
+
 .policy .section_ttl {
-  text-shadow: 0.5px 1px 2px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
   background-color: #E7F5E0;
   margin-bottom: 50px;
   width: 100%;
   font-size: 2.5rem;
+  line-height: 70px;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .policy .section_inner {
-    margin: 80px auto;
+    margin: auto;
   }
   .policy .section_ttl {
     width: initial;
@@ -2013,7 +2243,6 @@ policy
 
 @media screen and (min-width: 1024px) {
   .policy .section_inner {
-    margin: 40px auto;
     max-width: 800px;
   }
   .policy .section_ttl {
@@ -2028,6 +2257,8 @@ policy
     color: #e1e1e1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
+    line-height: 40px;
+    text-decoration: none;
   }
   .policy .section_ttl::before {
     display: none;
@@ -2044,15 +2275,15 @@ policy
   display: block;
   width: 100%;
   margin: 40px auto;
-  text-shadow: 3px 3px 3px #1c1c1c;
+  text-shadow: 1px 1px 2px #1c1c1c;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .policy_txtwrap_left {
-    margin: 20px 0;
+    margin: 50px 0;
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 60px;
     background: -webkit-gradient(linear, right top, left top, from(#E7F5E0), color-stop(50%, #E7F5E0), color-stop(50%, #b7c8bd), to(#b7c8bd));
     background: -webkit-linear-gradient(right, #E7F5E0 0%, #E7F5E0 50%, #b7c8bd 50%, #b7c8bd 100%);
     background: linear-gradient(to left, #E7F5E0 0%, #E7F5E0 50%, #b7c8bd 50%, #b7c8bd 100%);
@@ -2075,7 +2306,7 @@ policy
     padding: 0;
     text-decoration: underline;
     height: 50%;
-    text-shadow: 0.5px 1px 2px #1c1c1c;
+    text-shadow: 1px 1px 1px #1c1c1c;
   }
   .policy_left:after {
     content: attr(data-left);
@@ -2086,13 +2317,13 @@ policy
     width: 50%;
     color: #E7F5E0;
     text-decoration: underline;
-    text-shadow: 0.5px 1px 2px #1c1c1c;
+    text-shadow: 1px 1px 2px #1c1c1c;
   }
   .policy_txtwrap_right {
     margin: 20px 0;
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 60px;
     background: -webkit-gradient(linear, left top, right top, from(#E7F5E0), color-stop(50%, #E7F5E0), color-stop(50%, #b7c8bd), to(#b7c8bd));
     background: -webkit-linear-gradient(left, #E7F5E0 0%, #E7F5E0 50%, #b7c8bd 50%, #b7c8bd 100%);
     background: linear-gradient(to right, #E7F5E0 0%, #E7F5E0 50%, #b7c8bd 50%, #b7c8bd 100%);
@@ -2110,7 +2341,7 @@ policy
     color: #E7F5E0;
     padding: 0;
     text-decoration: underline;
-    text-shadow: 0.5px 1px 2px #1c1c1c;
+    text-shadow: 1px 1px 2px #1c1c1c;
   }
   .policy_right:after {
     content: attr(data-right);
@@ -2121,7 +2352,7 @@ policy
     width: 50%;
     color: #b7c8bd;
     text-decoration: underline;
-    text-shadow: 0.5px 1px 2px #1c1c1c;
+    text-shadow: 1px 1px 2px #1c1c1c;
   }
 }
 
@@ -2132,9 +2363,36 @@ policy
     font-size: 2rem;
     width: 60%;
     display: inline-block;
+    text-decoration: none;
+    color: #1c1c1c;
   }
   .policy_txt.policy_right {
     margin-left: 230px;
+  }
+  .policy_left {
+    margin-left: 0;
+    background-color: #E7F5E0;
+    top: initial;
+    left: initial;
+    height: initial;
+    -webkit-transform: initial;
+            transform: initial;
+  }
+  .policy_left:after {
+    display: none;
+  }
+  .policy_txtwrap_left {
+    background: transparent;
+  }
+  .policy_txtwrap_right {
+    background: transparent;
+  }
+  .policy_right {
+    margin-left: 0;
+    background-color: #E7F5E0;
+  }
+  .policy_right:after {
+    display: none;
   }
 }
 
@@ -2150,11 +2408,11 @@ policy
   }
 }
 
-/****************************************:
+/*************************************************************************************:
 
 skill
 
-*****************************************:*/
+**************************************************************************************:*/
 .skill {
   padding: 50px 0;
   margin: 0 auto;
@@ -2199,7 +2457,7 @@ skill
 
 .skill .section_ttl {
   color: #1c1c1c;
-  text-shadow: 3px 3px 3px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2289,11 +2547,15 @@ skill
           align-items: center;
   margin: 40px auto;
   background-color: #e1e1e1;
+  -webkit-animation: blinkAnime 5s infinite 4s;
+          animation: blinkAnime 5s infinite 4s;
   overflow: hidden;
 }
 
 .skill_card:hover {
   opacity: 1;
+  -webkit-animation: forwards;
+          animation: forwards;
 }
 
 .skill_card:before {
@@ -2332,7 +2594,7 @@ skill
 .skill_card:hover .skill_icon,
 .skill_card:hover .skill_txtbox {
   opacity: 1;
-  text-shadow: 1px 1px 1px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 .skill_card:hover .skill_txt {
@@ -2730,11 +2992,11 @@ skill
   }
 }
 
-/****************************************:
+/*************************************************************************************:
 
 blog
 
-*****************************************:*/
+*************************************************************************************:*/
 .blog {
   padding: 50px 0;
   margin: 0 auto;
@@ -2796,7 +3058,7 @@ blog
 }
 
 .blog .section_ttl {
-  text-shadow: 3px 3px 3px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
   margin-bottom: 50px;
   width: 100%;
 }
@@ -3085,6 +3347,7 @@ blog
 
 .blog_outtxt {
   color: #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 .blog_txtcontent {
@@ -3128,11 +3391,11 @@ blog
   }
 }
 
-/****************************************:
+/************************************************************************************:
 
 create
 
-*****************************************:*/
+**********************************************************************************:*/
 .create {
   padding: 50px 0;
   margin: 0 auto;
@@ -3216,7 +3479,7 @@ create
           transition-delay: 0;
   color: #1c1c1c;
   opacity: 1;
-  text-shadow: 0.5px 1px 2px #e1e1e1;
+  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -3229,7 +3492,7 @@ create
     border-radius: 50%;
     background-color: #E7F5E0;
     padding: 5px 0;
-    text-shadow: 3px 3px 3px #1c1c1c;
+    text-shadow: 1px 1px 3px #1c1c1c;
   }
 }
 
@@ -3243,7 +3506,7 @@ create
     border-radius: 50%;
     padding: 5px 0;
     background-color: #E7F5E0;
-    text-shadow: 3px 3px 3px #1c1c1c;
+    text-shadow: 1px 1px 3px #1c1c1c;
   }
 }
 
@@ -3257,6 +3520,13 @@ create
   max-width: 250px;
   text-align: left;
   background: #1c1c1c;
+  -webkit-animation: blinkAnime 5s infinite 4s;
+          animation: blinkAnime 5s infinite 4s;
+}
+
+.create_imgbox:hover {
+  -webkit-animation: forwards;
+          animation: forwards;
 }
 
 .create_imgbox:hover .create_img {
@@ -3404,7 +3674,7 @@ create
 }
 
 .create_outtxt {
-  text-shadow: 3px 3px 3px #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
   font-size: 1.4rem;
   padding: 15px;
   background-color: #E7F5E0;
@@ -3466,11 +3736,11 @@ create
   }
 }
 
-/****************************************:
+/***********************************************************************************:
 
 contact
 
-*****************************************:*/
+*************************************************************************************:*/
 .contact {
   padding: 88px 0 64px;
   position: relative;
@@ -3524,7 +3794,7 @@ contact
   .contact .section_ttl {
     position: absolute;
     font-size: 3.6rem;
-    text-shadow: 3px 3px 3px #1c1c1c;
+    text-shadow: 1px 1px 3px #1c1c1c;
     padding: 5px 0;
     border-radius: 50%;
     background-color: #b7c8bd;
@@ -3547,7 +3817,7 @@ contact
     color: #1c1c1c;
     width: 10px;
     left: 0;
-    text-shadow: 3px 3px 3px #1c1c1c;
+    text-shadow: 1px 1px 3px #1c1c1c;
   }
 }
 
@@ -3633,11 +3903,11 @@ contact
   transition: .3s;
 }
 
-/****************************************:
+/********************************************************************************:
 
 footer
 
-*****************************************:*/
+**********************************************************************************:*/
 .footer {
   text-align: center;
   background-color: #1c1c1c;
