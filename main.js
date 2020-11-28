@@ -2,12 +2,12 @@ $(() => {
 
 
 
-    
+
     $('body').addClass('lock');
 
     setTimeout(function () {
 
-        $('#js-loading_wrap').addClass('loading_none');
+        $('#js-loading_wrap').addClass('loading_anime');
 
         $("body").stop().animate(
             {
@@ -19,23 +19,28 @@ $(() => {
     setTimeout(function () {
 
         $('body').removeClass('lock')
-            // $(".container").css({  opacity: "1"});
+
 
     }, 2800);
 
+    setTimeout(function () {
 
+
+        $('#js-loading_wrap').addClass('loading_none');
+
+    }, 8000);
 
     // 1画面分以上スクロールしたら、ヘッダーを固定する
 
-    let headerFix = $("header");
+    let headerFix = $("#top");
 
     $(window).scroll(function (){
         if ($(window).scrollTop() > $(window).height()) {
             headerFix.addClass("fix");
-            console.log('ok');
         } else {
-
-        headerFix.removeClass("fix");
+            
+            headerFix.removeClass("fix");
+            console.log('ok');
 
         }
     });
@@ -64,6 +69,29 @@ $(() => {
 
 
     });
+
+
+
+
+        let pagetop = $('#js-scroll-fadein');
+        //スクロールしたら
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {  //100pxスクロールしたら表示
+            pagetop.addClass("is-fadein");
+            } else {
+            pagetop.removeClass("is-fadein");
+            }
+        });
+        pagetop.on("click",function () {
+            $('body, html').animate({ //animate関数を参照
+                scrollTop: 0
+            }, 500); //0.5秒かけてトップへ移動
+            return false;
+        });
+
+
+
+
 
     // ハンバーガーメニュー以外の場所クリックでメニュー閉じる
     $('html, body').click(() => {

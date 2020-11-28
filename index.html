@@ -14,6 +14,7 @@
 
   <body>
 
+
     <div class="container">
 
       <!-- OPアニメーション -->
@@ -37,10 +38,11 @@
         <div class="kv_container">
           <img src="images/道.jpg" alt="ポートフォリオイメージ" class="kv_img">
           <img src="images/木.jpg" alt="ポートフォリオイメージ" class="kv_img">
-          <img src="images/紅葉.jpg" alt="ポートフォリオいめ」ーいめ」ー" class="kv_img">
+          <img src="images/紅葉.jpg" alt="ポートフォリオイメージ" class="kv_img">
 
           <div class="kv_bgtxtbox">
-            <p class="kv_bgtxt">熊田@制作
+            <!-- <p class="kv_bgtxt">熊田@制作 -->
+            <p class="kv_bgtxt">熊田真人
               <span class="kv_bgspan"></span>
               <span class="kv_bgspan"></span>
               <span class="kv_bgspan"></span>
@@ -86,9 +88,9 @@
             <span class="nav_hamspan">open</span>
             <!-- ハンバーガーメニューここまで -->
 
-            <ul class="nav_list">
+            <ul class="nav_list flex">
 
-              <div class="nav_inner flex">
+              <div class="nav_inner">
 
                 <li class="nav_item">
                   <a href="index.html" class="nav_link">TOP</a>
@@ -135,6 +137,9 @@
 
       <!-- メインコンテンツここから -->
       <main class="main_container">
+            <div id="js-scroll-fadein" class="js-scroll-fadein arrow"></div>
+
+        
         <div class="inner">
 
           <!-- aboutセクション -->
@@ -148,7 +153,8 @@
 
 
               <div class="out_in">
-                <div class="about_wrap">
+                <!-- <div class="about_wrap"> -->
+
                   <div class="about_imgbox">
                     <img src="images/アイコン.jpg" alt="ポートフォリオ制作者イメージ" class="about_img">
                     <div class="about_imgbox_in">
@@ -159,7 +165,9 @@
                     </div>
                   </div>
 
-                </div><!-- /.about_wrap -->
+                <!-- </div> -->
+                <!-- /.about_wrap -->
+
               </div><!-- /.out_in -->
 
 
@@ -197,6 +205,19 @@
                       </a>
                       <div class="about_linkbox">
                         <a href="https://github.com/ppmp556" class="about_sharetxt about_link">Github：masahito kumada</a><!-- /.about_sharetxt -->
+                      </div><!-- /.about_linkbox -->
+                    </div><!-- /.about_sharebox -->
+
+                    <div class="about_sharebox">
+                      <a href="https://www.facebook.com/ppmp556" class="about_share_icon">
+                        <spnan class="about_snake"></spnan><!-- /.about_snake -->
+                        <spnan class="about_snake"></spnan><!-- /.about_snake -->
+                        <spnan class="about_snake"></spnan><!-- /.about_snake -->
+                        <spnan class="about_snake"></spnan><!-- /.about_snake -->
+                        <i class="fab fa-facebook-square fa-2x share"></i>
+                      </a>
+                      <div class="about_linkbox">
+                        <a href="https://www.facebook.com/ppmp556" class="about_sharetxt about_link">Facebook</a><!-- /.about_sharetxt -->
                       </div><!-- /.about_linkbox -->
                     </div><!-- /.about_sharebox -->
 
@@ -718,8 +739,45 @@
 
       <footer class="footer">
 
+        <div class="section_inner">
+            <ul class="footer_sharelist">
+
+                <li class="footer_item">
+                  <a href="https://twitter.com/ppmp65" class="footer_share_icon">
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <i class="fab fa-twitter share"></i>
+                  </a>
+                </li><!-- /.footer_item -->
+
+                <li class="footer_item">
+                  <a href="https://github.com/ppmp556" class="footer_share_icon">
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <i class="fab fa-github share"></i>
+                  </a>
+                </li><!-- /.footer_item -->
+
+                <li class="footer_item">
+                  <a href="https://www.facebook.com/ppmp556" class="footer_share_icon">
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <spnan class="footer_snake"></spnan><!-- /.about_snake -->
+                    <i class="fab fa-facebook-square share"></i>
+                  </a>
+                </li><!-- /.footer_item -->
+
+            </ul><!-- /.footer_sharalist -->
+        </div><!-- /.footer_sharbox -->
+
+
         <div class="footer_copy">
-          <small class="footer_txt">@ copyright</small><!-- /.footer_txt -->
+          <small class="footer_txt">&copy; Masahito Kumada</small><!-- /.footer_txt -->
         </div>
         <!-- /.footer_copy -->
       </footer>
