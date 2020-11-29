@@ -16,6 +16,7 @@ $(() => {
             }, 1000);
     }, 2500);
 
+
     setTimeout(function () {
 
         $('body').removeClass('lock')
@@ -30,20 +31,54 @@ $(() => {
 
     }, 8000);
 
+
+
     // 1画面分以上スクロールしたら、ヘッダーを固定する
 
-    let headerFix = $("#top");
+    // let headerFix = $("header");
 
-    $(window).scroll(function (){
-        if ($(window).scrollTop() > $(window).height()) {
-            headerFix.addClass("fix");
+    // $(window).scroll(function (){
+    //     if ($(window).scrollTop() > $(window).height()) {
+    //         headerFix.addClass("fix");
+    //         console.log("ok");
+    //     } else {
+
+    //         headerFix.removeClass("fix");
+
+    //     }
+    // });
+
+
+
+    let pgTop = $('#js-scroll');
+
+    $(window).scroll(function () {
+
+        if ($(this).scrollTop() > 100) {  //100pxスクロールしたら表示
+
+            pgTop.addClass("is_fade");
+
+
         } else {
-            
-            headerFix.removeClass("fix");
-            console.log('ok');
 
+            pgTop.removeClass("is_fade");
         }
+
     });
+
+    pgTop.on("click", function () {
+
+        $('body, html').animate({
+
+            scrollTop: 0
+
+        }, 500);
+
+        return false;
+    });
+
+
+
 
 
 
@@ -69,26 +104,6 @@ $(() => {
 
 
     });
-
-
-
-
-        let pagetop = $('#js-scroll-fadein');
-        //スクロールしたら
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {  //100pxスクロールしたら表示
-            pagetop.addClass("is-fadein");
-            } else {
-            pagetop.removeClass("is-fadein");
-            }
-        });
-        pagetop.on("click",function () {
-            $('body, html').animate({ //animate関数を参照
-                scrollTop: 0
-            }, 500); //0.5秒かけてトップへ移動
-            return false;
-        });
-
 
 
 

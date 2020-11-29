@@ -15,7 +15,6 @@ body {
   margin: 0 auto;
   font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
   color: #1c1c1c;
-  will-change: transform,animation,position;
 }
 
 body.lock {
@@ -106,8 +105,9 @@ body.lock {
   }
 }
 
-main {
+.main_container {
   margin-top: 100vh;
+  position: relative;
 }
 
 .site {
@@ -298,6 +298,60 @@ main {
     background-size: cover;
     background-attachment: fixed;
   }
+}
+
+/***********************************************************************************:
+
+back-to-top
+
+**************************************************************************************:*/
+.scroll_btn {
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.scroll_btn.is_fade {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arrow {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  color: #e1e1e1;
+  cursor: pointer;
+  background-color: #bcf54b;
+  border-radius: 22px;
+  padding: 20px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 99;
+}
+
+.arrow:hover {
+  opacity: .8;
+  bottom: 15px;
+  -webkit-box-shadow: 0 2px 4px 1px #1c1c1c;
+          box-shadow: 0 2px 4px 1px #1c1c1c;
+}
+
+.arrow:before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-top: solid 3px #1c1c1c;
+  border-right: solid 3px #1c1c1c;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  left: 13px;
+}
+
+.arrow:before {
+  top: 14px;
 }
 
 /***********************************************************************************:
@@ -1060,7 +1114,7 @@ kv
   .kv_bgtxtbox {
     display: block;
     position: relative;
-    margin-top: 40px;
+    margin-top: 80px;
     opacity: 0;
     -webkit-animation: inAnime 5s linear 2.5s 1 forwards;
             animation: inAnime 5s linear 2.5s 1 forwards;
@@ -1109,6 +1163,7 @@ kv
   .kv_bgtxtbox {
     display: block;
     position: relative;
+    margin-top: 80px;
     opacity: 0;
     -webkit-animation: inAnime 5s linear 2.5s 1 forwards;
             animation: inAnime 5s linear 2.5s 1 forwards;
@@ -1250,7 +1305,7 @@ kv
 }
 
 .kv_txtbox {
-  position: relative;
+  position: absolute;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1265,7 +1320,7 @@ kv
 
 .kv_ttl {
   color: #e1e1e1;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
   margin: 20px;
   font-weight: bold;
@@ -1284,7 +1339,7 @@ kv
 }
 
 .kv_txt {
-  font-size: 3rem;
+  font-size: 2.0rem;
   color: #e1e1e1;
   letter-spacing: .2em;
   text-shadow: 3p 3px 3px #1c1c1c;
@@ -2241,6 +2296,12 @@ policy
   line-height: 70px;
 }
 
+@media screen and (max-width: 375px) {
+  .policy .section_ttl {
+    font-size: 2.3rem;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .policy .section_inner {
     margin: auto;
@@ -2307,6 +2368,13 @@ policy
   width: 100%;
   margin: 40px auto;
   text-shadow: 1px 1px 2px #1c1c1c;
+}
+
+@media screen and (max-width: 375px) {
+  .policy_txt {
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2562,8 +2630,8 @@ skill
   cursor: pointer;
   margin: 40px;
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2577,7 +2645,7 @@ skill
       -ms-flex-align: center;
           align-items: center;
   margin: 40px auto;
-  background-color: #e1e1e1;
+  background-color: #eaebed;
   -webkit-animation: blinkAnime 5s infinite 4s;
           animation: blinkAnime 5s infinite 4s;
   overflow: hidden;
@@ -2639,6 +2707,20 @@ skill
   opacity: 1;
 }
 
+@media screen and (max-width: 375px) {
+  .skill_card {
+    width: 200px;
+    height: 200px;
+  }
+  .skill_card:hover .skill_icon {
+    -webkit-transform: translateY(7px) rotate(360deg);
+            transform: translateY(7px) rotate(360deg);
+  }
+  .skill_card:hover:before {
+    left: 50%;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .skill_card {
     border-radius: 50%;
@@ -2654,7 +2736,7 @@ skill
     height: 50%;
   }
   .skill_card:hover:before {
-    top: 150px;
+    top: 50%;
     left: 2px;
     width: 100%;
     height: 50%;
@@ -2716,6 +2798,12 @@ skill
   text-align: center;
 }
 
+@media screen and (max-width: 375px) {
+  .skill_inbox {
+    padding: 5px;
+  }
+}
+
 .skill_imgbox {
   position: absolute;
   width: 300px;
@@ -2746,6 +2834,12 @@ skill
   display: block;
 }
 
+@media screen and (max-width: 375px) {
+  .skill_icon {
+    font-size: 3rem;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .skill_icon {
     font-size: 2rem;
@@ -2762,6 +2856,13 @@ skill
   -webkit-transition: .5s;
   transition: .5s;
   margin-top: 40px;
+}
+
+@media screen and (max-width: 375px) {
+  .skill_txtbox {
+    font-size: 1rem;
+    margin-top: 0;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2850,6 +2951,13 @@ skill
   left: -30px;
 }
 
+@media screen and (max-width: 375px) {
+  .__penicon {
+    left: -50px;
+    top: -8%;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .__penicon {
     left: 0;
@@ -2859,6 +2967,12 @@ skill
 
 .__htmlicon, .__deskicon {
   left: -30px;
+}
+
+@media screen and (max-width: 375px) {
+  .__htmlicon, .__deskicon {
+    left: -55px;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2871,6 +2985,12 @@ skill
 .__cssicon, .__tabicon {
   bottom: -200px;
   left: -130px;
+}
+
+@media screen and (max-width: 375px) {
+  .__cssicon, .__tabicon {
+    bottom: -130px;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2890,6 +3010,13 @@ skill
   left: 80px;
 }
 
+@media screen and (max-width: 375px) {
+  .__sassicon, .__mobicon {
+    left: 15px;
+    bottom: -130px;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .__sassicon, .__mobicon {
     left: 50px;
@@ -2906,6 +3033,12 @@ skill
   left: -30px;
 }
 
+@media screen and (max-width: 375px) {
+  .__jsicon {
+    left: -55px;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .__jsicon {
     top: 50px;
@@ -2917,6 +3050,12 @@ skill
   left: -30px;
 }
 
+@media screen and (max-width: 375px) {
+  .__wpicon {
+    left: -55px;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .__wpicon {
     left: 0;
@@ -2926,6 +3065,12 @@ skill
 
 .__painticon {
   left: -30px;
+}
+
+@media screen and (max-width: 375px) {
+  .__painticon {
+    left: -55px;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -3278,6 +3423,7 @@ blog
 
 @media screen and (min-width: 1024px) {
   .blog_imgbox {
+    cursor: pointer;
     max-width: 220px;
     min-width: 301px;
     min-height: 200px;
@@ -3416,6 +3562,28 @@ blog
   }
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .blog .site_wrap {
+    z-index: 1;
+    bottom: 133px;
+    left: -140px;
+  }
+  .blog .site {
+    background-color: #E7F5E0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog .site_wrap {
+    z-index: 1;
+    bottom: 40px;
+    left: 50%;
+  }
+  .blog .site {
+    background-color: #b7c8bd;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .blog {
     padding: 100px 0;
@@ -3541,6 +3709,7 @@ create
 }
 
 .create_imgbox {
+  cursor: pointer;
   position: relative;
   overflow: hidden;
   margin: 40px auto;
@@ -3688,6 +3857,23 @@ create
           transition-delay: .6s;
 }
 
+@media screen and (max-width: 375px) {
+  .create_txtbox {
+    padding: 20px 2em;
+  }
+  .create_txtbox:before {
+    top: 5px;
+    bottom: 15px;
+  }
+  .create_imgbox:hover .create_txtbox::after {
+    top: 10px;
+  }
+  .create_imgbox:hover .create_txt {
+    -webkit-transform: translate3d(0, 0, 0) scale(0.8);
+            transform: translate3d(0, 0, 0) scale(0.8);
+  }
+}
+
 .create_txt {
   font-weight: 200;
   -webkit-transform: translate3d(0%, 30%, 0);
@@ -3701,6 +3887,14 @@ create
   transition: opacity .35s, -webkit-transform .35s;
   transition: opacity .35s, transform .35s;
   transition: opacity .35s, transform .35s, -webkit-transform .35s;
+}
+
+@media screen and (max-width: 375px) {
+  .create_txt {
+    font-size: 1.1rem;
+    margin: 1% 15px 1px;
+    width: 100%;
+  }
 }
 
 .create_outtxt {
@@ -3906,6 +4100,12 @@ contact
   background-color: #E7F5E0;
 }
 
+@media screen and (max-width: 375px) {
+  .form_area {
+    width: 25rem;
+  }
+}
+
 .form2 {
   margin-top: 24.5px;
 }
@@ -4093,56 +4293,4 @@ footer
 
 .footer_txt {
   color: #e1e1e1;
-}
-
-.js-scroll-fadein {
-  -webkit-transition: opacity 1s;
-  transition: opacity 1s;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.js-scroll-fadein.is-fadein {
-  visibility: visible;
-  opacity: 1;
-}
-
-/*--------------------------------
-      arrow
-    --------------------------------*/
-.arrow {
-  position: fixed;
-  right: 12px;
-  bottom: 12px;
-  color: #fff;
-  cursor: pointer;
-  background-color: #c4c4c4;
-  border-radius: 22px;
-  padding: 20px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  z-index: 99;
-}
-
-.arrow:hover {
-  opacity: .8;
-  bottom: 15px;
-  -webkit-box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
-}
-
-.arrow:before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  border-top: solid 3px #fff;
-  border-right: solid 3px #fff;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  position: absolute;
-  left: 13px;
-}
-
-.arrow:before {
-  top: 14px;
 }

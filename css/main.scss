@@ -18,7 +18,7 @@ $cOrenge: #f75c2f;
 
 $widthPc: 1024px;
 $widthTab: 764px;
-$widthSp: 480px;
+$widthSp: 375px;
 
 @mixin fontsize($cFontSz: 3.6rem) {
     font-size: $cFontSz;
@@ -44,8 +44,14 @@ $widthSp: 480px;
     }
 }
 
+// @mixin SP {
+//         @media screen and (max-width: $width) and (max-width: $widthPc) {
+//         @content;
+//     }
+
+// }
 @mixin SP {
-        @media screen and (max-width: $width) and (max-width: $widthPc) {
+        @media screen and (max-width: $widthSp) {
         @content;
     }
 
@@ -70,7 +76,6 @@ body {
     font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
     color: $cBlack;
 
-    will-change: transform,animation,position;
 
     &.lock{
         position: fixed;
@@ -166,8 +171,9 @@ body {
 
 
 
-main {
+.main_container {
     margin-top: 100vh;
+    position: relative;
 }
 
 
@@ -365,6 +371,69 @@ main {
 
     }
 }
+
+
+
+
+/***********************************************************************************:
+
+back-to-top
+
+**************************************************************************************:*/
+
+.scroll_btn {
+
+    transition: opacity 1s;
+    visibility: hidden;
+    opacity: 0;
+
+    &.is_fade {
+        opacity: 1;
+        visibility: visible;
+
+    }
+}
+
+
+.arrow {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    color: $cWhite;
+    cursor: pointer;
+    background-color: $cLgreen;
+    border-radius: 22px;
+    padding: 20px;
+    transition: all 0.2s ease-in-out;
+    z-index: 99;
+
+    &:hover{
+        opacity: .8;
+        bottom: 15px;
+        box-shadow: 0 2px 4px 1px $cBlack;
+
+}
+
+    &:before {
+        content: "";
+        position:  absolute;
+        width: 12px;
+        height: 12px;
+        border-top: solid 3px $cBlack;
+        border-right: solid 3px $cBlack;
+        transform: rotate(-45deg);
+        left: 13px;
+    }
+
+    &:before {
+        top: 14px;
+    }
+}
+
+
+
+
+
 
 
 
@@ -957,7 +1026,7 @@ kv
         &_bgtxtbox {
             display: block;
             position: relative;
-            margin-top: 40px;
+            margin-top: 80px;
 
             opacity: 0;
             animation: inAnime 5s linear 2.5s 1 forwards;
@@ -1013,6 +1082,8 @@ kv
         &_bgtxtbox {
             display: block;
             position: relative;
+            margin-top: 80px;
+
 
             opacity: 0;
             animation: inAnime 5s linear 2.5s 1 forwards;
@@ -1173,7 +1244,8 @@ kv
 
 
     &_txtbox {
-        position: relative;
+        // position: relative;
+        position: absolute;
         flex-direction: column;
         top: 50%;
         left: 50%;
@@ -1183,7 +1255,7 @@ kv
 
     &_ttl {
         color: $cWhite;
-        font-size: 3rem;
+        font-size: 2.5rem;
         text-align: center;
         margin: 20px;
         font-weight: bold;
@@ -1206,7 +1278,7 @@ kv
 
 
     &_txt {
-        font-size: 3rem;
+        font-size: 2.0rem;
         color: $cWhite;
         letter-spacing: .2em;
         text-shadow: 3p 3px 3px $cBlack;
@@ -2205,6 +2277,12 @@ policy
 
     }
 
+    @include SP {
+        .section_ttl {
+            font-size: 2.3rem;
+        }
+    }
+
     @include tab {
         .section_inner {
             margin: auto;
@@ -2282,6 +2360,13 @@ policy
         text-shadow: 1px 1px 2px $cBlack;
 
 
+    }
+
+    @include SP {
+        &_txt {
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
     }
 
     @include tab {
@@ -2544,17 +2629,18 @@ skill
 
     // スキルのコンテンツここから
 
+
     &_card {
         cursor: pointer;
         margin: 40px;
         position: relative;
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 40px auto;
-        background-color: $cWhite;
+        background-color: $cBgColor;
         animation: blinkAnime 5s infinite 4s;
 
 
@@ -2617,6 +2703,24 @@ skill
 
     }
 
+    @include SP {
+        &_card {
+            width: 200px;
+            height: 200px;
+
+            &:hover .skill_icon {
+                transform: translateY(7px) rotate(360deg);
+            }
+
+            &:hover:before {
+                left: 50%;
+            }
+        }
+    }
+
+
+    
+
     @include tab {
         &_card {
             border-radius: 50%;
@@ -2633,7 +2737,8 @@ skill
             }
 
             &:hover:before {
-                top: 150px;
+                // top: 150px;
+                top: 50%;
                 left: 2px;
                 width: 100%;
                 height: 50%;
@@ -2697,6 +2802,12 @@ skill
 
     }
 
+    @include SP {
+        &_inbox {
+            padding: 5px;
+        }
+    }
+
     &_imgbox {
         position: absolute;
         width: 300px;
@@ -2731,6 +2842,12 @@ skill
 
     }
 
+    @include SP {
+        &_icon {
+            font-size: 3rem;
+        }
+    }
+
     @include tab {
         &_icon {
             font-size: 2rem;
@@ -2747,6 +2864,13 @@ skill
         letter-spacing: 1px;
         transition: .5s;
         margin-top: 40px;
+    }
+
+    @include SP {
+        &_txtbox {
+            font-size: 1rem;
+            margin-top: 0;
+        }
     }
 
     @include tab {
@@ -2831,6 +2955,14 @@ skill
 
 }
 
+@include SP {
+    .__penicon {
+        left: -50px;
+        top: -8%;
+
+    }
+}
+
 @include tab {
     .__penicon {
         left: 0;
@@ -2844,6 +2976,11 @@ skill
 
 
 
+@include SP {
+    .__htmlicon,.__deskicon {
+        left: -55px;
+    }
+}
 @include tab {
     .__htmlicon,.__deskicon {
         left: 0;
@@ -2855,6 +2992,14 @@ skill
     bottom: -200px;
     left: -130px;
 }
+@include SP {
+    .__cssicon,.__tabicon {
+        bottom: -130px;
+    }
+
+}
+
+
 
 @include tab {
     .__cssicon,.__tabicon {
@@ -2872,6 +3017,12 @@ skill
     left: 80px;
 }
 
+@include SP {
+    .__sassicon,.__mobicon {
+        left: 15px;
+        bottom: -130px;
+    }
+}
 @include tab {
     .__sassicon,.__mobicon {
         left: 50px;
@@ -2887,6 +3038,11 @@ skill
     left: -30px;
 }
 
+@include SP {
+    .__jsicon {
+        left: -55px;
+    }
+}
 @include tab {
     .__jsicon {
         top: 50px;
@@ -2898,6 +3054,11 @@ skill
     left: -30px;
 }
 
+@include SP {
+    .__wpicon {
+        left: -55px;
+    }
+}
 @include tab {
     .__wpicon {
         left: 0;
@@ -2910,6 +3071,11 @@ skill
     left: -30px;
 }
 
+@include SP {
+    .__painticon {
+        left: -55px;
+    }
+}
 @include tab {
     .__painticon {
         left: 0;
@@ -3092,6 +3258,7 @@ blog
 
     @include pc {
         &_wrap {
+
             display: flex;
             position: relative;
             align-items: center;
@@ -3166,6 +3333,7 @@ blog
     }
     @include pc {
         &_imgbox {
+            cursor: pointer;
             max-width: 220px;
             min-width: 301px;
             min-height: 200px;
@@ -3304,6 +3472,27 @@ blog
         }
     }
 
+    @include tab {
+        .site_wrap {
+            z-index: 1;
+            bottom: 133px;
+            left: -140px;
+        }
+        .site {
+            background-color: $cScolor;
+        }
+    }
+    @include pc {
+        .site_wrap {
+            z-index: 1;
+            bottom: 40px;
+            left: 50%;
+        }
+        .site {
+            background-color: $cBgGreen;
+        }
+    }
+
 }
 
 @include pc {
@@ -3431,6 +3620,7 @@ create
 
 
     &_imgbox {
+        cursor: pointer;
         position: relative;
         overflow: hidden;
         margin: 40px auto;
@@ -3560,6 +3750,28 @@ create
 
     }
 
+    @include SP {
+        &_txtbox {
+            padding: 20px 2em;
+
+            &:before {
+                top: 5px;
+                bottom: 15px;
+            }
+
+        }
+        &_imgbox:hover .create_txtbox::after {
+            top: 10px;
+        }
+
+        &_imgbox:hover .create_txt {
+            transform: translate3d(0,0,0) scale(.8);
+        }
+
+
+
+    }
+
 
 
 
@@ -3573,6 +3785,16 @@ create
         margin: 5% 15px 5px;
         opacity: 0;
         transition: opacity .35s, transform .35s;
+
+    }
+
+    @include SP {
+                &_txt {
+            font-size: 1.1rem;
+            margin: 1% 15px 1px;
+            width: 100%;
+        }
+
 
     }
 
@@ -3812,6 +4034,12 @@ contact
         background-color: $cScolor;
     }
 
+    @include SP {
+        &_area {
+            width: 25rem;
+        }
+    }
+
 
 }
 
@@ -3980,55 +4208,6 @@ footer
 }
 
 
-
-
-
-
-    .js-scroll-fadein {
-    
-      transition: opacity 1s;
-      visibility: hidden;
-      opacity: 0;
-      &.is-fadein {
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-    /*--------------------------------
-      arrow
-    --------------------------------*/
-    .arrow{
-      position: fixed;
-      right: 12px;
-      bottom: 12px;
-      color: #fff;
-      cursor: pointer;
-      background-color: #c4c4c4;
-      border-radius: 22px;
-      padding: 20px;
-      transition: all 0.2s ease-in-out;
-      z-index: 99;
-    
-      &:hover{
-        opacity: .8;
-        bottom: 15px;
-        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
-    
-      }
-      &:before {
-        content: "";
-        width: 12px;
-        height: 12px;
-        border-top: solid 3px #fff;
-        border-right: solid 3px #fff;
-        transform: rotate(-45deg);
-        position:  absolute;
-        left: 13px;
-      }
-      &:before {
-        top: 14px;
-      }
-    }
 
 
 
