@@ -4080,7 +4080,7 @@ contact
 
 *************************************************************************************:*/
 .contact {
-    padding: 88px 0 64px;
+    padding: 88px 0 100px;
     position: relative;
     background-color: $cScolor;
 
@@ -4125,6 +4125,10 @@ contact
 
         }
     }
+
+
+    
+
 
     @include SP {
         .section_ttl {
@@ -4179,6 +4183,62 @@ contact
         background-color: $cBgGreen;
     }
 
+    .end_msg {
+        display: none;
+        position: absolute;
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+        margin: 50px 0;
+        width: 100%;
+        color: $cBlack;
+        text-shadow: 1px 1px 3px $cBlack;
+
+
+
+    }
+
+    .false_msg {
+        display: none;
+        position: absolute;
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+        margin: 50px 0;
+        width: 100%;
+        color: $cBlack;
+        text-shadow: 1px 1px 3px $cBlack;
+
+
+
+    }
+
+
+
+    @include SP {
+        .end_msg,.false_msg {
+            font-size: 1.4rem;
+            margin: 30px 0;
+        }
+
+    }
+
+    @include tab {
+        .end_msg,.false_msg {
+            font-size: 2.5rem;
+            margin: 40px 0;
+        }
+
+    }
+    @include pc {
+        .end_msg,.false_msg {
+            font-size: 3rem;
+            margin: 40px 0;
+        }
+
+    }
+
+
 
 
 }
@@ -4186,7 +4246,7 @@ contact
 
 @include pc {
     .contact {
-        padding: 128px 0 80px;
+        padding: 128px 0 120px;
     }
 }
 

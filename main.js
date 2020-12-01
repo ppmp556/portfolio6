@@ -231,6 +231,38 @@ $(() => {
         });
     });
 
+
+    //お問い合わせ送信後
+    $(document).ready(function () {
+
+        $('#js-contact_form').submit(function (event) {
+
+        let formData = $('#js-contact_form').serialize();
+
+        $.ajax({
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse",
+            data: formData,
+            type: "POST",
+            dataType: "xml",
+            statusCode: {
+
+                0: function () {
+
+                $("#js-end_msg").slideDown();
+
+                $("#js-submit_btn").fadeOut();
+                },
+
+                500: function () {
+                $("#js-false_msg").slideDown();
+                }
+            }
+            });
+            event.preventDefault();
+            });
+
+        });
+
 });
 
 

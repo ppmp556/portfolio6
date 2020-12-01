@@ -4119,7 +4119,7 @@ contact
 
 *************************************************************************************:*/
 .contact {
-  padding: 88px 0 64px;
+  padding: 88px 0 100px;
   position: relative;
   background-color: #E7F5E0;
 }
@@ -4210,9 +4210,56 @@ contact
   background-color: #b7c8bd;
 }
 
+.contact .end_msg {
+  display: none;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: 50px 0;
+  width: 100%;
+  color: #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
+}
+
+.contact .false_msg {
+  display: none;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: 50px 0;
+  width: 100%;
+  color: #1c1c1c;
+  text-shadow: 1px 1px 3px #1c1c1c;
+}
+
+@media screen and (max-width: 375px) {
+  .contact .end_msg, .contact .false_msg {
+    font-size: 1.4rem;
+    margin: 30px 0;
+  }
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .contact .end_msg, .contact .false_msg {
+    font-size: 2.5rem;
+    margin: 40px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contact .end_msg, .contact .false_msg {
+    font-size: 3rem;
+    margin: 40px 0;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .contact {
-    padding: 128px 0 80px;
+    padding: 128px 0 120px;
   }
 }
 
