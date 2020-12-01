@@ -418,6 +418,13 @@ loading
   background-color: #E7F5E0;
 }
 
+@media screen and (max-width: 375px) {
+  .loading_box {
+    width: 120px;
+    height: 220px;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .loading_box {
     width: 200px;
@@ -473,6 +480,13 @@ loading
   text-shadow: 2px 2px 4px #1c1c1c;
   -webkit-animation: animeBottom  2s linear 0s 1 forwards;
           animation: animeBottom  2s linear 0s 1 forwards;
+}
+
+@media screen and (max-width: 375px) {
+  .loading_txt {
+    font-size: 2.6rem;
+    width: 40px;
+  }
 }
 
 @-webkit-keyframes animeTop {
@@ -1327,6 +1341,12 @@ kv
   font-weight: bold;
 }
 
+@media screen and (max-width: 375px) {
+  .kv_ttl {
+    font-size: 1.6rem;
+  }
+}
+
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .kv_ttl {
     display: none;
@@ -1346,6 +1366,12 @@ kv
   text-shadow: 3p 3px 3px #1c1c1c;
   text-align: center;
   font-weight: bold;
+}
+
+@media screen and (max-width: 375px) {
+  .kv_txt {
+    font-size: 1.4rem;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -1472,6 +1498,12 @@ header
   color: #bcf54b;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+@media screen and (max-width: 375px) {
+  .header_ttl {
+    font-size: 1.6rem;
+  }
 }
 
 .header.fix {
@@ -2800,6 +2832,10 @@ skill
     -webkit-transform: translateY(7px) rotate(360deg);
             transform: translateY(7px) rotate(360deg);
   }
+  .skill_card:hover .skill_txt {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
   .skill_card:hover:before {
     left: 50%;
   }
@@ -4127,6 +4163,12 @@ contact
   }
   .contact_formwrap:nth-child(1) {
     margin-right: 53px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .contact .section_ttl {
+    font-size: 3.4rem;
   }
 }
 

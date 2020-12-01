@@ -497,6 +497,13 @@ loading
 
     }
 
+    @include SP{
+        &_box {
+            width: 120px;
+            height: 220px;
+        }
+    }
+
     @include tab {
         &_box {
             width: 200px;
@@ -554,6 +561,13 @@ loading
         }
 
 
+    }
+
+    @include SP {
+        &_txt {
+            font-size: 2.6rem;
+            width: 40px;
+        }
     }
 
 }
@@ -1267,6 +1281,12 @@ kv
 
     }
 
+    @include SP {
+        &_ttl {
+            font-size: 1.6rem;
+        }
+    }
+
 
 
 
@@ -1292,6 +1312,12 @@ kv
         text-shadow: 3p 3px 3px $cBlack;
         text-align: center;
         font-weight: bold;
+    }
+
+    @include SP {
+        &_txt {
+            font-size: 1.4rem;
+        }
     }
 
     @include tab {
@@ -1428,6 +1454,12 @@ header
             transition: .4s;
         }
 
+    }
+
+    @include SP {
+        &_ttl {
+            font-size: 1.6rem;
+        }
     }
 
     &.fix {
@@ -2837,6 +2869,10 @@ skill
                 transform: translateY(7px) rotate(360deg);
             }
 
+            &:hover .skill_txt {
+                transform: translateY(-15px);
+            }
+
             &:hover:before {
                 left: 50%;
             }
@@ -4087,6 +4123,12 @@ contact
             }
 
 
+        }
+    }
+
+    @include SP {
+        .section_ttl {
+            font-size: 3.4rem;
         }
     }
 
