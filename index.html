@@ -5,7 +5,10 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>ポートフォリオ</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="ポートフォリオ" />
+      <title>ポートフォリオ</title>
     <link rel="stylesheet" href="css/faundation.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"/>
@@ -196,7 +199,7 @@
   
                     <!-- シェアボタンここから -->
                     <div class="about_sharewrap">
-                      <div class="about_sharebox">
+                      <div class="about_sharebox site_tip" data-tooltip="Twitterに飛びます">
                         <a href="https://twitter.com/ppmp65" class="about_share_icon">
                           <spnan class="about_snake"></spnan><!-- /.about_snake -->
                           <spnan class="about_snake"></spnan><!-- /.about_snake -->
@@ -205,11 +208,11 @@
                           <i class="fab fa-twitter fa-2x share"></i>
                         </a>
                         <div class="about_linkbox">
-                          <a href="https://twitter.com/ppmp65" class="about_sharetxt about_link">Twitter：ぱぺまぺ</a><!-- /.about_sharetxt -->
+                          <a href="https://twitter.com/ppmp65" class="about_sharetxt about_link">Twitter</a><!-- /.about_sharetxt -->
                         </div><!-- /.about_linkbox -->
                       </div><!-- /.about_sharebox -->
   
-                      <div class="about_sharebox">
+                      <div class="about_sharebox site_tip" data-tooltip="Githubに飛びます">
                         <a href="https://github.com/ppmp556" class="about_share_icon">
                           <spnan class="about_snake"></spnan><!-- /.about_snake -->
                           <spnan class="about_snake"></spnan><!-- /.about_snake -->
@@ -218,11 +221,11 @@
                           <i class="fab fa-github fa-2x share"></i>
                         </a>
                         <div class="about_linkbox">
-                          <a href="https://github.com/ppmp556" class="about_sharetxt about_link">Github：masahito kumada</a><!-- /.about_sharetxt -->
+                          <a href="https://github.com/ppmp556" class="about_sharetxt about_link">Github</a><!-- /.about_sharetxt -->
                         </div><!-- /.about_linkbox -->
                       </div><!-- /.about_sharebox -->
   
-                      <div class="about_sharebox">
+                      <div class="about_sharebox site_tip" data-tooltip="Facebookに飛びます">
                         <a href="https://www.facebook.com/ppmp556" class="about_share_icon">
                           <spnan class="about_snake"></spnan><!-- /.about_snake -->
                           <spnan class="about_snake"></spnan><!-- /.about_snake -->
@@ -730,7 +733,7 @@
                           <span class="site_btnspan"></span><!-- /.site_btnspan -->
                           <span class="site_btnspan"></span><!-- /.site_btnspan -->
                           <span class="site_btnspan"></span><!-- /.site_btnspan -->
-                          詳しく見る
+                          TOPに戻る
                         </a><!-- /.site_link -->
                       </div><!-- /.site -->
                     </div><!-- /.site_wrap -->
@@ -752,14 +755,14 @@
               <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse" class="contact_form" id="js-contact_form">
                   <div class="contact_inner">
                       <div class="contact_formwrap">
-                            <div class="form ord1">
+                            <div class="form">
                               <div class="form2 flex">
                                 <label for="name" class="form_ttl" >名前</label>
                                 <input type="text" class="form_box" name="entry.1086926239" placeholder="お名前" required="required">
 
                               </div>
                             </div>
-                            <div class="form ord2">
+                            <div class="form">
                               <div class="form2 bb flex">
                                 <label for="email" class="form_ttl">Email</label>
                                 <input type="email" class="form_box" name="entry.1044079928" placeholder="メールアドレス" required="required">
@@ -769,13 +772,13 @@
                       </div><!-- /.contact_formwrap -->
 
                       <div class="contact_formwrap">
-                          <div class="form ord3">
+                          <div class="form">
                               <div class="form2 flex">
                                   <label for="subject" class="form_ttl">件名</label>
                                   <input type="subject" class="form_box" name="entry.1892862541" placeholder="件名">
                               </div>
                           </div>
-                          <div class="form ord4">
+                          <div class="form">
                               <div class="form2">
                                   <label for="message" class="form_ttl form_areattl">内容</label>
                                   <textarea class="form_area" placeholder="お問い合わせ内容" rows="4" cols="40" name="entry.1201270534" required="required" ></textarea>
@@ -785,18 +788,18 @@
 
 
                     </div><!-- /.contact_inner -->
+                        <button type="submit" class="site contact_link" value="送信" id="js-submit_btn">
+                            <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                            <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                            <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                            <span class="site_btnspan"></span><!-- /.site_btnspan -->
+                            送　信
+                        </button><!-- /.site -->
+                    <p class="end_msg" id="js-end_msg">お問い合わせありがとうございました。</p>
+                    <p class="false_msg" id="js-false_msg">送信失敗です</p>
 
-                <button type="submit" class="site contact_link" value="送信" id="js-submit_btn">
-                    <span class="site_btnspan"></span><!-- /.site_btnspan -->
-                    <span class="site_btnspan"></span><!-- /.site_btnspan -->
-                    <span class="site_btnspan"></span><!-- /.site_btnspan -->
-                    <span class="site_btnspan"></span><!-- /.site_btnspan -->
-                    送　信
-                </button><!-- /.site -->
               </form>
 
-              <p class="end_msg" id="js-end_msg">お問い合わせありがとうございました。</p>
-              <p class="false_msg" id="js-false_msg">送信失敗です</p>
 
             </div>
 

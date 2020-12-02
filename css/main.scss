@@ -44,12 +44,6 @@ $widthSp: 375px;
     }
 }
 
-// @mixin SP {
-//         @media screen and (max-width: $width) and (max-width: $widthPc) {
-//         @content;
-//     }
-
-// }
 @mixin SP {
         @media screen and (max-width: $widthSp) {
         @content;
@@ -135,11 +129,15 @@ body {
 
 
 @include pc {
-    width: 100%;
-    max-width: 800px;
-    padding: 0 15px;
+    .section_inner {
+        width: 100%;
+        max-width: 1100px;
+        padding: 0 50px;
+        margin: 0 auto;
 
-    margin: 0 auto;
+
+
+    }
 
 }
 
@@ -156,6 +154,7 @@ body {
 
 
 }
+
 
 @include tab {
     .section_ttl {
@@ -437,11 +436,6 @@ back-to-top
 
 
 
-
-
-
-
-
 /***********************************************************************************:
 
 loading
@@ -473,7 +467,7 @@ loading
     &_anime {
         transition: all 1s;
         animation: loading_end 3s linear forwards;
-        
+
     }
 
     &_none {
@@ -877,7 +871,7 @@ out_inアニメーション
         white-space: nowrap;
         overflow: hidden;
         animation: typewriter 4s steps(60) 1s 1 normal both,
-        /* normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う */
+        // normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う
         blinkTextCursor 500ms steps(60) infinite normal,type 1s steps(80, end);
         animation-delay: 2s;
 
@@ -912,7 +906,7 @@ out_inアニメーション
         white-space: nowrap;
         overflow: hidden;
         animation: typewriter 4s steps(60) 1s 1 normal both,
-        /* normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う */
+        // normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う
         blinkTextCursor 500ms steps(60) infinite normal,type 0.5s steps(80, end);
         animation-delay: 3s;
 
@@ -947,7 +941,7 @@ out_inアニメーション
     &_type {
         font-size: 3rem;
         animation: blink 1s infinite;
-        /* blink:点滅、infinite:無限に繰り返す */
+        // blink:点滅、infinite:無限に繰り返す
     }
 
     @include tab {
@@ -1005,7 +999,7 @@ out_inアニメーション
     to { width: 24em; }
 }
 
-@keyframes blinkTextCursor{/*点滅するカーソルのアニメーション*/
+@keyframes blinkTextCursor{ //点滅するカーソルのアニメーション
     from { border-right-color: $cWhite; }
     to { border-right-color: transparent; }
 }
@@ -1013,6 +1007,74 @@ out_inアニメーション
 
 
 
+
+
+
+/***********************************************************************************:
+
+ツールチップ
+
+************************************************************************************:*/
+
+
+.site_tip {
+    display: inline-block;
+    position: relative;
+
+    &:before,
+    &:after {
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+        transition: .5s;
+        visibility: hidden;
+    }
+
+    &:before {
+        border-color: transparent $cLgreen transparent transparent;
+        border-style: solid;
+        border-width: 3px 7px 3px 0;
+        content: "";
+        height: 0;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+
+    }
+
+    &:after {
+        background: $cLgreen;
+        border-radius: 5%;
+        color: $cBlack;
+        content: attr(data-tooltip);
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        left: calc(100% + 13px);
+        padding: 5px 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+}
 
 
 
@@ -1262,7 +1324,6 @@ kv
 
 
     &_txtbox {
-        // position: relative;
         position: absolute;
         flex-direction: column;
         top: 50%;
@@ -1293,13 +1354,11 @@ kv
     @include tab {
         &_ttl {
             display: none;
-            // text-shadow: 2px 2px 5px black;
         }
     }
     @include pc {
         &_ttl {
             display: none;
-            // text-shadow: 2px 2px 5px black;
         }
     }
 
@@ -1360,14 +1419,12 @@ kv
 
     @include tab {
         &_img {
-            // width: 50%;
             width: 65%;
         }
     }
 
     @include pc {
         &_img {
-            // width: 50%;
             width: 65%;
         }
     }
@@ -1465,7 +1522,6 @@ header
     &.fix {
         position: fixed;
         top: 0;
-        // overflow: hidden;
     }
 
 }
@@ -1776,7 +1832,7 @@ nav
 
 
 
-         //ナビホバー時の下線
+        //ナビホバー時の下線
         &::after {
             position: absolute;
             bottom: -5px;
@@ -1859,7 +1915,6 @@ about
 
     &_inner {
         margin: 0 auto;
-        // max-width: 800px;
         min-width: 280px;
         width: 100%;
         padding: 0 15px;
@@ -1901,7 +1956,6 @@ about
     .section_ttl {
         margin-bottom: 50px;
         text-shadow: 1px 1px 3px $cBlack;
-
         color: $cBlack;
     }
 
@@ -1988,16 +2042,11 @@ about
 
     &_box span {
         position: absolute;
-        // top: 60px;
-        // left: 110px;
-        
         transition: all 0.3s;
         cursor: pointer;
-        z-index: 100;
+        z-index: 1;
         width: 200px;
         height: 200px;
-        // padding: 20px;
-        // margin: 20px;
     }
 
     @include tab {
@@ -2017,77 +2066,6 @@ about
             }
         }
     }
-
-
-
-    // &_wrap {
-    //     display: block;
-    //     width: 100%;
-    //     height: 100%;
-
-        // margin: 0 auto;
-        // position: relative;
-        // transform-style: preserve-3d;
-        // transition: all .5s ease-out;
-        // transform: perspective(1000px) rotateX(0deg);
-        // cursor: pointer;
-
-        // &:hover {
-        //     transform: rotateX(90deg) translateY(-1000px);
-        // }
-
-        // &:hover .about_intxt,
-        // &:hover .about_imgbox_in {
-        //     opacity: 1;
-
-        // }
-
-
-    // }
-
-
-
-
-
-    // &_imgbox {
-    //     margin: 0 auto;
-    //     position: relative;
-    //     transform-style: preserve-3d;
-    //     transition: all .5s ease-out;
-    //     transform: perspective(1000px) rotateX(0deg);
-    //     cursor: pointer;
-    //     display: block;
-    //     width: 250px;
-    //     height: 250px;
-
-    //     &:hover {
-    //         transform: rotateX(90deg) translateY(-1000px);
-    //     }
-
-    //     &:hover .about_intxt,
-    //     &:hover .about_imgbox_in {
-    //         opacity: 1;
-
-    //     }
-
-    // }
-
-    // @include tab {
-    //     &_imgbox {
-    //         margin: 0 20px 0 40px;
-    //         width: 250px;
-    //         height: 100%;
-    //         padding: 20px;
-    //     }
-    // }
-    // @include pc {
-    //     &_imgbox {
-    //         width: 250px;
-    //         height: 100%;
-    //         margin: 0 50px;
-    //     }
-    // }
-
 
 
     &_imgbox_in {
@@ -2181,7 +2159,7 @@ about
         position: relative;
 
 
-           //ナビホバー時の下線
+        //ナビホバー時の下線
         &::after {
             display: block;
             position: absolute;
@@ -2520,7 +2498,7 @@ policy
 
     @include SP {
         &_txt {
-            margin: 0 auto;
+            margin: 20px auto;
             font-size: 1.1rem;
         }
     }
@@ -3396,7 +3374,6 @@ blog
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
-            // margin: 0 40px 0 0;
             justify-content: center;
         }
     }
@@ -3734,18 +3711,17 @@ create
 
             &:nth-child(odd) {
                 flex-direction: row-reverse;
-                // margin-right: 24px;
             }
         }
 
     }
 
         .section_ttl {
-        font-weight: 400;
-        transition-delay: 0;
-        color: $cBlack;
-        opacity: 1;
-        text-shadow: 1px 1px 3px $cBlack;
+            font-weight: 400;
+            transition-delay: 0;
+            color: $cBlack;
+            opacity: 1;
+            text-shadow: 1px 1px 3px $cBlack;
 
 
     }
@@ -3854,7 +3830,6 @@ create
             max-width: 220px;
             min-width: 350px;
             min-height: 200px;
-            // margin-right: 15px;
             margin: 40px 35px;
 
 
@@ -3984,6 +3959,8 @@ create
         display: block;
     }
 
+    
+
 
 
     @include tab {
@@ -4084,13 +4061,14 @@ contact
     position: relative;
     background-color: $cScolor;
 
-    @include pc {
-        .section_inner {
-            max-width: 1100px;
-            padding: 0 50px;
-            width: 100%;
-        }
-    }
+    // @include pc {
+    //     .section_inner {
+    //         max-width: 1100px;
+    //         padding: 0 50px;
+    //         width: 100%;
+    //         // margin: 0 auto 38px;
+    //     }
+    // }
 
 
     &_inner {
@@ -4126,8 +4104,6 @@ contact
         }
     }
 
-
-    
 
 
     @include SP {
@@ -4183,8 +4159,8 @@ contact
         background-color: $cBgGreen;
     }
 
-    .end_msg {
-        display: none;
+    .end_msg,.false_msg {
+        // display: none;
         position: absolute;
         left: 50%;
         text-align: center;
@@ -4198,16 +4174,20 @@ contact
 
     }
 
+    .end_msg {
+        display: none;
+    }
+
     .false_msg {
         display: none;
-        position: absolute;
-        left: 50%;
-        text-align: center;
-        transform: translateX(-50%);
-        margin: 50px 0;
-        width: 100%;
-        color: $cBlack;
-        text-shadow: 1px 1px 3px $cBlack;
+        // position: absolute;
+        // left: 50%;
+        // text-align: center;
+        // transform: translateX(-50%);
+        // margin: 50px 0;
+        // width: 100%;
+        // color: $cBlack;
+        // text-shadow: 1px 1px 3px $cBlack;
 
 
 
@@ -4334,6 +4314,7 @@ contact
 .contact_link {
         display: block;
         transition: .3s;
+        border: $cBgGreen;
 }
 
 

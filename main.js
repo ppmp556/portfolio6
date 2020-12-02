@@ -232,36 +232,45 @@ $(() => {
     });
 
 
-    //お問い合わせ送信後
+    //お問い合わせ送信後と遷移しない
+    let contactForm = $('#js-contact_form');
     $(document).ready(function () {
 
-        $('#js-contact_form').submit(function (event) {
+        contactForm.submit(function (event) {
 
-        let formData = $('#js-contact_form').serialize();
+        let formData = contactForm.serialize();
 
         $.ajax({
             url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse",
             data: formData,
             type: "POST",
             dataType: "xml",
+
             statusCode: {
 
                 0: function () {
 
-                $("#js-end_msg").slideDown();
+                    $("#js-end_msg").delay(1000).slideDown("slow");
 
-                $("#js-submit_btn").fadeOut();
-                },
+                    $("#js-submit_btn").css({
+                        "opacity":"0",
+                        "transition":".5",
+                        "pointer-events":"none"
+                        });
+                    },
 
                 500: function () {
-                $("#js-false_msg").slideDown();
+
+                    $("#js-false_msg").delay(1000).slideDown("slow");
+
                 }
             }
-            });
-            event.preventDefault();
-            });
 
         });
+            event.preventDefault();
+    });
+
+    });
 
 });
 

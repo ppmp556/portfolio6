@@ -67,10 +67,12 @@ body.lock {
 }
 
 @media screen and (min-width: 1024px) {
-  width: 100%;
-  max-width: 800px;
-  padding: 0 15px;
-  margin: 0 auto;
+  .section_inner {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 50px;
+    margin: 0 auto;
+  }
 }
 
 .section_ttl {
@@ -999,7 +1001,6 @@ out_inアニメーション
   font-size: 3rem;
   -webkit-animation: blink 1s infinite;
           animation: blink 1s infinite;
-  /* blink:点滅、infinite:無限に繰り返す */
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -1083,7 +1084,6 @@ out_inアニメーション
 }
 
 @-webkit-keyframes blinkTextCursor {
-  /*点滅するカーソルのアニメーション*/
   from {
     border-right-color: #e1e1e1;
   }
@@ -1093,13 +1093,74 @@ out_inアニメーション
 }
 
 @keyframes blinkTextCursor {
-  /*点滅するカーソルのアニメーション*/
   from {
     border-right-color: #e1e1e1;
   }
   to {
     border-right-color: transparent;
   }
+}
+
+/***********************************************************************************:
+
+ツールチップ
+
+************************************************************************************:*/
+.site_tip {
+  display: inline-block;
+  position: relative;
+}
+
+.site_tip:before, .site_tip:after {
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  visibility: hidden;
+}
+
+.site_tip:before {
+  border-color: transparent #bcf54b transparent transparent;
+  border-style: solid;
+  border-width: 3px 7px 3px 0;
+  content: "";
+  height: 0;
+  left: calc(100% + 6px);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+}
+
+.site_tip:after {
+  background: #bcf54b;
+  border-radius: 5%;
+  color: #1c1c1c;
+  content: attr(data-tooltip);
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  left: calc(100% + 13px);
+  padding: 5px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.site_tip:hover {
+  cursor: pointer;
+}
+
+.site_tip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site_tip:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 /***********************************************************************************:
@@ -2031,7 +2092,7 @@ about
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1;
   width: 200px;
   height: 200px;
 }
@@ -2487,7 +2548,7 @@ policy
 
 @media screen and (max-width: 375px) {
   .policy_txt {
-    margin: 0 auto;
+    margin: 20px auto;
     font-size: 1.1rem;
   }
 }
@@ -4124,14 +4185,6 @@ contact
   background-color: #E7F5E0;
 }
 
-@media screen and (min-width: 1024px) {
-  .contact .section_inner {
-    max-width: 1100px;
-    padding: 0 50px;
-    width: 100%;
-  }
-}
-
 .contact_inner {
   margin: auto;
   display: block;
@@ -4210,8 +4263,7 @@ contact
   background-color: #b7c8bd;
 }
 
-.contact .end_msg {
-  display: none;
+.contact .end_msg, .contact .false_msg {
   position: absolute;
   left: 50%;
   text-align: center;
@@ -4223,17 +4275,12 @@ contact
   text-shadow: 1px 1px 3px #1c1c1c;
 }
 
+.contact .end_msg {
+  display: none;
+}
+
 .contact .false_msg {
   display: none;
-  position: absolute;
-  left: 50%;
-  text-align: center;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  margin: 50px 0;
-  width: 100%;
-  color: #1c1c1c;
-  text-shadow: 1px 1px 3px #1c1c1c;
 }
 
 @media screen and (max-width: 375px) {
@@ -4339,6 +4386,7 @@ contact
   display: block;
   -webkit-transition: .3s;
   transition: .3s;
+  border: #b7c8bd;
 }
 
 /********************************************************************************:
