@@ -1045,14 +1045,14 @@ out_inアニメーション
 
     &:after {
         background: $cLgreen;
-        border-radius: 5%;
+        border-radius: 10%;
         color: $cBlack;
         content: attr(data-tooltip);
         display: block;
         font-size: 1rem;
         font-weight: 600;
         left: calc(100% + 13px);
-        padding: 5px 10px;
+        padding: 8px 15px;
         top: 50%;
         transform: translateY(-50%);
         white-space: nowrap;
@@ -1442,6 +1442,8 @@ kv
         opacity: 1;
     }
 }
+
+
 
 
 
@@ -1957,6 +1959,9 @@ about
         margin-bottom: 50px;
         text-shadow: 1px 1px 3px $cBlack;
         color: $cBlack;
+        width: 50%;
+        padding: 5px;
+
     }
 
     @include tab {
@@ -4061,14 +4066,14 @@ contact
     position: relative;
     background-color: $cScolor;
 
-    // @include pc {
-    //     .section_inner {
-    //         max-width: 1100px;
-    //         padding: 0 50px;
-    //         width: 100%;
-    //         // margin: 0 auto 38px;
-    //     }
-    // }
+    @include pc {
+        .section_inner {
+            max-width: 1100px;
+            padding: 0 50px;
+            width: 100%;
+            // margin: 0 auto 38px;
+        }
+    }
 
 
     &_inner {
@@ -4180,14 +4185,6 @@ contact
 
     .false_msg {
         display: none;
-        // position: absolute;
-        // left: 50%;
-        // text-align: center;
-        // transform: translateX(-50%);
-        // margin: 50px 0;
-        // width: 100%;
-        // color: $cBlack;
-        // text-shadow: 1px 1px 3px $cBlack;
 
 
 
