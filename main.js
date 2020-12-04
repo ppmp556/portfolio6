@@ -3,6 +3,34 @@ $(() => {
 
 
 
+    $('body').addClass('lock');
+
+    setTimeout(function () {
+
+        $('#js-loading_wrap').addClass('loading_anime');
+
+        $("body").stop().animate(
+            {
+                opacity: '1',
+
+            }, 1000);
+    }, 2500);
+
+
+
+    setTimeout(function () {
+
+        $('body').removeClass('lock')
+
+
+    }, 2800);
+
+    setTimeout(function () {
+
+
+        $('#js-loading_wrap').addClass('loading_none');
+
+    }, 8000);
 
 
     let pgTop = $('#js-scroll');
