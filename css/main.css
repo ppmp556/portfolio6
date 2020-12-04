@@ -405,7 +405,7 @@ loading
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 180px;
-  height: 500px;
+  height: 350px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -425,21 +425,21 @@ loading
 @media screen and (max-width: 375px) {
   .loading_box {
     width: 120px;
-    height: 380px;
+    height: 320px;
   }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .loading_box {
     width: 250px;
-    height: 530px;
+    height: 450px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .loading_box {
     width: 250px;
-    height: 520px;
+    height: 450px;
   }
 }
 

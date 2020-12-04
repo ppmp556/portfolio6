@@ -33,6 +33,24 @@ $(() => {
     // }, 8000);
 
 
+
+    // 1画面分以上スクロールしたら、ヘッダーを固定する
+
+    // let headerFix = $("header");
+
+    // $(window).scroll(function (){
+    //     if ($(window).scrollTop() > $(window).height()) {
+    //         headerFix.addClass("fix");
+    //         console.log("ok");
+    //     } else {
+
+    //         headerFix.removeClass("fix");
+
+    //     }
+    // });
+
+
+
     let pgTop = $('#js-scroll');
 
     $(window).scroll(function () {

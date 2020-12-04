@@ -1,36 +1,73 @@
 $(() => {
 
 
+    // スクロール禁止
+    function no_scroll() {
+        // PCでのスクロール禁止
+        document.addEventListener("mousewheel", scroll_control, { passive: false });
+        // スマホでのタッチ操作でのスクロール禁止
+        document.addEventListener("touchmove", scroll_control, { passive: false });
+    }
+    // スクロール禁止解除
+    function return_scroll() {
+        // PCでのスクロール禁止解除
+        document.removeEventListener("mousewheel", scroll_control, { passive: false });
+        // スマホでのタッチ操作でのスクロール禁止解除
+        document.removeEventListener('touchmove', scroll_control, { passive: false });
+    }
+    
+    // スクロール関連メソッド
+    function scroll_control(event) {
+        event.preventDefault();
+    }
+    
+
+    $('body').addClass('lock');
+
+    setTimeout(function () {
+
+        $('#js-loading_wrap').addClass('loading_anime');
+
+        $("body").stop().animate(
+            {
+                opacity: '1',
+
+            }, 1000);
+    }, 2500);
 
 
-    // $('body').addClass('lock');
 
-    // setTimeout(function () {
+    setTimeout(function () {
 
-    //     $('#js-loading_wrap').addClass('loading_anime');
-
-    //     $("body").stop().animate(
-    //         {
-    //             opacity: '1',
-
-    //         }, 1000);
-    // }, 2500);
+        $('body').removeClass('lock')
 
 
+    }, 2800);
 
-    // setTimeout(function () {
-
-    //     $('body').removeClass('lock')
-
-
-    // }, 2800);
-
-    // setTimeout(function () {
+    setTimeout(function () {
 
 
-    //     $('#js-loading_wrap').addClass('loading_none');
+        $('#js-loading_wrap').addClass('loading_none');
 
-    // }, 8000);
+    }, 8000);
+
+
+
+    // 1画面分以上スクロールしたら、ヘッダーを固定する
+
+    // let headerFix = $("header");
+
+    // $(window).scroll(function (){
+    //     if ($(window).scrollTop() > $(window).height()) {
+    //         headerFix.addClass("fix");
+    //         console.log("ok");
+    //     } else {
+
+    //         headerFix.removeClass("fix");
+
+    //     }
+    // });
+
 
 
     let pgTop = $('#js-scroll');

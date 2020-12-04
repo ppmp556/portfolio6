@@ -3,34 +3,51 @@ $(() => {
 
 
 
-    // $('body').addClass('lock');
+    $('body').addClass('lock');
 
-    // setTimeout(function () {
+    setTimeout(function () {
 
-    //     $('#js-loading_wrap').addClass('loading_anime');
+        $('#js-loading_wrap').addClass('loading_anime');
 
-    //     $("body").stop().animate(
-    //         {
-    //             opacity: '1',
+        $("body").stop().animate(
+            {
+                opacity: '1',
 
-    //         }, 1000);
-    // }, 2500);
-
-
-
-    // setTimeout(function () {
-
-    //     $('body').removeClass('lock')
+            }, 1000);
+    }, 2500);
 
 
-    // }, 2800);
+    setTimeout(function () {
 
-    // setTimeout(function () {
+        $('body').removeClass('lock')
 
 
-    //     $('#js-loading_wrap').addClass('loading_none');
+    }, 2800);
 
-    // }, 8000);
+    setTimeout(function () {
+
+
+        $('#js-loading_wrap').addClass('loading_none');
+
+    }, 8000);
+
+
+
+    // 1画面分以上スクロールしたら、ヘッダーを固定する
+
+    // let headerFix = $("header");
+
+    // $(window).scroll(function (){
+    //     if ($(window).scrollTop() > $(window).height()) {
+    //         headerFix.addClass("fix");
+    //         console.log("ok");
+    //     } else {
+
+    //         headerFix.removeClass("fix");
+
+    //     }
+    // });
+
 
 
     let pgTop = $('#js-scroll');
@@ -215,7 +232,7 @@ $(() => {
     });
 
 
-    //お問い合わせ送信後と遷移しない
+    //お問い合わせ送信後
     let contactForm = $('#js-contact_form');
     $(document).ready(function () {
 
@@ -228,32 +245,27 @@ $(() => {
             data: formData,
             type: "POST",
             dataType: "xml",
-
             statusCode: {
 
                 0: function () {
 
-                    $("#js-end_msg").delay(1000).slideDown("slow");
+                $("#js-end_msg").delay(1000).slideDown("slow");
 
-                    $("#js-submit_btn").css({
-                        "opacity":"0",
-                        "transition":".5",
-                        "pointer-events":"none"
-                        });
-                    },
+                $("#js-submit_btn").css({
+                    "opacity":"0",
+                    "pointer-events":"none"
+                });
+                },
 
                 500: function () {
-
-                    $("#js-false_msg").delay(1000).slideDown("slow");
-
+                $("#js-false_msg").delay(1000).slideDown("slow");
                 }
             }
+            });
+            event.preventDefault();
+            });
 
         });
-            event.preventDefault();
-    });
-
-    });
 
 });
 

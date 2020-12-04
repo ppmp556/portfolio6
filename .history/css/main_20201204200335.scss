@@ -343,7 +343,6 @@ body {
     background: url(../images/紅葉.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    filter: grayscale(.2);
 
 }
 
@@ -483,7 +482,7 @@ loading
         transform: translate(-50%, -50%);
 
         width: 180px;
-        height: 350px;
+        height: 320px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -495,20 +494,20 @@ loading
     @include SP{
         &_box {
             width: 120px;
-            height: 320px;
+            height: 220px;
         }
     }
 
     @include tab {
         &_box {
-            width: 250px;
-            height: 450px;
+            width: 200px;
+            height: 300px;
         }
     }
-    @include pc {
+    @include tab {
         &_box {
             width: 250px;
-            height: 450px;
+            height: 350px;
         }
     }
 
@@ -1331,7 +1330,6 @@ kv
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 99;
-
     }
 
     &_ttl {
@@ -1411,16 +1409,12 @@ kv
         object-fit: cover;
         transition: 4s linear transform .4s;
 
-        filter: blur(1.3px) grayscale(.2);
+        filter:drop-shadow(3px 3px 3px $cBlack) blur(.5px) grayscale(10%);
 
         &.zoom {
             transform: scale(1.05);
         }
 
-    }
-
-    &_imgbox {
-        width: 100%;
     }
 
     @include tab {
@@ -1443,11 +1437,10 @@ kv
         }
 
         &_imgbox {
-            width: 65%;
+            width: 67%;
             height: 100%;
             position: absolute;
             overflow: hidden;
-
             
 
         }
@@ -1987,7 +1980,7 @@ about
         margin-bottom: 50px;
         text-shadow: 1px 1px 3px $cBlack;
         color: $cBlack;
-        width: 100%;
+        width: 50%;
         padding: 5px;
 
     }
@@ -3885,7 +3878,7 @@ create
         filter: grayscale(70%);
 
         &.img_sz {
-            width: 156%;
+            width: 150%;
         }
 
     }

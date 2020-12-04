@@ -343,7 +343,6 @@ body {
     background: url(../images/紅葉.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    filter: grayscale(.2);
 
 }
 
@@ -483,7 +482,7 @@ loading
         transform: translate(-50%, -50%);
 
         width: 180px;
-        height: 350px;
+        height: 320px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -495,20 +494,20 @@ loading
     @include SP{
         &_box {
             width: 120px;
-            height: 320px;
+            height: 220px;
         }
     }
 
     @include tab {
         &_box {
-            width: 250px;
-            height: 450px;
+            width: 200px;
+            height: 300px;
         }
     }
-    @include pc {
+    @include tab {
         &_box {
             width: 250px;
-            height: 450px;
+            height: 350px;
         }
     }
 
@@ -1046,14 +1045,14 @@ out_inアニメーション
 
     &:after {
         background: $cLgreen;
-        border-radius: 10%;
+        border-radius: 5%;
         color: $cBlack;
         content: attr(data-tooltip);
         display: block;
         font-size: 1rem;
         font-weight: 600;
         left: calc(100% + 13px);
-        padding: 8px 15px;
+        padding: 5px 10px;
         top: 50%;
         transform: translateY(-50%);
         white-space: nowrap;
@@ -1331,7 +1330,6 @@ kv
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 99;
-
     }
 
     &_ttl {
@@ -1411,7 +1409,7 @@ kv
         object-fit: cover;
         transition: 4s linear transform .4s;
 
-        filter: blur(1.3px) grayscale(.2);
+        filter:drop-shadow(3px 3px 3px $cBlack) blur(.5px) grayscale(10%);
 
         &.zoom {
             transform: scale(1.05);
@@ -1419,43 +1417,17 @@ kv
 
     }
 
-    &_imgbox {
-        width: 100%;
-    }
-
     @include tab {
-
-        &_imgbox {
-            width: 67%;
-            height: 100%;
-            position: absolute;
-            overflow: hidden;
-            
-        }
         &_img {
-            width: 100%;
+            width: 65%;
         }
     }
 
     @include pc {
         &_img {
-            width: 100%;
-        }
-
-        &_imgbox {
             width: 65%;
-            height: 100%;
-            position: absolute;
-            overflow: hidden;
-
-            
-
         }
     }
-
-    
-
-
 
 }
 
@@ -1470,8 +1442,6 @@ kv
         opacity: 1;
     }
 }
-
-
 
 
 
@@ -1987,9 +1957,6 @@ about
         margin-bottom: 50px;
         text-shadow: 1px 1px 3px $cBlack;
         color: $cBlack;
-        width: 100%;
-        padding: 5px;
-
     }
 
     @include tab {
@@ -2077,7 +2044,7 @@ about
         position: absolute;
         transition: all 0.3s;
         cursor: pointer;
-        z-index: 1;
+        z-index: 100;
         width: 200px;
         height: 200px;
     }
@@ -2486,10 +2453,10 @@ policy
 
 
     @include pc {
-        .section_inner {
-            max-width: 1100px;
-            padding: 0 50px;
-        }
+        // .section_inner {
+        //     max-width: 1100px;
+        //     padding: 0 50px;
+        // }
 
         .section_ttl {
             position: absolute;
@@ -2716,10 +2683,10 @@ skill
             width: 100%;
             margin: 0 auto;
             display: flex;
-            max-width: 1100px;
+            // max-width: 1100px;
             width: 100%;
             justify-content: center;
-            padding: 0 50px;
+            // padding: 0 50px;
 
         }
     }
@@ -3331,8 +3298,8 @@ blog
 
     @include pc {
         .section_inner {
-            max-width: 1100px;
-            padding: 0 50px;
+            // max-width: 1100px;
+            // padding: 0 50px;
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
@@ -3703,13 +3670,13 @@ create
         }
     }
 
-    @include pc {
-        .section_inner {
-            max-width: 1100px;
-            width: 100%;
-            padding: 0 50px;
-        }
-    }
+    // @include pc {
+    //     .section_inner {
+    //         max-width: 1100px;
+    //         width: 100%;
+    //         padding: 0 50px;
+    //     }
+    // }
 
 
     @include tab {
@@ -3885,7 +3852,7 @@ create
         filter: grayscale(70%);
 
         &.img_sz {
-            width: 156%;
+            width: 150%;
         }
 
     }
@@ -3978,7 +3945,7 @@ create
 
     &_outtxt {
         text-shadow: 1px 1px 3px $cBlack;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         padding: 15px;
         background-color: $cScolor;
         letter-spacing: .8px;
@@ -3992,7 +3959,11 @@ create
         display: block;
     }
 
-    
+    @include SP {
+        &_outtxt {
+            font-size: 1.1rem;
+        }
+    }
 
 
 
@@ -4094,14 +4065,14 @@ contact
     position: relative;
     background-color: $cScolor;
 
-    @include pc {
-        .section_inner {
-            max-width: 1100px;
-            padding: 0 50px;
-            width: 100%;
-            // margin: 0 auto 38px;
-        }
-    }
+    // @include pc {
+    //     .section_inner {
+    //         max-width: 1100px;
+    //         padding: 0 50px;
+    //         width: 100%;
+    //         // margin: 0 auto 38px;
+    //     }
+    // }
 
 
     &_inner {
@@ -4213,6 +4184,14 @@ contact
 
     .false_msg {
         display: none;
+        // position: absolute;
+        // left: 50%;
+        // text-align: center;
+        // transform: translateX(-50%);
+        // margin: 50px 0;
+        // width: 100%;
+        // color: $cBlack;
+        // text-shadow: 1px 1px 3px $cBlack;
 
 
 

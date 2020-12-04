@@ -3,34 +3,71 @@ $(() => {
 
 
 
-    // $('body').addClass('lock');
+    $('body').addClass('lock');
 
-    // setTimeout(function () {
+    setTimeout(function () {
 
-    //     $('#js-loading_wrap').addClass('loading_anime');
+        $('#js-loading_wrap').addClass('loading_anime');
 
-    //     $("body").stop().animate(
-    //         {
-    //             opacity: '1',
+        $("body").stop().animate(
+            {
+                opacity: '1',
 
-    //         }, 1000);
-    // }, 2500);
+            }, 1000);
+    }, 2500);
+
+    // スクロール禁止
+function no_scroll() {
+    // PCでのスクロール禁止
+    document.addEventListener("mousewheel", scroll_control, { passive: false });
+    // スマホでのタッチ操作でのスクロール禁止
+    document.addEventListener("touchmove", scroll_control, { passive: false });
+}
+// スクロール禁止解除
+function return_scroll() {
+    // PCでのスクロール禁止解除
+    document.removeEventListener("mousewheel", scroll_control, { passive: false });
+    // スマホでのタッチ操作でのスクロール禁止解除
+    document.removeEventListener('touchmove', scroll_control, { passive: false });
+}
+
+// スクロール関連メソッド
+function scroll_control(event) {
+    event.preventDefault();
+}
+
+
+    setTimeout(function () {
+
+        $('body').removeClass('lock')
+
+
+    }, 2800);
+
+    setTimeout(function () {
+
+
+        $('#js-loading_wrap').addClass('loading_none');
+
+    }, 8000);
 
 
 
-    // setTimeout(function () {
+    // 1画面分以上スクロールしたら、ヘッダーを固定する
 
-    //     $('body').removeClass('lock')
+    // let headerFix = $("header");
 
+    // $(window).scroll(function (){
+    //     if ($(window).scrollTop() > $(window).height()) {
+    //         headerFix.addClass("fix");
+    //         console.log("ok");
+    //     } else {
 
-    // }, 2800);
+    //         headerFix.removeClass("fix");
 
-    // setTimeout(function () {
+    //     }
+    // });
 
-
-    //     $('#js-loading_wrap').addClass('loading_none');
-
-    // }, 8000);
 
 
     let pgTop = $('#js-scroll');

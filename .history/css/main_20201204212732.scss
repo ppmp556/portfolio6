@@ -495,20 +495,20 @@ loading
     @include SP{
         &_box {
             width: 120px;
-            height: 320px;
+            height: 380px;
         }
     }
 
     @include tab {
         &_box {
             width: 250px;
-            height: 450px;
+            height: 530px;
         }
     }
     @include pc {
         &_box {
             width: 250px;
-            height: 450px;
+            height: 520px;
         }
     }
 
