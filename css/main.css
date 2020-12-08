@@ -30,6 +30,15 @@ body.lock {
           box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -268,16 +277,16 @@ body.lock {
       -ms-scroll-snap-type: y mandatory;
           scroll-snap-type: y mandatory;
   scroll-snap-align: start;
-  background: url(../images/紅葉.jpg) no-repeat;
+  background: url(../images/紅葉2.jpg) no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  -webkit-filter: grayscale(0.2);
-          filter: grayscale(0.2);
+  -webkit-filter: grayscale(0.15);
+          filter: grayscale(0.15);
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .site_backcontent {
-    background: url(../images/作業風景.jpg) no-repeat;
+    background: url(../images/池2.JPG) no-repeat;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -1108,61 +1117,57 @@ out_inアニメーション
 ツールチップ
 
 ************************************************************************************:*/
-.site_tip {
-  display: inline-block;
-  position: relative;
-}
-
-.site_tip:before, .site_tip:after {
-  position: absolute;
-  z-index: 10;
-  opacity: 0;
-  -webkit-transition: .5s;
-  transition: .5s;
-  visibility: hidden;
-}
-
-.site_tip:before {
-  border-color: transparent #bcf54b transparent transparent;
-  border-style: solid;
-  border-width: 3px 7px 3px 0;
-  content: "";
-  height: 0;
-  left: calc(100% + 6px);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  width: 0;
-}
-
-.site_tip:after {
-  background: #bcf54b;
-  border-radius: 10%;
-  color: #1c1c1c;
-  content: attr(data-tooltip);
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  left: calc(100% + 13px);
-  padding: 8px 15px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  white-space: nowrap;
-}
-
-.site_tip:hover {
-  cursor: pointer;
-}
-
-.site_tip:hover::before {
-  opacity: 1;
-  visibility: visible;
-}
-
-.site_tip:hover::after {
-  opacity: 1;
-  visibility: visible;
+@media screen and (min-width: 1024px) {
+  .site_tip {
+    display: inline-block;
+    position: relative;
+  }
+  .site_tip:before, .site_tip:after {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    -webkit-transition: .5s;
+    transition: .5s;
+    visibility: hidden;
+  }
+  .site_tip:before {
+    border-color: transparent #bcf54b transparent transparent;
+    border-style: solid;
+    border-width: 3px 7px 3px 0;
+    content: "";
+    height: 0;
+    left: calc(100% + 6px);
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 0;
+  }
+  .site_tip:after {
+    background: #bcf54b;
+    border-radius: 10%;
+    color: #1c1c1c;
+    content: attr(data-tooltip);
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    left: calc(100% + 13px);
+    padding: 8px 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    white-space: nowrap;
+  }
+  .site_tip:hover {
+    cursor: pointer;
+  }
+  .site_tip:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  .site_tip:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 /***********************************************************************************:
@@ -1463,8 +1468,8 @@ kv
      object-fit: cover;
   -webkit-transition: 4s linear transform .4s;
   transition: 4s linear transform .4s;
-  -webkit-filter: blur(1.3px) grayscale(0.2);
-          filter: blur(1.3px) grayscale(0.2);
+  -webkit-filter: grayscale(0.15);
+          filter: grayscale(0.15);
 }
 
 .kv_img.zoom {
@@ -2436,7 +2441,7 @@ about
   padding: 20px 0;
 }
 
-.fa-twitter, .fa-github, .fa-facebook-square {
+.fa-twitter, .fa-github {
   font-size: 2rem;
   -webkit-transition: .4s;
   transition: .4s;

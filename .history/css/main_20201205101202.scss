@@ -83,20 +83,12 @@ body {
 
 
 
-
 * {
     box-sizing: border-box;
 
 }
 
-*:focus {
-    outline: none;
-}
 
-a {
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-    cursor:pointer;
-  }
 
 .container {
     width: 100%;
@@ -348,16 +340,16 @@ a {
     overflow: auto;
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;
-    background: url(../images/紅葉2.jpg) no-repeat;
+    background: url(../images/紅葉.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    filter: grayscale(.15);
+    filter: grayscale(.2);
 
 }
 
 @include tab {
     .site_backcontent {
-        background: url(../images/池2.JPG) no-repeat;
+        background: url(../images/作業風景.jpg) no-repeat;
         width: 100%;
         height: 100%;
         overflow: auto;
@@ -1026,8 +1018,11 @@ out_inアニメーション
 ************************************************************************************:*/
 
 
-@include pc{
+.site_tip {
+    display: none;
+}
 
+@include tab {
     .site_tip {
         display: inline-block;
         position: relative;
@@ -1086,6 +1081,13 @@ out_inアニメーション
     
     
     }
+
+}
+@include pc {
+    .site_tip {
+    display: block;
+    }
+
 }
 
 
@@ -1423,20 +1425,16 @@ kv
         object-fit: cover;
         transition: 4s linear transform .4s;
 
-        filter: grayscale(.15);
+        filter: blur(1.3px) grayscale(.2);
 
         &.zoom {
             transform: scale(1.05);
         }
 
-
     }
-
 
     &_imgbox {
         width: 100%;
-
-
     }
 
     @include tab {
@@ -2403,7 +2401,7 @@ about
 }
 
 
-.fa-twitter,.fa-github {
+.fa-twitter,.fa-github,.fa-facebook-square{
     font-size: 2rem;
     transition: .4s;
     transform: rotateZ(0);

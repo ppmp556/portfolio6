@@ -351,7 +351,7 @@ a {
     background: url(../images/紅葉2.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    filter: grayscale(.15);
+    filter: grayscale(.1);
 
 }
 
@@ -1423,7 +1423,7 @@ kv
         object-fit: cover;
         transition: 4s linear transform .4s;
 
-        filter: grayscale(.15);
+        filter: grayscale(.1);
 
         &.zoom {
             transform: scale(1.05);
