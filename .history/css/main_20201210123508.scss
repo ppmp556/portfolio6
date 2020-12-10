@@ -770,9 +770,11 @@ out_inアニメーション
     &.active {
         transform: scaleX(1);
         transition-delay: 0;
+        
         &:before {
             transform: scaleX(0);
             transition-delay: .5s;
+            animation: forwards;
 
         }
 

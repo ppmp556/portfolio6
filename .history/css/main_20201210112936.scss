@@ -770,6 +770,7 @@ out_inアニメーション
     &.active {
         transform: scaleX(1);
         transition-delay: 0;
+
         &:before {
             transform: scaleX(0);
             transition-delay: .5s;
@@ -2088,17 +2089,13 @@ about
 
 
 
-    &_box {
-
-        .about_hovering, .about_default {
-
-            position: absolute;
-            transition: all 0.3s;
-            cursor: pointer;
-            z-index: 1;
-            width: 200px;
-            height: 200px;
-        }
+    &_box .about_prof {
+        position: absolute;
+        transition: all 0.3s;
+        cursor: pointer;
+        z-index: 1;
+        width: 200px;
+        height: 200px;
     }
 
     @include tab {
@@ -2112,7 +2109,7 @@ about
             width: 250px;
             height: 250px;
 
-            .about_hovering, .about_default {
+            .about_prof {
                 width: 250px;
                 height: 250px;
             }
@@ -2827,11 +2824,8 @@ skill
         justify-content: center;
         align-items: center;
         margin: 40px auto;
-        background-color: $cScolor;
-        // animation: blinkAnime 5s infinite 4s;
-        border: 2px solid $cBlack;
-
-        
+        background-color: $cBgColor;
+        animation: blinkAnime 5s infinite 4s;
 
 
 
@@ -2841,8 +2835,6 @@ skill
         &:hover {
             opacity: 1;
             animation: forwards;
-            border: none;
-
         }
 
         &:before {
@@ -2923,8 +2915,6 @@ skill
             width: 240px;
             height: 240px;
             margin: 40px;
-            border: 2px solid $cBlack;
-
 
             &:before {
                 top: 2px;
@@ -2948,7 +2938,6 @@ skill
         &_card {
             border-radius: 50%;
             margin: 70px;
-            border: 2px solid $cBlack;
 
             &:before {
                 top: 2px;
@@ -3059,7 +3048,7 @@ skill
         font-size: 1.3rem;
         color: $cBlack;
         z-index: 2;
-        opacity: 1;
+        opacity: .3;
         letter-spacing: 1px;
         transition: .5s;
         margin-top: 40px;

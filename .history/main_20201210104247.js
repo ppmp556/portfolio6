@@ -154,7 +154,7 @@ $(() => {
             trigger: text,
             toggleClass: 'active',
             strat: "top 90%",
-            end: "bottom 20%",
+            // end: "bottom 20%",
 
         })
 
@@ -166,7 +166,7 @@ $(() => {
             trigger: img,
             toggleClass: 'active',
             strat: "top 90%",
-            end: "bottom 20%",
+            // end: "bottom 20%",
 
         })
     });
@@ -204,36 +204,38 @@ $(() => {
     $(document).ready(function () {
 
         contactForm.submit(function (event) {
-            let formData = contactForm.serialize();
 
-            $.ajax({
-                url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse",
-                data: formData,
-                type: "POST",
-                dataType: "xml",
+        let formData = contactForm.serialize();
 
-                statusCode: {
+        $.ajax({
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse",
+            data: formData,
+            type: "POST",
+            dataType: "xml",
 
-                    0: function () {
+            statusCode: {
 
-                        $("#js-end_msg").delay(1000).slideDown("slow");
+                0: function () {
 
-                        $("#js-submit_btn").css({
-                            "opacity":"0",
-                            "transition":".5",
-                            "pointer-events":"none"
-                            });
-                        },
+                    $("#js-end_msg").delay(1000).slideDown("slow");
 
-                    500: function () {
-                        $("#js-false_msg").delay(1000).slideDown("slow");
+                    $("#js-submit_btn").css({
+                        "opacity":"0",
+                        "transition":".5",
+                        "pointer-events":"none"
+                        });
+                    },
 
-                    }
+                500: function () {
+
+                    $("#js-false_msg").delay(1000).slideDown("slow");
+
                 }
+            }
 
-            });
-            event.preventDefault();
         });
+            event.preventDefault();
+    });
 
     });
 

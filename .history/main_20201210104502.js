@@ -154,7 +154,7 @@ $(() => {
             trigger: text,
             toggleClass: 'active',
             strat: "top 90%",
-            end: "bottom 20%",
+            // end: "bottom 20%",
 
         })
 

@@ -31,19 +31,23 @@ $(() => {
     $(window).scroll(function () {
 
         if ($(this).scrollTop() > 100) {  //100pxスクロールしたら表示
+
             pgTop.addClass("is_fade");
 
+
         } else {
+
             pgTop.removeClass("is_fade");
-
         }
-    });
 
+    });
 
     pgTop.on("click", function () {
 
         $('body, html').animate({
+
             scrollTop: 0
+
         }, 500);
 
         return false;
@@ -102,18 +106,17 @@ $(() => {
             count = 0;
 
         }
-
         currtentText = texts[count];
         letter = currtentText.slice(0, ++index);
         //slice()は元の文字列を変更せず、文字列の一部を取り出して新しい文字列として返す
 
         document.querySelector('.line').textContent = letter;
-
         if(letter.length === currtentText.length) {
             count++;
             index = 0;
         }
         setTimeout(type, 300);
+
     })();
 
 
@@ -148,7 +151,6 @@ $(() => {
 
     // scroll　animation
     const reveal = gsap.utils.toArray('.out_in');
-
     reveal.forEach((text, i) => {
         ScrollTrigger.create({
             trigger: text,
@@ -204,36 +206,38 @@ $(() => {
     $(document).ready(function () {
 
         contactForm.submit(function (event) {
-            let formData = contactForm.serialize();
 
-            $.ajax({
-                url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse",
-                data: formData,
-                type: "POST",
-                dataType: "xml",
+        let formData = contactForm.serialize();
 
-                statusCode: {
+        $.ajax({
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2EYyj02s4RsRpAxRPVd9rrj0bAqqQzgMMT73U3R0j1DufXg/formResponse",
+            data: formData,
+            type: "POST",
+            dataType: "xml",
 
-                    0: function () {
+            statusCode: {
 
-                        $("#js-end_msg").delay(1000).slideDown("slow");
+                0: function () {
 
-                        $("#js-submit_btn").css({
-                            "opacity":"0",
-                            "transition":".5",
-                            "pointer-events":"none"
-                            });
-                        },
+                    $("#js-end_msg").delay(1000).slideDown("slow");
 
-                    500: function () {
-                        $("#js-false_msg").delay(1000).slideDown("slow");
+                    $("#js-submit_btn").css({
+                        "opacity":"0",
+                        "transition":".5",
+                        "pointer-events":"none"
+                        });
+                    },
 
-                    }
+                500: function () {
+
+                    $("#js-false_msg").delay(1000).slideDown("slow");
+
                 }
+            }
 
-            });
-            event.preventDefault();
         });
+            event.preventDefault();
+    });
 
     });
 

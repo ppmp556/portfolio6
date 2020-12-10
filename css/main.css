@@ -277,7 +277,7 @@ a {
       -ms-scroll-snap-type: y mandatory;
           scroll-snap-type: y mandatory;
   scroll-snap-align: start;
-  background: url(../images/紅葉2.jpg) no-repeat;
+  background: url(../images/kouyou2.jpg) no-repeat;
   background-size: cover;
   background-attachment: fixed;
   -webkit-filter: grayscale(0.15);
@@ -286,7 +286,7 @@ a {
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
   .site_backcontent {
-    background: url(../images/池2.JPG) no-repeat;
+    background: url(../images/ike2.JPG) no-repeat;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -301,7 +301,7 @@ a {
 
 @media screen and (min-width: 1024px) {
   .site_backcontent {
-    background: url(../images/作業風景.jpg) no-repeat;
+    background: url(../images/work.jpg) no-repeat;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -2112,7 +2112,7 @@ about
           transform: rotateX(-90deg);
 }
 
-.about_box span {
+.about_box .about_hovering, .about_box .about_default {
   position: absolute;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -2134,7 +2134,7 @@ about
     width: 250px;
     height: 250px;
   }
-  .about_box span {
+  .about_box .about_hovering, .about_box .about_default {
     width: 250px;
     height: 250px;
   }
@@ -2847,9 +2847,8 @@ skill
       -ms-flex-align: center;
           align-items: center;
   margin: 40px auto;
-  background-color: #eaebed;
-  -webkit-animation: blinkAnime 5s infinite 4s;
-          animation: blinkAnime 5s infinite 4s;
+  background-color: #E7F5E0;
+  border: 2px solid #1c1c1c;
   overflow: hidden;
 }
 
@@ -2857,6 +2856,7 @@ skill
   opacity: 1;
   -webkit-animation: forwards;
           animation: forwards;
+  border: none;
 }
 
 .skill_card:before {
@@ -2933,6 +2933,7 @@ skill
     width: 240px;
     height: 240px;
     margin: 40px;
+    border: 2px solid #1c1c1c;
   }
   .skill_card:before {
     top: 2px;
@@ -2953,6 +2954,7 @@ skill
   .skill_card {
     border-radius: 50%;
     margin: 70px;
+    border: 2px solid #1c1c1c;
   }
   .skill_card:before {
     top: 2px;
@@ -3057,7 +3059,7 @@ skill
   font-size: 1.3rem;
   color: #1c1c1c;
   z-index: 2;
-  opacity: .3;
+  opacity: 1;
   letter-spacing: 1px;
   -webkit-transition: .5s;
   transition: .5s;
@@ -4516,14 +4518,6 @@ footer
   -webkit-transform: rotateZ(360deg);
           transform: rotateZ(360deg);
   color: #bcf54b;
-}
-
-.footer_share_icon:hover .fa-facebook-square {
-  -webkit-transition: .5s;
-  transition: .5s;
-  -webkit-transform: rotateZ(360deg);
-          transform: rotateZ(360deg);
-  color: #385898;
 }
 
 .footer .share {

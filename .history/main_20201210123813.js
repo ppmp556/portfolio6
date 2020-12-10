@@ -158,7 +158,7 @@ $(() => {
 
         })
 
-    });
+    },stop);
 
     const images = gsap.utils.toArray('img');
     images.forEach((img, i) => {
