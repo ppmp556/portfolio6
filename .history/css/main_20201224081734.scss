@@ -2290,15 +2290,6 @@ policy
     display: flex;
 
     @include tab {
-        padding: 30px 0;
-    }
-
-    @include pc {
-        padding: 40px 0;
-    }
-
-
-    @include tab {
         &_ttlwrap {
             position: relative;
             width: 100%;
@@ -2328,11 +2319,13 @@ policy
         font-size: 2.5rem;
         line-height: 70px;
 
-        @include SP {
+    }
+
+    @include SP {
+        .section_ttl {
             font-size: 2.3rem;
         }
     }
-
 
     @include tab {
         .section_inner {
@@ -2412,12 +2405,14 @@ policy
         text-shadow: 1px 1px 2px $cBlack;
 
 
-        @include SP {
+    }
+
+    @include SP {
+        &_txt {
             margin: 20px auto;
             font-size: 1.1rem;
         }
     }
-
 
     @include tab {
         &_txtwrap_left {
@@ -2558,6 +2553,17 @@ policy
     }
 }
 
+@include tab {
+    .policy {
+        padding: 30px 0;
+    }
+}
+
+@include pc {
+    .policy {
+        padding: 40px 0;
+    }
+}
 
 
 
@@ -2605,7 +2611,11 @@ skill
         color: $cBlack;
         text-shadow: 1px 1px 3px $cBlack;
 
-        @include tab {
+
+    }
+
+    @include tab {
+        .section_ttl {
             position: absolute;
             width: 0;
             background-color: $cScolor;
@@ -2614,8 +2624,9 @@ skill
             left: 50%;
             transform: translateX(-50%);
         }
-
-        @include pc {
+    }
+    @include pc {
+        .section_ttl {
             position: absolute;
             width: 0;
             left: 50%;
@@ -2625,9 +2636,9 @@ skill
             border-radius: 50%;
             background-color: $cScolor;
 
+
         }
     }
-
 
 
     @include pc {
@@ -2847,27 +2858,31 @@ skill
         padding: 30px;
         text-align: center;
 
-        @include SP {
-                padding: 5px;
-        }
     }
 
+    @include SP {
+        &_inbox {
+            padding: 5px;
+        }
+    }
 
     &_imgbox {
         position: absolute;
         width: 300px;
         height: 300px;
 
-        @include tab {
+    }
+
+
+
+    @include tab {
+        &_imgbox {
             width: 240px;
             height: 240px;
             top: 0;
             left: 0;
         }
     }
-
-
-
 
 
     &_icon {
@@ -2883,16 +2898,19 @@ skill
         transition: .5s;
         display: block;
 
-        @include SP {
-            font-size: 3rem;
-        }
+    }
 
-        @include tab {
-            font-size: 2rem;
+    @include SP {
+        &_icon {
+            font-size: 3rem;
         }
     }
 
-
+    @include tab {
+        &_icon {
+            font-size: 2rem;
+        }
+    }
 
 
     &_txtbox {
@@ -2904,18 +2922,20 @@ skill
         letter-spacing: 1px;
         transition: .5s;
         margin-top: 40px;
+    }
 
-        @include SP {
+    @include SP {
+        &_txtbox {
             font-size: 1rem;
             margin-top: 0;
         }
+    }
 
-        @include tab {
+    @include tab {
+        &_txtbox {
             font-size: 1.1rem;
         }
     }
-
-
 
     &_txt {
         display: inline-block;
@@ -2923,12 +2943,13 @@ skill
         padding: 8px 15px;
         transition: .5s;
 
-        @include tab {
-            margin-top: 5px;
-        }
-
     }
 
+    @include tab {
+        &_txt {
+            margin-top: 5px;
+        }
+    }
 
     &_border {
         transition: .5;
@@ -2990,69 +3011,81 @@ skill
 .__penicon {
     left: -30px;
 
-    @include SP {
+}
+
+@include SP {
+    .__penicon {
         left: -50px;
         top: -8%;
 
     }
-
-    @include tab {
-            left: 0;
-            top: 50px;
-    }
 }
 
-
-
-.__htmlicon,.__deskicon {
-    left: -30px;
-
-    @include SP {
-        left: -55px;
-    }
-    @include tab {
+@include tab {
+    .__penicon {
         left: 0;
         top: 50px;
     }
 }
 
+.__htmlicon,.__deskicon {
+    left: -30px;
+}
 
 
+
+@include SP {
+    .__htmlicon,.__deskicon {
+        left: -55px;
+    }
+}
+@include tab {
+    .__htmlicon,.__deskicon {
+        left: 0;
+        top: 50px;
+    }
+}
 
 .__cssicon,.__tabicon {
     bottom: -200px;
     left: -130px;
-
-    @include SP {
+}
+@include SP {
+    .__cssicon,.__tabicon {
         bottom: -130px;
+    }
 
-    }
-    @include tab {
-        left: -60px;
-    }
 }
 
 
+
+@include tab {
+    .__cssicon,.__tabicon {
+        left: -60px;
+    }
+}
 @include pc {
     .__cssicon {
         left: -110px;
     }
 }
 
-
 .__sassicon,.__mobicon {
     bottom: -200px;
     left: 80px;
-
-    @include SP {
-            left: 15px;
-            bottom: -130px;
-    }
-    @include tab {
-            left: 50px;
-    }
 }
 
+@include SP {
+    .__sassicon,.__mobicon {
+        left: 15px;
+        bottom: -130px;
+    }
+}
+@include tab {
+    .__sassicon,.__mobicon {
+        left: 50px;
+    }
+}
 @include pc {
     .__sassicon {
         left: 50px;
@@ -3061,43 +3094,52 @@ skill
 
 .__jsicon {
     left: -30px;
+}
 
-    @include SP {
+@include SP {
+    .__jsicon {
         left: -55px;
     }
-    @include tab {
+}
+@include tab {
+    .__jsicon {
         top: 50px;
         left: 0;
     }
 }
-
 
 .__wpicon {
     left: -30px;
+}
 
-    @include SP {
+@include SP {
+    .__wpicon {
         left: -55px;
     }
-    @include tab {
+}
+@include tab {
+    .__wpicon {
         left: 0;
         top: 50px;
     }
 }
-
 
 
 .__painticon {
     left: -30px;
+}
 
-    @include SP {
+@include SP {
+    .__painticon {
         left: -55px;
     }
-    @include tab {
+}
+@include tab {
+    .__painticon {
         left: 0;
         top: 50px;
     }
 }
-
 
 // スキルのアイコンここまで
 
@@ -3160,23 +3202,21 @@ blog
 
     position: relative;
 
-    @include pc {
-
-        padding: 100px 0;
-
-    }
-
     .section_inner {
         margin: 0 auto;
+    }
 
-        @include tab {
+    @include tab {
+        .section_inner {
             max-width: 650px;
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
         }
-    
-        @include pc {
+    }
+
+    @include pc {
+        .section_inner {
             max-width: 1100px;
             padding: 0 50px;
             display: flex;
@@ -3186,23 +3226,26 @@ blog
     }
 
 
-
     .section_ttlwrap {
         text-align: center;
+    }
 
-        @include pc {
-                display: block;
-                position: relative;
+    @include pc {
+        .section_ttlwrap {
+            display: block;
+            position: relative;
         }
     }
 
-
-    .section_ttl {
+        .section_ttl {
         text-shadow: 1px 1px 3px $cBlack;
         margin-bottom: 50px;
         width: 100%;
+    }
 
-        @include tab {
+
+    @include tab {
+        .section_ttl {
             margin-bottom: 100px;
             padding: 5px 0;
             width: 10px;
@@ -3212,7 +3255,9 @@ blog
             color: $cBlack;
 
         }
-        @include pc {
+    }
+    @include pc {
+        .section_ttl {
             position: absolute;
             margin-bottom: 0;
             text-align: left;
@@ -3225,27 +3270,32 @@ blog
             width: 10px;
             right: 0;
 
+
         }
     }
 
 
+
     &_content {
         margin: 50px 0;
+    }
 
-        @include tab {
+    @include tab {
+        &_content {
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             margin: 0 40px 0 0;
         }
-        @include pc {
+    }
+    @include pc {
+        &_content {
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
         }
     }
-
 
 
 
@@ -3254,14 +3304,19 @@ blog
     &_wrap {
         display: flex;
         flex-direction: column;
+    }
 
-        @include tab {
+    @include tab {
+        &_wrap {
             display: flex;
             position: relative;
             justify-content: center;
-
         }
-        @include pc {
+
+    }
+
+    @include pc {
+        &_wrap {
 
             display: flex;
             position: relative;
@@ -3269,9 +3324,8 @@ blog
             justify-content: center;
 
         }
+
     }
-
-
     &_img {
         position: absolute;
         top: 0;
@@ -3398,14 +3452,17 @@ blog
             transition-delay: .6s;
         }
 
-        @include tab {
+    }
+    @include tab {
+        &_txtbox {
             position: absolute;
         }
+    }
 
-        @include pc {
+    @include pc {
+        &_txtbox {
             position: absolute;
         }
-
     }
 
 
@@ -3499,7 +3556,11 @@ blog
 
 }
 
-
+@include pc {
+    .blog {
+        padding: 100px 0;
+    }
+}
 
 
 
@@ -3519,19 +3580,22 @@ create
     .section_inner {
         width: 80%;
         margin: 0 auto;
+    }
 
-        @include tab {
+    @include tab {
+        .section_inner {
             width: 100%;
             max-width: 650px;
         }
+    }
 
-        @include pc {
+    @include pc {
+        .section_inner {
             max-width: 1100px;
             width: 100%;
             padding: 0 50px;
         }
     }
-
 
 
     @include tab {
@@ -3571,14 +3635,18 @@ create
 
     }
 
-    .section_ttl {
-        font-weight: 400;
-        transition-delay: 0;
-        color: $cBlack;
-        opacity: 1;
-        text-shadow: 1px 1px 3px $cBlack;
+        .section_ttl {
+            font-weight: 400;
+            transition-delay: 0;
+            color: $cBlack;
+            opacity: 1;
+            text-shadow: 1px 1px 3px $cBlack;
 
-        @include tab {
+
+    }
+
+    @include tab {
+        .section_ttl {
             position: absolute;
             top: 0;
             right: 0;
@@ -3589,21 +3657,28 @@ create
             padding: 5px 0;
             text-shadow: 1px 1px 3px $cBlack;
 
-        }
 
-        @include pc {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 10px;
-            font-size: 3.6rem;
-            border-radius: 50%;
-            padding: 5px 0;
-            background-color: $cScolor;
-            text-shadow: 1px 1px 3px $cBlack;
+
         }
     }
 
+    @include pc {
+        .section_ttl {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            font-size: 3.6rem;
+            border-radius: 50%;
+            padding: 5px 0;
+            background-color: $cScolor;
+            text-shadow: 1px 1px 3px $cBlack;
+
+
+
+
+        }
+    }
 
 
 
@@ -3756,7 +3831,14 @@ create
             transform: translate3d(0,0,0) scale(.8);
         }
 
+
+
     }
+
+
+
+
+
 
     &_txt {
         font-weight: 200;
@@ -3767,14 +3849,17 @@ create
         opacity: 0;
         transition: opacity .35s, transform .35s;
 
-        @include SP {
+    }
+
+    @include SP {
+        &_txt {
             font-size: 1.1rem;
             margin: 1% 15px 1px;
             width: 100%;
-
         }
-    }
 
+
+    }
 
 
     &_outtxt {
@@ -3792,6 +3877,9 @@ create
     &_pc {
         display: block;
     }
+
+    
+
 
 
     @include tab {
@@ -3842,12 +3930,16 @@ create
 
     .site {
         background-color: $cScolor;
+    }
 
-        @include tab {
+    @include tab {
+        .site {
             background-color: $cBgGreen;
         }
+    }
 
-        @include pc {
+    @include pc {
+        .site {
             background-color: $cScolor;
         }
     }
@@ -3889,11 +3981,6 @@ contact
     background-color: $cScolor;
 
     @include pc {
-        padding: 128px 0 120px;
-    }
-
-
-    @include pc {
         .section_inner {
             max-width: 1100px;
             padding: 0 50px;
@@ -3931,6 +4018,8 @@ contact
             &:nth-child(1) {
                 margin-right: 53px;
             }
+
+
         }
     }
 
@@ -3958,6 +4047,8 @@ contact
             color: $cBlack;
             width: 10px;
             left: 0;
+
+
         }
     }
 
@@ -3977,6 +4068,9 @@ contact
             width: 10px;
             left: 0;
             text-shadow: 1px 1px 3px $cBlack;
+
+
+
         }
     }
 
@@ -3995,6 +4089,8 @@ contact
         color: $cBlack;
         text-shadow: 1px 1px 3px $cBlack;
 
+
+
     }
 
     .end_msg {
@@ -4003,6 +4099,8 @@ contact
 
     .false_msg {
         display: none;
+
+
 
     }
 
@@ -4031,9 +4129,17 @@ contact
 
     }
 
+
+
+
 }
 
 
+@include pc {
+    .contact {
+        padding: 128px 0 120px;
+    }
+}
 
 // コンタクトフォームここから
 .form {
@@ -4043,11 +4149,6 @@ contact
     border-right: none;
     border-left: none;
     border-top: none;
-
-    @include pc {
-        margin-top: 25.5px;
-    }
-
 
     &:last-child {
         border:none;
@@ -4112,6 +4213,11 @@ contact
 
 }
 
+@include pc {
+    .form {
+        margin-top: 25.5px;
+    }
+}
 
 // コンタクトフォームここまで
 
@@ -4251,3 +4357,11 @@ footer
         color: $cWhite;
     }
 }
+
+
+
+
+
+
+
+

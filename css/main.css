@@ -139,6 +139,23 @@ a {
   text-shadow: 1px 1px 3px #1c1c1c;
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .site {
+    width: 100px;
+    line-height: 3em;
+    margin: 0 auto;
+    height: initial;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .site {
+    width: 150px;
+    line-height: 4em;
+    margin: 0 auto;
+  }
+}
+
 .site_link {
   width: 100%;
   height: 100%;
@@ -250,23 +267,6 @@ a {
   height: 100%;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
-}
-
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .site {
-    width: 100px;
-    line-height: 3em;
-    margin: 0 auto;
-    height: initial;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .site {
-    width: 150px;
-    line-height: 4em;
-    margin: 0 auto;
-  }
 }
 
 .site_backcontent {
@@ -1541,6 +1541,27 @@ header
   z-index: 99;
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .header {
+    line-height: 80px;
+  }
+  .header.fix {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    line-height: 80px;
+  }
+  .header.fix {
+    position: fixed;
+  }
+}
+
 .header.clicked {
   background-color: transparent;
   padding: 0;
@@ -1600,27 +1621,6 @@ header
   top: 0;
 }
 
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .header {
-    line-height: 80px;
-  }
-  .header.fix {
-    position: fixed;
-    top: 0;
-    overflow: hidden;
-    z-index: 1;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .header {
-    line-height: 80px;
-  }
-  .header.fix {
-    position: fixed;
-  }
-}
-
 /************************************************************************************:
 
 nav
@@ -1628,6 +1628,12 @@ nav
 ************************************************************************************:*/
 .nav {
   position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    position: initial;
+  }
 }
 
 .nav::before {
@@ -1935,12 +1941,6 @@ nav
   right: 0;
 }
 
-@media screen and (min-width: 1024px) {
-  .nav {
-    position: initial;
-  }
-}
-
 /***********************************************************************************:
 
 about
@@ -1951,8 +1951,26 @@ about
   background-color: #E7F5E0;
 }
 
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .about {
+    padding: 40px 0;
+  }
+}
+
 .about_ttlwrap {
   position: relative;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .about_ttlwrap {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .about_ttlwrap {
+    position: relative;
+  }
 }
 
 .about_wrap {
@@ -2011,18 +2029,6 @@ about
     padding: 0 50px;
     max-width: 1100px;
     width: 100%;
-  }
-}
-
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .about_ttlwrap {
-    position: relative;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .about_ttlwrap {
-    position: relative;
   }
 }
 
@@ -2431,12 +2437,6 @@ about
   text-shadow: 1px 1px 3px #1c1c1c;
 }
 
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .about {
-    padding: 40px 0;
-  }
-}
-
 .share {
   padding: 20px 0;
 }
@@ -2463,6 +2463,18 @@ policy
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media screen and (min-width: 764px) and (max-width: 1024px) {
+  .policy {
+    padding: 30px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .policy {
+    padding: 40px 0;
+  }
 }
 
 @media screen and (min-width: 764px) and (max-width: 1024px) {
@@ -2693,18 +2705,6 @@ policy
   }
   .policy_right:after {
     display: none;
-  }
-}
-
-@media screen and (min-width: 764px) and (max-width: 1024px) {
-  .policy {
-    padding: 30px 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .policy {
-    padding: 40px 0;
   }
 }
 
@@ -3388,6 +3388,12 @@ blog
   position: relative;
 }
 
+@media screen and (min-width: 1024px) {
+  .blog {
+    padding: 100px 0;
+  }
+}
+
 .blog .section_inner {
   margin: 0 auto;
 }
@@ -3799,12 +3805,6 @@ blog
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .blog {
-    padding: 100px 0;
-  }
-}
-
 /************************************************************************************:
 
 create
@@ -4213,6 +4213,12 @@ contact
 }
 
 @media screen and (min-width: 1024px) {
+  .contact {
+    padding: 128px 0 120px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .contact .section_inner {
     max-width: 1100px;
     padding: 0 50px;
@@ -4339,18 +4345,18 @@ contact
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .contact {
-    padding: 128px 0 120px;
-  }
-}
-
 .form {
   line-height: 1.9;
   border-bottom: 1px solid #1c1c1c;
   border-right: none;
   border-left: none;
   border-top: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .form {
+    margin-top: 25.5px;
+  }
 }
 
 .form:last-child {
@@ -4409,12 +4415,6 @@ contact
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-@media screen and (min-width: 1024px) {
-  .form {
-    margin-top: 25.5px;
-  }
 }
 
 .contact_link {
