@@ -4124,6 +4124,10 @@ create
   line-height: 1.8em;
 }
 
+.create_intxt {
+  display: block;
+}
+
 .create_tab_sp {
   display: none;
 }
