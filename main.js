@@ -154,8 +154,8 @@ $(() => {
         ScrollTrigger.create({
             trigger: text,
             toggleClass: 'active',
-            strat: "top 90%",
-            end: "bottom 20%",
+            strat: "top 95%",
+            end: "bottom 8%",
 
         })
 
@@ -166,8 +166,8 @@ $(() => {
         ScrollTrigger.create({
             trigger: img,
             toggleClass: 'active',
-            strat: "top 90%",
-            end: "bottom 20%",
+            strat: "top 95%",
+            end: "bottom 8%",
 
         })
     });
