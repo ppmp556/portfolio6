@@ -155,7 +155,7 @@ $(() => {
             trigger: text,
             toggleClass: 'active',
             strat: "top 95%",
-            end: "bottom 8%",
+            end: "bottom 5%",
 
         })
 
@@ -167,7 +167,7 @@ $(() => {
             trigger: img,
             toggleClass: 'active',
             strat: "top 95%",
-            end: "bottom 8%",
+            // end: "bottom 5%",
 
         })
     });
