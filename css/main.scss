@@ -45,7 +45,7 @@ $widthSp: 375px;
 }
 
 @mixin SP {
-        @media screen and (max-width: $widthSp) {
+    @media screen and (max-width: $widthSp) {
         @content;
     }
 
@@ -67,11 +67,11 @@ body {
     font-size: 16px;
     width: 100%;
     margin: 0 auto;
-    font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+    font-family: '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
     color: $cBlack;
 
 
-    &.lock{
+    &.lock {
         position: fixed;
         left: 0;
         right: 0;
@@ -94,9 +94,9 @@ body {
 }
 
 a {
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-    cursor:pointer;
-  }
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
 
 .container {
     width: 100%;
@@ -132,6 +132,7 @@ a {
         max-width: 650px;
 
     }
+
     @include pc {
         width: 100%;
         max-width: 1100px;
@@ -160,6 +161,7 @@ a {
         font-size: 3.6rem;
 
     }
+
     @include pc {
 
         font-size: 3.6rem;
@@ -199,15 +201,16 @@ a {
 
 
     @include tab {
-            width: 100px;
-            line-height: 3em;
-            margin: 0 auto;
-            height: initial;
+        width: 100px;
+        line-height: 3em;
+        margin: 0 auto;
+        height: initial;
     }
+
     @include pc {
-            width: 150px;
-            line-height: 4em;
-            margin: 0 auto;
+        width: 150px;
+        line-height: 4em;
+        margin: 0 auto;
     }
 
 
@@ -254,9 +257,9 @@ a {
     }
 
     &.contact_link:hover {
-            text-shadow: 3px 3px 3px $cBlack;
-            transition: .4s;
-            opacity: .6;
+        text-shadow: 3px 3px 3px $cBlack;
+        transition: .4s;
+        opacity: .6;
 
     }
 
@@ -277,9 +280,9 @@ a {
 
         }
 
-        &:nth-child(3){
+        &:nth-child(3) {
             bottom: 0;
-            right:  0;
+            right: 0;
             width: 0;
             height: 2px;
             background: $cLgreen;
@@ -287,7 +290,7 @@ a {
 
         }
 
-        &:nth-child(2){
+        &:nth-child(2) {
             top: 0;
             left: 0;
             width: 2px;
@@ -297,7 +300,7 @@ a {
 
         &:nth-child(4) {
             bottom: 0;
-            right:  0;
+            right: 0;
             width: 2px;
             height: 0;
             background: $cLgreen;
@@ -345,25 +348,25 @@ a {
     filter: grayscale(.15);
 
     @include tab {
-            background: url(../images/ike2.JPG) no-repeat;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            scroll-snap-type: y mandatory;
-            scroll-snap-align: start;
-            background-size: cover;
-            background-attachment: fixed;
+        background: url(../images/ike2.JPG) no-repeat;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        background-size: cover;
+        background-attachment: fixed;
     }
 
     @include pc {
-            background: url(../images/work.jpg) no-repeat;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            scroll-snap-type: y mandatory;
-            scroll-snap-align: start;
-            background-size: cover;
-            background-attachment: fixed;
+        background: url(../images/work.jpg) no-repeat;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        background-size: cover;
+        background-attachment: fixed;
     }
 }
 
@@ -402,16 +405,16 @@ back-to-top
     transition: all 0.2s ease-in-out;
     z-index: 99;
 
-    &:hover{
+    &:hover {
         opacity: .8;
         bottom: 15px;
         box-shadow: 0 2px 4px 1px $cBlack;
 
-}
+    }
 
     &:before {
         content: "";
-        position:  absolute;
+        position: absolute;
         width: 12px;
         height: 12px;
         border-top: solid 3px $cBlack;
@@ -481,18 +484,19 @@ loading
         margin: 40px auto;
         background-color: $cScolor;
 
-        @include SP{
-                width: 120px;
-                height: 320px;
+        @include SP {
+            width: 120px;
+            height: 320px;
         }
+
         @include tab {
-                width: 250px;
-                height: 450px;
+            width: 250px;
+            height: 450px;
         }
 
         @include pc {
-                width: 250px;
-                height: 450px;
+            width: 250px;
+            height: 450px;
         }
     }
 
@@ -534,7 +538,7 @@ loading
             transform: rotate(-45deg);
             z-index: 0;
             text-shadow: 2px 2px 4px $cBlack;
-            animation: animeBottom  2s linear 0s 1 forwards;
+            animation: animeBottom 2s linear 0s 1 forwards;
 
 
 
@@ -549,11 +553,13 @@ loading
 
 
 }
+
 @keyframes animeTop {
     0% {
         width: 0;
         opacity: 0;
     }
+
     1% {
         width: 1px;
         top: 1px;
@@ -582,10 +588,11 @@ loading
         width: 0;
         opacity: 0;
     }
+
     1% {
         width: 1px;
         bottom: 1px;
-        left:  0;
+        left: 0;
         opacity: 1;
 
     }
@@ -617,6 +624,7 @@ loading
     99% {
         opacity: 0;
     }
+
     100% {
         opacity: 0;
         display: none;
@@ -678,6 +686,7 @@ loading
         transform: translateX(-50%);
         background: linear-gradient(to right, transparent, $cBlack);
     }
+
     100% {
         transform: translateX(50%);
         background: linear-gradient(to right, transparent, $cBlack);
@@ -690,6 +699,7 @@ loading
         background: linear-gradient(to top, transparent, $cBlack);
 
     }
+
     100% {
         transform: translateY(-25%);
         background: linear-gradient(to top, transparent, $cBlack);
@@ -704,6 +714,7 @@ loading
         background: linear-gradient(to left, transparent, $cBlack);
 
     }
+
     100% {
         transform: translateX(-50%);
         background: linear-gradient(to left, transparent, $cBlack);
@@ -717,6 +728,7 @@ loading
         transform: translateY(-25%);
         background: linear-gradient(to bottom, transparent, $cBlack);
     }
+
     100% {
         transform: translateY(25%);
         background: linear-gradient(to bottom, transparent, $cBlack);
@@ -745,6 +757,7 @@ out_inアニメーション
     &.active {
         transform: scaleX(1);
         transition-delay: 0;
+
         &:before {
             transform: scaleX(0);
             transition-delay: .5s;
@@ -769,6 +782,7 @@ out_inアニメーション
         z-index: 5;
 
     }
+
     // 2つめの要素の出現
     &:nth-child(2):before {
         background: $cRed;
@@ -796,7 +810,9 @@ out_inアニメーション
 
 }
 
-@keyframes blinkAnime{/*点滅するアニメーション*/
+@keyframes blinkAnime {
+
+    /*点滅するアニメーション*/
     from {
         background-color: $cWhite;
         opacity: .5;
@@ -854,8 +870,8 @@ out_inアニメーション
         white-space: nowrap;
         overflow: hidden;
         animation: typewriter 4s steps(60) 1s 1 normal both,
-        // normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う
-        blinkTextCursor 500ms steps(60) infinite normal,type 1s steps(80, end);
+            // normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う
+            blinkTextCursor 500ms steps(60) infinite normal, type 1s steps(80, end);
         animation-delay: 2s;
 
         text-shadow: 3px 3px 3px $cBlack;
@@ -870,7 +886,7 @@ out_inアニメーション
         }
 
         @include pc {
-                font-size: 4rem;
+            font-size: 4rem;
         }
     }
 
@@ -885,8 +901,8 @@ out_inアニメーション
         white-space: nowrap;
         overflow: hidden;
         animation: typewriter 4s steps(60) 1s 1 normal both,
-        // normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う
-        blinkTextCursor 500ms steps(60) infinite normal,type 0.5s steps(80, end);
+            // normal:標準の方向で実行、both:forwardsとbackwardsの両方の規定に従う
+            blinkTextCursor 500ms steps(60) infinite normal, type 0.5s steps(80, end);
         animation-delay: 3s;
 
         text-shadow: 3px 3px 3px $cBlack;
@@ -900,11 +916,11 @@ out_inアニメーション
         }
 
         @include pc {
-                text-align: center;
-                font-size: 5rem;
-                left: 50%;
-                transform: translateX(-50%);
-                margin: initial;
+            text-align: center;
+            font-size: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: initial;
         }
     }
 
@@ -917,6 +933,7 @@ out_inアニメーション
         @include tab {
             font-size: 3rem;
         }
+
         @include pc {
             font-size: 5rem;
         }
@@ -942,16 +959,17 @@ out_inアニメーション
         right: 0;
     }
 
-    100%   {
+    100% {
         right: 0;
     }
 }
 
 
 @keyframes blink {
-        0% {
+    0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -960,13 +978,25 @@ out_inアニメーション
 
 
 @keyframes typewriter {
-    from { width: 0; }
-    to { width: 24em; }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 24em;
+    }
 }
 
-@keyframes blinkTextCursor{ //点滅するカーソルのアニメーション
-    from { border-right-color: $cWhite; }
-    to { border-right-color: transparent; }
+@keyframes blinkTextCursor {
+
+    //点滅するカーソルのアニメーション
+    from {
+        border-right-color: $cWhite;
+    }
+
+    to {
+        border-right-color: transparent;
+    }
 }
 
 
@@ -982,7 +1012,7 @@ out_inアニメーション
 ************************************************************************************:*/
 
 
-@include pc{
+@include pc {
 
     .site_tip {
         display: inline-block;
@@ -1206,6 +1236,7 @@ kv
                 text-shadow: 2px 2px 4px $cBlack;
 
             }
+
             &::after {
                 content: "";
                 position: absolute;
@@ -1250,7 +1281,8 @@ kv
                 box-shadow: 2px 2px 8px $cBlack;
 
 
-                }
+            }
+
             &::after {
                 content: "";
                 position: absolute;
@@ -1289,14 +1321,15 @@ kv
         font-weight: bold;
 
         @include SP {
-                font-size: 1.6rem;
+            font-size: 1.6rem;
         }
 
         @include tab {
-                display: none;
+            display: none;
         }
+
         @include pc {
-                display: none;
+            display: none;
         }
     }
 
@@ -1360,6 +1393,7 @@ kv
             overflow: hidden;
 
         }
+
         &_img {
             width: 100%;
         }
@@ -1406,7 +1440,7 @@ header
     width: 100%;
     background-color: $cBlack;
     opacity: 0.8;
-    padding:0 20px;
+    padding: 0 20px;
     line-height: 50px;
     color: $cWhite;
     z-index: 99;
@@ -1559,7 +1593,7 @@ nav
 
         @include tab {
 
-            &.clicked{
+            &.clicked {
                 width: 55vw;
             }
         }
@@ -1685,6 +1719,7 @@ nav
             width: 100%;
 
         }
+
         &.clicked:nth-child(2) {
             left: 0;
             transition: .9s;
@@ -1731,7 +1766,7 @@ nav
 
             position: relative;
 
-                //ナビホバー時の下線
+            //ナビホバー時の下線
             &::after {
                 position: absolute;
                 bottom: -5px;
@@ -1843,12 +1878,13 @@ about
     &_wrap {
         display: block;
 
-        @include tab{
+        @include tab {
             display: flex;
             justify-content: center;
 
         }
-        @include pc{
+
+        @include pc {
             display: flex;
             justify-content: center;
         }
@@ -1916,28 +1952,28 @@ about
     &_box {
         width: 200px;
         height: 200px;
-        margin: 0 auto;
+        margin: 50px auto 100px;
 
         .about_hovering {
-        transform: rotateX(90deg);
-        transform-origin: center center -25px;
-    
+            transform: rotateX(90deg);
+            transform-origin: center center -25px;
+
         }
 
         .about_default {
-        transform: rotateX(0);
-        transform-origin: center center -25px;
+            transform: rotateX(0);
+            transform-origin: center center -25px;
 
         }
 
         .about_in {
-        transform: rotateX(0);
-        transform-origin: center center -25px;
-        position: absolute;
-        bottom: 0;
-        padding: 10px;
-        font-size: 1.1rem;
-        width: 100%;
+            transform: rotateX(0);
+            transform-origin: center center -25px;
+            position: absolute;
+            bottom: -45px;
+            padding: 10px;
+            font-size: 1.1rem;
+            width: 100%;
 
 
         }
@@ -1946,12 +1982,14 @@ about
             transform: rotateX(0);
 
         }
+
         &:hover .about_in {
             transform: rotateX(0) transformX(-50%);
             background-color: $cBlack;
             color: $cWhite;
 
         }
+
         &:hover .about_default {
             transform: rotateX(-90deg);
 
@@ -1964,7 +2002,8 @@ about
 
     &_box {
 
-        .about_hovering, .about_default {
+        .about_hovering,
+        .about_default {
 
             position: absolute;
             transition: all 0.3s;
@@ -1977,12 +2016,14 @@ about
         @include tab {
             margin: 40px;
         }
+
         @include pc {
             margin: 60px;
             width: 250px;
             height: 250px;
 
-            .about_hovering, .about_default {
+            .about_hovering,
+            .about_default {
                 width: 250px;
                 height: 250px;
             }
@@ -2179,12 +2220,14 @@ about
             color: lightskyblue;
 
         }
+
         &:hover .fa-github {
             transition: .5s;
             transform: rotateZ(360deg);
             color: $cBlack;
 
         }
+
         &:hover .fa-facebook-square {
             transition: .5s;
             transform: rotateZ(360deg);
@@ -2265,11 +2308,12 @@ about
 }
 
 
-.fa-twitter,.fa-github {
+.fa-twitter,
+.fa-github {
     font-size: 2rem;
     transition: .4s;
     transform: rotateZ(0);
-    color:  $cBgGreen;
+    color: $cBgGreen;
 
 }
 
@@ -2346,7 +2390,7 @@ policy
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             white-space: nowrap;
             margin: 0;
             font-size: 3.6rem;
@@ -2357,7 +2401,7 @@ policy
 
         }
 
-        .section_ttl:before{
+        .section_ttl:before {
             content: attr(data-title);
             overflow: hidden;
             position: absolute;
@@ -2439,7 +2483,7 @@ policy
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             white-space: nowrap;
             margin: 0;
             font-size: 1.6rem;
@@ -2457,7 +2501,7 @@ policy
                 position: absolute;
                 left: 0;
                 top: 0;
-                width:  50%;
+                width: 50%;
                 color: $cScolor;
                 text-decoration: underline;
                 text-shadow: 1px 1px 2px $cBlack;
@@ -2481,7 +2525,7 @@ policy
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             white-space: nowrap;
             margin: 0;
             font-size: 1.6rem;
@@ -2543,6 +2587,7 @@ policy
         &_txtwrap_left {
             background: transparent;
         }
+
         &_txtwrap_right {
             background: transparent;
         }
@@ -2550,6 +2595,7 @@ policy
         &_right {
             margin-left: 0;
             background-color: $cScolor;
+
             &:after {
                 display: none;
             }
@@ -2679,7 +2725,7 @@ skill
         // animation: blinkAnime 5s infinite 4s;
         border: 2px solid $cBlack;
 
-        
+
 
 
 
@@ -2706,7 +2752,7 @@ skill
 
         }
 
-        &:hover:before{
+        &:hover:before {
             content: '';
             position: absolute;
             top: 2px;
@@ -2763,7 +2809,7 @@ skill
     }
 
 
-    
+
 
     @include tab {
         &_card {
@@ -2848,7 +2894,7 @@ skill
         text-align: center;
 
         @include SP {
-                padding: 5px;
+            padding: 5px;
         }
     }
 
@@ -2997,19 +3043,21 @@ skill
     }
 
     @include tab {
-            left: 0;
-            top: 50px;
+        left: 0;
+        top: 50px;
     }
 }
 
 
 
-.__htmlicon,.__deskicon {
+.__htmlicon,
+.__deskicon {
     left: -30px;
 
     @include SP {
         left: -55px;
     }
+
     @include tab {
         left: 0;
         top: 50px;
@@ -3019,7 +3067,8 @@ skill
 
 
 
-.__cssicon,.__tabicon {
+.__cssicon,
+.__tabicon {
     bottom: -200px;
     left: -130px;
 
@@ -3027,6 +3076,7 @@ skill
         bottom: -130px;
 
     }
+
     @include tab {
         left: -60px;
     }
@@ -3040,16 +3090,18 @@ skill
 }
 
 
-.__sassicon,.__mobicon {
+.__sassicon,
+.__mobicon {
     bottom: -200px;
     left: 80px;
 
     @include SP {
-            left: 15px;
-            bottom: -130px;
+        left: 15px;
+        bottom: -130px;
     }
+
     @include tab {
-            left: 50px;
+        left: 50px;
     }
 }
 
@@ -3065,6 +3117,7 @@ skill
     @include SP {
         left: -55px;
     }
+
     @include tab {
         top: 50px;
         left: 0;
@@ -3078,6 +3131,7 @@ skill
     @include SP {
         left: -55px;
     }
+
     @include tab {
         left: 0;
         top: 50px;
@@ -3092,6 +3146,7 @@ skill
     @include SP {
         left: -55px;
     }
+
     @include tab {
         left: 0;
         top: 50px;
@@ -3108,6 +3163,7 @@ skill
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(100%);
     }
@@ -3117,6 +3173,7 @@ skill
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(100%);
     }
@@ -3127,6 +3184,7 @@ skill
     0% {
         transform: translateX(100%);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -3137,6 +3195,7 @@ skill
     0% {
         transform: translateY(100%);
     }
+
     100% {
         transform: translateY(-100%);
     }
@@ -3175,7 +3234,7 @@ blog
             flex-direction: row-reverse;
             justify-content: center;
         }
-    
+
         @include pc {
             max-width: 1100px;
             padding: 0 50px;
@@ -3191,8 +3250,8 @@ blog
         text-align: center;
 
         @include pc {
-                display: block;
-                position: relative;
+            display: block;
+            position: relative;
         }
     }
 
@@ -3212,6 +3271,7 @@ blog
             color: $cBlack;
 
         }
+
         @include pc {
             position: absolute;
             margin-bottom: 0;
@@ -3238,6 +3298,7 @@ blog
             flex-direction: row-reverse;
             margin: 0 40px 0 0;
         }
+
         @include pc {
             width: 100%;
             display: flex;
@@ -3261,6 +3322,7 @@ blog
             justify-content: center;
 
         }
+
         @include pc {
 
             display: flex;
@@ -3294,7 +3356,7 @@ blog
 
 
         // blogサムネイルホバー時の動き
-        &:hover .blog_img{
+        &:hover .blog_img {
             opacity: .4;
             transform: scale(1.05) rotate(1.5deg);
             filter: none;
@@ -3302,28 +3364,30 @@ blog
         }
 
         &:hover .blog_txtbox::before {
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             left: 30px;
             opacity: 1;
             transition-delay: 0s;
         }
+
         &:hover .blog_txtbox::after {
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             top: 35px;
             opacity: 1;
             transition-delay: 0s;
         }
 
-        &:hover .blog_ttl{
+        &:hover .blog_ttl {
             color: $cWhite;
             opacity: 1;
-            transform: translate3d(0,0,0);
+            transform: translate3d(0, 0, 0);
             transition-delay: .4s;
         }
-        &:hover .blog_txt{
+
+        &:hover .blog_txt {
             color: $cWhite;
             opacity: .9;
-            transform: translate3d(0,0,0);
+            transform: translate3d(0, 0, 0);
             transition-delay: .4s;
         }
     }
@@ -3336,6 +3400,7 @@ blog
 
         }
     }
+
     @include pc {
         &_imgbox {
             cursor: pointer;
@@ -3384,6 +3449,7 @@ blog
             transition: all .5s;
             transition-delay: .6s;
         }
+
         &:after {
             content: "";
             position: absolute;
@@ -3482,16 +3548,19 @@ blog
             bottom: 133px;
             left: -140px;
         }
+
         .site {
             background-color: $cScolor;
         }
     }
+
     @include pc {
         .site_wrap {
             z-index: 1;
             bottom: 40px;
             left: 50%;
         }
+
         .site {
             background-color: $cBgGreen;
         }
@@ -3556,6 +3625,7 @@ create
         }
 
     }
+
     @include pc {
         &_wrap {
             display: flex;
@@ -3626,7 +3696,8 @@ create
         &:hover {
             animation: forwards;
         }
-        &:hover .create_img{
+
+        &:hover .create_img {
             opacity: .4;
             transform: scale(1.05) rotate(1.5deg);
             filter: none;
@@ -3634,28 +3705,30 @@ create
         }
 
         &:hover .create_txtbox::before {
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             left: 30px;
             opacity: 1;
             transition-delay: 0s;
         }
+
         &:hover .create_txtbox::after {
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             top: 35px;
             opacity: 1;
             transition-delay: 0s;
         }
 
-        &:hover .create_ttl{
+        &:hover .create_ttl {
             color: $cWhite;
             opacity: 1;
-            transform: translate3d(0,0,0);
+            transform: translate3d(0, 0, 0);
             transition-delay: .4s;
         }
-        &:hover .create_txt{
+
+        &:hover .create_txt {
             color: $cWhite;
             opacity: .9;
-            transform: translate3d(0,0,0);
+            transform: translate3d(0, 0, 0);
             transition-delay: .4s;
         }
 
@@ -3669,6 +3742,7 @@ create
 
         }
     }
+
     @include pc {
         &_imgbox {
             max-width: 220px;
@@ -3722,6 +3796,7 @@ create
             transition: all .5s;
             transition-delay: .6s;
         }
+
         &:after {
             content: "";
             position: absolute;
@@ -3748,12 +3823,13 @@ create
             }
 
         }
+
         &_imgbox:hover .create_txtbox::after {
             top: 10px;
         }
 
         &_imgbox:hover .create_txt {
-            transform: translate3d(0,0,0) scale(.8);
+            transform: translate3d(0, 0, 0) scale(.8);
         }
 
     }
@@ -3793,6 +3869,7 @@ create
     &_tab_sp {
         display: none;
     }
+
     &_pc {
         display: block;
     }
@@ -3832,7 +3909,8 @@ create
         &_tab_sp {
             display: block;
         }
-            &_pc {
+
+        &_pc {
             display: none;
         }
 
@@ -3869,6 +3947,7 @@ create
 
 
 }
+
 @include pc {
     .site_wrap {
         position: absolute;
@@ -3988,7 +4067,8 @@ contact
         background-color: $cBgGreen;
     }
 
-    .end_msg,.false_msg {
+    .end_msg,
+    .false_msg {
         // display: none;
         position: absolute;
         left: 50%;
@@ -4013,7 +4093,9 @@ contact
 
 
     @include SP {
-        .end_msg,.false_msg {
+
+        .end_msg,
+        .false_msg {
             font-size: 1.4rem;
             margin: 30px 0;
         }
@@ -4021,14 +4103,19 @@ contact
     }
 
     @include tab {
-        .end_msg,.false_msg {
+
+        .end_msg,
+        .false_msg {
             font-size: 2.5rem;
             margin: 40px 0;
         }
 
     }
+
     @include pc {
-        .end_msg,.false_msg {
+
+        .end_msg,
+        .false_msg {
             font-size: 3rem;
             margin: 40px 0;
         }
@@ -4054,11 +4141,11 @@ contact
 
 
     &:last-child {
-        border:none;
+        border: none;
     }
 
     &_ttl:last-child {
-            padding-left: 10px;
+        padding-left: 10px;
     }
 
     &_ttl {
@@ -4121,9 +4208,9 @@ contact
 
 
 .contact_link {
-        display: block;
-        transition: .3s;
-        border: $cBgGreen;
+    display: block;
+    transition: .3s;
+    border: $cBgGreen;
 }
 
 
@@ -4150,14 +4237,14 @@ footer
         margin: 20px 30px;
     }
 
-        &_share_icon {
-            width: 40px;
-            line-height: 30px;
-            margin: 0 auto;
-            position: relative;
-            display: block;
+    &_share_icon {
+        width: 40px;
+        line-height: 30px;
+        margin: 0 auto;
+        position: relative;
+        display: block;
 
-            transition: .5s;
+        transition: .5s;
 
         &:hover .footer_snake:nth-child(1) {
             transform: scaleX(0);
@@ -4189,6 +4276,7 @@ footer
             color: lightskyblue;
 
         }
+
         &:hover .fa-github {
             transition: .5s;
             transform: rotateZ(360deg);
