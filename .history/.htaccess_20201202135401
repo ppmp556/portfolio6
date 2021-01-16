@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Input your ID and Password."
-AuthUserFile /home/pinokio556/ppmp556.com/public_html/mysite/.htpasswd
-require valid-user
